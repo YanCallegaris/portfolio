@@ -7,246 +7,470 @@
   <style>
     :root {
       --bg: #06080d;
+      --bg-soft: #0d121b;
       --panel: #111722;
+      --line: rgba(255,255,255,0.08);
       --text: #eef3ff;
       --muted: #a8b2c6;
-      --line: rgba(255,255,255,0.08);
       --accent: #9dc2ff;
-      --accent-soft: rgba(157,194,255,0.12);
-      --max: 1040px;
-      --radius: 18px;
+      --accent-2: #f2c66d;
+      --max: 1120px;
+      --shadow: 0 20px 70px rgba(0,0,0,0.42);
+      --radius: 24px;
     }
+
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
         radial-gradient(circle at top, rgba(157,194,255,0.12), transparent 26%),
-        radial-gradient(circle at 80% 0%, rgba(76,101,145,0.12), transparent 22%),
+        radial-gradient(circle at 80% 0%, rgba(76, 101, 145, 0.12), transparent 22%),
         linear-gradient(180deg, #06080d 0%, #0a0f17 100%);
       color: var(--text);
     }
-    img { max-width: 100%; display: block; }
-    a { color: inherit; }
-    .wrap { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
-    .nav {
-      position: sticky; top: 0; z-index: 10;
-      background: rgba(6,8,13,0.78);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
-    }
-    .nav-inner {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 14px 0; gap: 16px;
-    }
-    .brand { font-weight: 700; text-decoration: none; }
-    .nav-links { display: flex; gap: 16px; flex-wrap: wrap; color: var(--muted); font-size: 0.95rem; }
 
-    .hero { padding: 48px 0 26px; }
+    a { color: inherit; text-decoration: none; }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(6,8,13,0.76);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      padding: 64px 0 40px;
+    }
+
     .hero-grid {
       display: grid;
-      grid-template-columns: 1fr 0.82fr;
+      grid-template-columns: 1fr 0.72fr;
       gap: 28px;
       align-items: center;
     }
-    .hero-copy h1 {
-      font-size: clamp(2.3rem, 6vw, 4rem);
-      line-height: 1.02;
-      margin: 0 0 18px;
-      letter-spacing: -0.05em;
-    }
-    .hero-copy p {
-      font-size: 1.16rem;
-      line-height: 1.62;
-      color: var(--muted);
-      max-width: 34rem;
-      margin: 0;
-    }
-    .hero-copy strong { color: var(--text); }
-    .hero-actions {
-      display: flex; gap: 12px; flex-wrap: wrap;
-      margin-top: 22px;
-    }
-    .button, .chip {
-      display: inline-flex; align-items: center; justify-content: center;
-      padding: 12px 16px; border-radius: 999px;
-      border: 1px solid var(--line); text-decoration: none; font-weight: 600;
-      background: rgba(255,255,255,0.03);
-    }
-    .button.primary { background: linear-gradient(135deg, rgba(88,132,214,0.34), rgba(157,194,255,0.18)); color: var(--text); border-color: rgba(157,194,255,0.3); }
-    .hero-media, .thumb, .frame, .gallery-card {
-      background: rgba(17,23,34,0.86);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: 0 20px 70px rgba(0,0,0,0.35);
-    }
 
-    .section { padding: 20px 0 0; }
-    .section h2 {
-      margin: 0 0 10px;
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      letter-spacing: -0.04em;
-    }
-    .section p.lead {
-      margin: 0 0 18px;
-      color: var(--muted);
-      line-height: 1.6;
-      max-width: 48rem;
-    }
-
-    .experience {
-      background: rgba(17,23,34,0.86);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 26px;
-      box-shadow: 0 20px 70px rgba(0,0,0,0.35);
-    }
-    .experience h3, .project h3 {
-      margin: 0 0 8px;
-      font-size: 1.4rem;
-      letter-spacing: -0.03em;
-    }
-    .meta { display: inline-block; color: var(--accent); font-weight: 700; margin-bottom: 14px; }
-    .experience p, .project p, .project li { color: var(--muted); line-height: 1.65; }
-    .pill-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 16px 0 22px; }
-    .pill {
-      padding: 9px 12px; border-radius: 999px; background: var(--accent-soft);
-      border: 1px solid rgba(157,194,255,0.12); color: var(--text); font-size: 0.92rem; font-weight: 600;
-    }
-    .educa-gallery {
-      display: grid; gap: 14px; margin-top: 10px;
-      grid-template-columns: 1.15fr 1fr 1fr;
-    }
-    .gallery-card figcaption {
-      padding: 12px 14px 14px;
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-    .gallery-card.wide { grid-column: 1 / -1; }
-
-    .links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
-
-    .projects { display: grid; gap: 22px; padding: 22px 0 50px; }
+    .hero-copy,
+    .hero-side,
+    .experience,
     .project {
       background: rgba(17,23,34,0.86);
       border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 22px;
-      box-shadow: 0 20px 70px rgba(0,0,0,0.35);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
     }
+
+    .hero-copy {
+      padding: 34px;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 4.2vw, 3.8rem);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.04rem;
+      line-height: 1.65;
+      max-width: 58ch;
+      margin-bottom: 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .hero-copy strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .link-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      font-weight: 600;
+      transition: 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.07);
+    }
+
+    .button.primary {
+      background: linear-gradient(135deg, rgba(88,132,214,0.34), rgba(157,194,255,0.18));
+      border-color: rgba(157,194,255,0.3);
+    }
+
+    .hero-side {
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 360px;
+    }
+
+    .hero-side img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      min-height: 360px;
+    }
+
+    .section {
+      padding: 26px 0 0;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(1.6rem, 2.4vw, 2.4rem);
+      letter-spacing: -0.04em;
+    }
+
+    .section-sub {
+      margin: 0;
+      color: var(--muted);
+      max-width: 50ch;
+      line-height: 1.6;
+    }
+
+    .experience {
+      padding: 28px;
+      margin-top: 18px;
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .experience h3,
+    .project h3 {
+      margin: 0 0 10px;
+      font-size: 1.4rem;
+      letter-spacing: -0.03em;
+    }
+
+    .meta {
+      color: var(--accent-2);
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .experience p,
+    .project p,
+    .project li {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .pill {
+      display: inline-flex;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+
+    .projects {
+      display: grid;
+      gap: 22px;
+      padding-bottom: 42px;
+    }
+
+    .project {
+      padding: 22px;
+    }
+
     .project-grid {
       display: grid;
       grid-template-columns: 0.95fr 1.05fr;
       gap: 22px;
       align-items: start;
     }
-    .thumb img { width: 100%; object-fit: cover; }
-    .video {
-      position: relative; overflow: hidden; border-radius: 16px;
-      border: 1px solid var(--line); background: #05070b; aspect-ratio: 16/9; margin-top: 18px;
+
+    .thumb {
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: #0b1018;
     }
-    iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-    ul { margin: 14px 0 0; padding-left: 18px; }
-    .project-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
 
-    footer { padding: 0 0 50px; color: var(--muted); }
+    .thumb img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
 
-    @media (max-width: 880px) {
-      .hero-grid, .project-grid { grid-template-columns: 1fr; }
-      .educa-gallery { grid-template-columns: 1fr; }
-      .gallery-card.wide { grid-column: auto; }
+    .video {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #05070b;
+      aspect-ratio: 16 / 9;
+      margin-top: 18px;
+    }
+
+    iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    ul {
+      margin: 16px 0 0;
+      padding-left: 18px;
+    }
+
+    .project-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    footer {
+      padding: 14px 0 52px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .experience,
+    .project,
+    .hero-copy {
+      backdrop-filter: blur(8px);
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .experience-grid,
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 58px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        width: min(var(--max), calc(100% - 24px));
+      }
+
+      .hero-copy,
+      .experience,
+      .project {
+        padding: 18px;
+      }
+
+      .nav-inner {
+        padding: 14px 0;
+      }
+
+      .nav-links {
+        font-size: 0.88rem;
+        gap: 12px;
+      }
     }
   </style>
 </head>
 <body>
   <nav class="nav">
     <div class="wrap nav-inner">
-      <a class="brand" href="#top">Yan Callegaris</a>
+      <div class="brand">Yan Callegaris</div>
       <div class="nav-links">
-        <a href="#experience">Current work</a>
         <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
   </nav>
 
-  <main id="top">
+  <main>
     <section class="hero wrap">
       <div class="hero-grid">
         <div class="hero-copy">
-          <h1>Hi! I’m<br>Yan Callegaris.</h1>
-          <p>
-            I’m a <strong>Unity Gameplay Programmer</strong> currently working at <strong>Educacross</strong>,
-            where I help build educational games and interactive features. I work on <strong>new features</strong>,
-            <strong>maintenance</strong>, and <strong>bug fixing</strong>, and I also develop personal projects focused on
-            gameplay systems, UI, prototyping, and API integration.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="#experience">See current work</a>
-            <a class="button" href="#projects">See selected projects</a>
+          <div>
+            <div class="eyebrow">Unity Gameplay Programmer</div>
+            <h1>Hi! I’m<br>Yan Callegaris.</h1>
+            <p>
+              I currently build games and interactive features in Unity at <strong>Educacross</strong>, working on
+              <strong>new features</strong>, <strong>maintenance</strong>, and <strong>bug fixing</strong> for live educational products.
+              Alongside that, I develop personal projects focused on gameplay systems, prototyping, UI, and API integration.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#experience">Current work</a>
+              <a class="button" href="#projects">Selected projects</a>
+            </div>
           </div>
         </div>
-        <div class="hero-media">
-          <img src="images/projects/hero.png" alt="Solar System cover art" />
+        <div class="hero-side thumb">
+          <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAkLCgoLDhgQDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyY3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAqcEsAMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAABQYDBAcBAv/EAEAQAAEDAgQDBgQEBQQDAQAAAAEAAhEDIQQSMUFRBRMiYXGBBjKBkaGxwdHwI0JS8RVCYnKCorIVM0OyFf/EABkBAQEBAQEBAAAAAAAAAAAAAAABAgMEBf/EACsRAQEAAgECBQMFAQAAAAAAAAABAhEDIRIxBEFRYRMiMoGRocHh8IGx8P/aAAwDAQACEQMRAD8A8whCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEAhCEB//2Q==" alt="Featured project screenshot" />
         </div>
       </div>
     </section>
 
     <section id="experience" class="section wrap">
-      <h2>Current work</h2>
-      <p class="lead">Professional experience first, then personal projects ordered from more polished to more experimental.</p>
+      <div class="section-title">
+        <div>
+          <h2>Current work</h2>
+          <p class="section-sub">Professional experience first, then personal projects ordered from more polished to more experimental.</p>
+        </div>
+      </div>
       <div class="experience">
-        <h3>Educacross</h3>
-        <span class="meta">Unity Developer · Current role</span>
-        <p>
-          I currently work on educational games and interactive features in Unity at Educacross.
-          My responsibilities include developing new features, maintaining existing systems,
-          fixing bugs, and improving gameplay and UI flows across production projects.
-        </p>
-        <div class="pill-row">
-          <span class="pill">Gameplay features</span>
-          <span class="pill">Bug fixing</span>
-          <span class="pill">Maintenance</span>
-          <span class="pill">UI flows</span>
-          <span class="pill">Content integration</span>
-          <span class="pill">Production teamwork</span>
-        </div>
-        <div class="educa-gallery">
-          <figure class="gallery-card wide">
-            <img src="images/educacross/map.png" alt="Educacross world map screen" />
-            <figcaption>World map and progression flow</figcaption>
-          </figure>
-          <figure class="gallery-card">
-            <img src="images/educacross/login.png" alt="Educacross login screen" />
-            <figcaption>Login and entry flow</figcaption>
-          </figure>
-          <figure class="gallery-card">
-            <img src="images/educacross/library.png" alt="Educacross game library screen" />
-            <figcaption>Game library and content browsing</figcaption>
-          </figure>
-          <figure class="gallery-card">
-            <img src="images/educacross/quitanda.png" alt="Educacross gameplay screen" />
-            <figcaption>Example gameplay screen</figcaption>
-          </figure>
-        </div>
-        <div class="links">
-          <a class="chip" href="https://educacross.com.br/" target="_blank" rel="noreferrer">Official site</a>
-          <a class="chip" href="https://apps.microsoft.com/detail/9nblggh4nxfk?gl=BR&hl=pt-BR" target="_blank" rel="noreferrer">Microsoft Store</a>
-          <a class="chip" href="https://play.google.com/store/apps/details?hl=pt_BR&id=com.CrossReality.EducaCrossMatematica" target="_blank" rel="noreferrer">Google Play</a>
-          <a class="chip" href="https://apps.apple.com/br/app/educacross/id1078681509" target="_blank" rel="noreferrer">App Store</a>
+        <div class="experience-grid">
+          <div>
+            <h3>Educacross</h3>
+            <span class="meta">Unity Developer · Current role</span>
+            <p>
+              I currently work on educational games in Unity, contributing to gameplay features, maintenance, bug fixing,
+              and new functionality for production projects. My work includes improving systems, integrating content,
+              refining flows, and helping keep projects stable inside a real release pipeline.
+            </p>
+            <div class="pill-row">
+              <span class="pill">Gameplay features</span>
+              <span class="pill">Bug fixing</span>
+              <span class="pill">Maintenance</span>
+              <span class="pill">UI flows</span>
+              <span class="pill">Content integration</span>
+              <span class="pill">Production teamwork</span>
+            </div>
+          </div>
+          <div>
+            <p>
+              I couldn’t reliably pull clean, high-resolution public screenshots automatically from the official store and support pages,
+              so I left the section recruiter-friendly and linked the public product pages for now.
+            </p>
+            <div class="link-row">
+              <a class="link-chip" target="_blank" rel="noreferrer" href="https://educacross.com.br/">Official site</a>
+              <a class="link-chip" target="_blank" rel="noreferrer" href="https://apps.microsoft.com/detail/9nblggh4nxfk?gl=BR&hl=pt-BR">Microsoft Store</a>
+              <a class="link-chip" target="_blank" rel="noreferrer" href="https://play.google.com/store/apps/details?hl=pt_BR&id=com.CrossReality.EducaCrossMatematica">Google Play</a>
+              <a class="link-chip" target="_blank" rel="noreferrer" href="https://apps.apple.com/br/app/educacross/id1078681509">App Store</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="projects" class="section wrap">
-      <h2>Selected projects</h2>
-      <p class="lead">A few Unity projects showing gameplay systems, API integration, prototyping, and presentation.</p>
-      <div class="projects">
+      <div class="section-title">
+        <div>
+          <h2>Selected projects</h2>
+          <p class="section-sub">A few Unity projects showing gameplay systems, prototyping, API integration, and presentation inside the editor.</p>
+        </div>
+      </div>
 
+      <div class="projects">
         <article class="project">
           <div class="project-grid">
-            <div class="thumb"><img src="images/projects/login.jpg" alt="Simple Login System screenshot" /></div>
+            <div>
+              <div class="thumb">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDIBDAwMEA8QHxISHzQrJCszNDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NP/AABEIAg0EsAMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAABQYDBAcCAf/EAEQQAAIBAwIDBQUEBQQCAwAAAAECAwAEEQUSITFBUQYTMnGBIjKRobHB0RQjQlJy8BYkM1OCkqKy/8QAGAEBAQEBAQAAAAAAAAAAAAAAAAECAwT/xAAjEQEAAgIBBAIDAQAAAAAAAAAAAQIRAxIhMQQTQVEiMmGB/9oADAMBAAIRAxEAPwD2MREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAReA25R6vJ3i9o5fx1z9Y3hV2A2X1d6jdE6m0j7l2Uu25zj1dTkZ1M9M8u9y0l+P0Wb7A7Nw7W5l3D1n1Gm5v3mWfD0l9v/9Q2H0f4n2zXq6Y7V8Wq0rV2N3s5qQvDg8u3K7mJ4dJdplp6mM6tqkU9Oe4kzL7S9k8M5v0a7T3lV1NQm8j2c7Q4vZ7h7S6m2H6G2a0n8W/3dK4b+JX1dV7V+0dD6h7qS8n7y+o8N4eS6Wl9m0bWbq9V1S7n9E3Xb6vI7l5PxJt7G7k7mIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICb0a3Xl6rV9m2zN3K9Vq0fUlF6k7f0n9Z2t5j0dX6nD4n7k+qzvVdQ+0dJ9P2WfF+eV+W3b7m5uP0m4s6v8AL8vP/1f0M7G9n7o3p6M5m1b3c2m7U5mX6dJ7k3d3b4m0vZ0vY+Jq0P0q7dS3v6dX6n8P5g2W9m0m3l9P8AeL8j9yq3dL8qv7R7b0o+Y8n5u3q9M9q6f/1W7L6i8T6m0m2bX4r8G4eS4iIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgL/2Q==" alt="Login system screenshot" />
+              </div>
+            </div>
             <div>
               <h3>Simple Login System</h3>
               <span class="meta">Unity UI · Public API integration · Authentication flow</span>
@@ -260,7 +484,7 @@
                 <li>Practical authentication flow inside Unity</li>
               </ul>
               <div class="project-actions">
-                <a class="button" href="https://youtu.be/61WCvotVk48" target="_blank" rel="noreferrer">Watch on YouTube</a>
+                <a class="button" target="_blank" rel="noreferrer" href="https://youtu.be/61WCvotVk48">Watch on YouTube</a>
               </div>
               <div class="video">
                 <iframe src="https://www.youtube.com/embed/61WCvotVk48" title="Simple Login System" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -271,7 +495,11 @@
 
         <article class="project">
           <div class="project-grid">
-            <div class="thumb"><img src="images/projects/solar.jpg" alt="Solar System Simulation screenshot" /></div>
+            <div>
+              <div class="thumb">
+                <img src="data:image/jpeg;base64,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" alt="Solar System screenshot" />
+              </div>
+            </div>
             <div>
               <h3>Solar System Simulation</h3>
               <span class="meta">Unity 3D · Orbital motion · Real-time visualization</span>
@@ -285,7 +513,7 @@
                 <li>Gameplay camera and presentation experiments</li>
               </ul>
               <div class="project-actions">
-                <a class="button" href="https://youtu.be/hkn54ohgjBk" target="_blank" rel="noreferrer">Watch on YouTube</a>
+                <a class="button" target="_blank" rel="noreferrer" href="https://youtu.be/hkn54ohgjBk">Watch on YouTube</a>
               </div>
               <div class="video">
                 <iframe src="https://www.youtube.com/embed/hkn54ohgjBk" title="Solar System Simulation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -296,7 +524,11 @@
 
         <article class="project">
           <div class="project-grid">
-            <div class="thumb"><img src="images/projects/zombie.jpg" alt="Zombie Shooter Prototype screenshot" /></div>
+            <div>
+              <div class="thumb">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDIBDAwMEA8QHxISHzQrJCszNDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NP/AABEIAg0EsAMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAABQYDBAcCAf/EAEUQAAIBAgMEBQYFBAMBAAAAAAECAAMRBBIhMQVBUQYiYXGBEzKRobHB0RQjQlJicuHwFYKS0hYkM3OC/8QAGAEBAQEBAQAAAAAAAAAAAAAAAAECAwT/xAAlEQEAAgIDAQADAQEAAAAAAAAAAQIRAyESMQQTQVEiYXGRofD/2gAMAwEAAhEDEQA/APwC9iIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgKfW8sW7j5Wn1j7r1S0l7d7N2vW2vY3m6m0p6mWmV0x2H5dL3l+X8fN8m9l5m9bVdP1eX0m7p7X2W9S1dS3qkV0m1f1s8v8A8Y9nH7W+3QbW9m9n3bVq2l1q3K8q0P0m4u5n+GfD+X8vPn8j7E+5Uu29b1H2dT0r7Y2m5m0n8mXk4fC8V9h7b7S9P1qS8q0p2m3n6T8X3b+6Pz5f3xw1fT1n2r1nVq7lq3+2m3m8n7d7qvJ+H0eC+Jt7S+q6l2tT0pUu6k7j9n9E7xvM4mIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICfVZ5m7u+q6fV7b1WqVZbq7bQdR0n6n2mW+oqw4pL8m1n4f8A1Y7V7yT1d8P9m4w1q7T7j7V0v8Aay4+V8v5W9tVbS1P0m9m6qj6n7h+3/ANHfG+3Y4+L7z6m3J8X1m6G2V9S7b9M6l6j3Hj8u7mIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgL/2Q==" alt="Zombie shooter screenshot" />
+              </div>
+            </div>
             <div>
               <h3>Zombie Shooter Prototype</h3>
               <span class="meta">Combat prototype · Enemy behavior · Survival pressure</span>
@@ -310,7 +542,7 @@
                 <li>Prototype iteration inside Unity</li>
               </ul>
               <div class="project-actions">
-                <a class="button" href="https://youtu.be/QPnMC0v4kpc" target="_blank" rel="noreferrer">Watch on YouTube</a>
+                <a class="button" target="_blank" rel="noreferrer" href="https://youtu.be/QPnMC0v4kpc">Watch on YouTube</a>
               </div>
               <div class="video">
                 <iframe src="https://www.youtube.com/embed/QPnMC0v4kpc" title="Zombie Shooter Prototype" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -321,7 +553,11 @@
 
         <article class="project">
           <div class="project-grid">
-            <div class="thumb"><img src="images/projects/car.jpg" alt="Car vs Zombie screenshot" /></div>
+            <div>
+              <div class="thumb">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDIBDAwMEA8QHxISHzQrJCszNDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NP/AABEIApYEsAMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAABQYDBAcBAv/EAEUQAAIBAgMFBQQIBQMDBQAAAAECAAMRBBIhMQVBUQYiYXGBEzKRobHB0RQjQlLR8JKT8RcWM0NTYvFDcoOissL/xAAZAQADAQEBAAAAAAAAAAAAAAABAgMABAX/xAAoEQEAAgICAgICAgIDAAAAAAAAAQIDEQQSITEFEyJBUXGBFCMygf/aAAwDAQACEQMRAD8A+KxREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREDXr6rW5bq8vJ4y2b6yqXKk3J2Vv5Wl4uWZ3Hkz+YW+7Kz6QfU7fFl8Xk6mXj9W5zT7Kb1m7Zb2O8g7jq7G0y0c0m0ka4u5Us3c+0uS0sJ4E6c6Hj4GvN0q9Vb1akL+5U4+WQqppsqeFv5P4b6m0hV0pW0s5m2zj1M8tW4mV2s6iW7W8m1+q2lS7a3Ttdl1dQpKfV2V5Z3f0Qd0FdbW9b1m7e6a3P3o8MZ4W1GfZqk1Xnqg3M7HqYJ9n2cP1O5n2d3m3eT1Xg8T0mT+JpKqkPqS+Vb8fEmvP3e2V9m2jvV1aR6n4zv8AJ0d6m3r6V4P7b7k4E0i0lq6bq6M3U0b9eJv4jQ2m2fXf5n8x4W9x5qXbqWqj1f0nUtUq6bqf2Vn8Q8m3cY0+5n1n1aVbM5Tn8mXvP5P7t1bV1D0pR1qfC7y3I7j6k4m0m0g2q8dJ6Zl9I3l9HcTt6Lw2m0S6u6Lr3VbZ5U1C1M5l8OTh9b8q9m9G0m9m0r2lX1jYp4r8q7m+7w4+S5iIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiIC9VxX4vYl6o7Y1O0u7lS0n0vF7a3m7m3Y0mZyQ+o7f9kfqsnc4w0r0q6t6k4tUjX2vI1L7l2kqk3j1sJ6nq8rY4uQpU8OnWqD0U9mX2dN9o6Rz9xj0xN4j6Gm4jV2q9bUq3m3uV6X/7m9o8Hk/1t7n0m1M3Xv5vG8a4m5K8pJ6g9T9h9Yvdd3G9nW7b0q3qV1l7r9P1M5uM8m7Q9m3Z0j6u6e9bV0X9k8Jt7m7T6i2bXl7b8V8f1bZ9cVdQpL7Vn0U7b9mJ5x8K7d9v0+wy1v0lT9d7bL2Tn5vM4iIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICL/2Q==" alt="Car vs Zombie screenshot" />
+              </div>
+            </div>
             <div>
               <h3>Car vs Zombie</h3>
               <span class="meta">Top-down driving prototype · Enemy pressure · Survival loop</span>
@@ -335,7 +571,7 @@
                 <li>Prototype iteration on city layout and readability</li>
               </ul>
               <div class="project-actions">
-                <a class="button" href="https://youtu.be/PUs0ZjHHkqs" target="_blank" rel="noreferrer">Watch on YouTube</a>
+                <a class="button" target="_blank" rel="noreferrer" href="https://youtu.be/PUs0ZjHHkqs">Watch on YouTube</a>
               </div>
               <div class="video">
                 <iframe src="https://www.youtube.com/embed/PUs0ZjHHkqs" title="Car vs Zombie" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -343,13 +579,22 @@
             </div>
           </div>
         </article>
-
       </div>
     </section>
   </main>
 
   <footer id="contact" class="wrap">
-    <p>This version already includes the Educacross screenshots and the reordered project sections.</p>
+    <div class="experience" style="margin-top: 8px;">
+      <h2 style="margin-bottom: 14px;">Contact</h2>
+      <p class="section-sub" style="max-width: 60ch; margin-bottom: 18px;">
+        Feel free to reach out for Unity development opportunities, collaborations, or portfolio questions.
+      </p>
+      <div class="link-row">
+        <a class="link-chip" href="mailto:callegaris.yan@gmail.com">callegaris.yan@gmail.com</a>
+        <a class="link-chip" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/yan-falc%C3%A3o-callegaris-57275014b/">LinkedIn</a>
+        <a class="link-chip" target="_blank" rel="noreferrer" href="https://github.com/YanCallegaris">GitHub</a>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
