@@ -343,7 +343,6 @@
       backdrop-filter: blur(8px);
     }
 
-
     .educa-gallery {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -372,6 +371,32 @@
       line-height: 1.5;
     }
 
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .copy-btn {
+      cursor: pointer;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .copy-btn:hover {
+      background: rgba(255,255,255,0.07);
+    }
+
+    #copy-status {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
 
     @media (max-width: 960px) {
       .hero-grid,
@@ -632,15 +657,26 @@
   <footer id="contact" class="wrap">
     <div class="experience" style="margin-top: 8px;">
       <h2 style="margin-bottom: 14px;">Contact</h2>
-      <p class="section-sub" style="max-width: 60ch; margin-bottom: 18px;">
-        Feel free to reach out for Unity development opportunities, collaborations, or portfolio questions.
-      </p>
-      <div class="link-row">
-        <a class="link-chip" href="mailto:callegaris.yan@gmail.com">callegaris.yan@gmail.com</a>
+      <div class="contact-row">
+        <span class="link-chip" id="email-text">callegaris.yan@gmail.com</span>
+        <button class="copy-btn" type="button" onclick="copyEmail()">Copy email</button>
         <a class="link-chip" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/yan-falc%C3%A3o-callegaris-57275014b/">LinkedIn</a>
         <a class="link-chip" target="_blank" rel="noreferrer" href="https://github.com/YanCallegaris">GitHub</a>
       </div>
+      <div id="copy-status"></div>
     </div>
   </footer>
+  <script>
+    function copyEmail() {
+      const email = 'callegaris.yan@gmail.com';
+      const status = document.getElementById('copy-status');
+      navigator.clipboard.writeText(email).then(() => {
+        status.textContent = 'Email copied.';
+        setTimeout(() => status.textContent = '', 1800);
+      }).catch(() => {
+        status.textContent = 'Could not copy automatically.';
+      });
+    }
+  </script>
 </body>
 </html>
