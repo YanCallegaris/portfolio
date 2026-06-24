@@ -343,10 +343,41 @@
       backdrop-filter: blur(8px);
     }
 
+
+    .educa-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .educa-card {
+      margin: 0;
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .educa-card img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .educa-card figcaption {
+      padding: 12px 14px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+
     @media (max-width: 960px) {
       .hero-grid,
       .experience-grid,
-      .project-grid {
+      .project-grid,
+      .educa-gallery {
         grid-template-columns: 1fr;
       }
 
@@ -417,7 +448,7 @@
       <div class="section-title">
         <div>
           <h2>Current work</h2>
-          <p class="section-sub">Professional experience first, then personal projects ordered from more polished to more experimental.</p>
+          <p class="section-sub">Professional experience first, followed by personal projects ordered from more polished to more experimental.</p>
         </div>
       </div>
       <div class="experience">
@@ -426,9 +457,9 @@
             <h3>Educacross</h3>
             <span class="meta">Unity Developer · Current role</span>
             <p>
-              I currently work on educational games in Unity, contributing to gameplay features, maintenance, bug fixing,
-              and new functionality for production projects. My work includes improving systems, integrating content,
-              refining flows, and helping keep projects stable inside a real release pipeline.
+              I currently work on educational games and interactive features in Unity at Educacross.
+              My responsibilities include developing new features, maintaining existing systems,
+              fixing bugs, and improving gameplay and UI flows across production projects.
             </p>
             <div class="pill-row">
               <span class="pill">Gameplay features</span>
@@ -440,17 +471,32 @@
             </div>
           </div>
           <div>
-            <p>
-              I couldn’t reliably pull clean, high-resolution public screenshots automatically from the official store and support pages,
-              so I left the section recruiter-friendly and linked the public product pages for now.
-            </p>
-            <div class="link-row">
+            <div class="link-row" style="margin-top: 0;">
               <a class="link-chip" target="_blank" rel="noreferrer" href="https://educacross.com.br/">Official site</a>
               <a class="link-chip" target="_blank" rel="noreferrer" href="https://apps.microsoft.com/detail/9nblggh4nxfk?gl=BR&hl=pt-BR">Microsoft Store</a>
               <a class="link-chip" target="_blank" rel="noreferrer" href="https://play.google.com/store/apps/details?hl=pt_BR&id=com.CrossReality.EducaCrossMatematica">Google Play</a>
               <a class="link-chip" target="_blank" rel="noreferrer" href="https://apps.apple.com/br/app/educacross/id1078681509">App Store</a>
             </div>
           </div>
+        </div>
+
+        <div class="educa-gallery">
+          <figure class="educa-card">
+            <img src="images/educacross/map.png" alt="Educacross world map screen" />
+            <figcaption>World map and progression flow</figcaption>
+          </figure>
+          <figure class="educa-card">
+            <img src="images/educacross/login.png" alt="Educacross login screen" />
+            <figcaption>Login and entry flow</figcaption>
+          </figure>
+          <figure class="educa-card">
+            <img src="images/educacross/library.png" alt="Educacross game library screen" />
+            <figcaption>Game library and content browsing</figcaption>
+          </figure>
+          <figure class="educa-card">
+            <img src="images/educacross/quitanda.png" alt="Educacross gameplay screen" />
+            <figcaption>Example gameplay activity</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -586,10 +632,7 @@
   <footer id="contact" class="wrap">
     <div class="experience" style="margin-top: 8px;">
       <h2 style="margin-bottom: 14px;">Contact</h2>
-      <p class="section-sub" style="max-width: 60ch; margin-bottom: 18px;">
-        Feel free to reach out for Unity development opportunities, collaborations, or portfolio questions.
-      </p>
-      <div class="link-row">
+      <div class="link-row" style="margin-top: 0;">
         <a class="link-chip" href="mailto:callegaris.yan@gmail.com">callegaris.yan@gmail.com</a>
         <a class="link-chip" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/yan-falc%C3%A3o-callegaris-57275014b/">LinkedIn</a>
         <a class="link-chip" target="_blank" rel="noreferrer" href="https://github.com/YanCallegaris">GitHub</a>
