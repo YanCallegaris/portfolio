@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yan Callegaris | Unity Gameplay Programmer</title>
+  <style>
+    :root {
+      --bg: #06080d;
+      --panel: #111722;
+      --text: #eef3ff;
+      --muted: #a8b2c6;
+      --line: rgba(255,255,255,0.08);
+      --accent: #9dc2ff;
+      --accent-soft: rgba(157,194,255,0.12);
+      --max: 1040px;
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(157,194,255,0.12), transparent 26%),
+        radial-gradient(circle at 80% 0%, rgba(76,101,145,0.12), transparent 22%),
+        linear-gradient(180deg, #06080d 0%, #0a0f17 100%);
+      color: var(--text);
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    .wrap { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+    .nav {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(6,8,13,0.78);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 14px 0; gap: 16px;
+    }
+    .brand { font-weight: 700; text-decoration: none; }
+    .nav-links { display: flex; gap: 16px; flex-wrap: wrap; color: var(--muted); font-size: 0.95rem; }
+
+    .hero { padding: 48px 0 26px; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.82fr;
+      gap: 28px;
+      align-items: center;
+    }
+    .hero-copy h1 {
+      font-size: clamp(2.3rem, 6vw, 4rem);
+      line-height: 1.02;
+      margin: 0 0 18px;
+      letter-spacing: -0.05em;
+    }
+    .hero-copy p {
+      font-size: 1.16rem;
+      line-height: 1.62;
+      color: var(--muted);
+      max-width: 34rem;
+      margin: 0;
+    }
+    .hero-copy strong { color: var(--text); }
+    .hero-actions {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      margin-top: 22px;
+    }
+    .button, .chip {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 12px 16px; border-radius: 999px;
+      border: 1px solid var(--line); text-decoration: none; font-weight: 600;
+      background: rgba(255,255,255,0.03);
+    }
+    .button.primary { background: linear-gradient(135deg, rgba(88,132,214,0.34), rgba(157,194,255,0.18)); color: var(--text); border-color: rgba(157,194,255,0.3); }
+    .hero-media, .thumb, .frame, .gallery-card {
+      background: rgba(17,23,34,0.86);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 20px 70px rgba(0,0,0,0.35);
+    }
+
+    .section { padding: 20px 0 0; }
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      letter-spacing: -0.04em;
+    }
+    .section p.lead {
+      margin: 0 0 18px;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 48rem;
+    }
+
+    .experience {
+      background: rgba(17,23,34,0.86);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: 0 20px 70px rgba(0,0,0,0.35);
+    }
+    .experience h3, .project h3 {
+      margin: 0 0 8px;
+      font-size: 1.4rem;
+      letter-spacing: -0.03em;
+    }
+    .meta { display: inline-block; color: var(--accent); font-weight: 700; margin-bottom: 14px; }
+    .experience p, .project p, .project li { color: var(--muted); line-height: 1.65; }
+    .pill-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 16px 0 22px; }
+    .pill {
+      padding: 9px 12px; border-radius: 999px; background: var(--accent-soft);
+      border: 1px solid rgba(157,194,255,0.12); color: var(--text); font-size: 0.92rem; font-weight: 600;
+    }
+    .educa-gallery {
+      display: grid; gap: 14px; margin-top: 10px;
+      grid-template-columns: 1.15fr 1fr 1fr;
+    }
+    .gallery-card figcaption {
+      padding: 12px 14px 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+    .gallery-card.wide { grid-column: 1 / -1; }
+
+    .links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+
+    .projects { display: grid; gap: 22px; padding: 22px 0 50px; }
+    .project {
+      background: rgba(17,23,34,0.86);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: 0 20px 70px rgba(0,0,0,0.35);
+    }
+    .project-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 22px;
+      align-items: start;
+    }
+    .thumb img { width: 100%; object-fit: cover; }
+    .video {
+      position: relative; overflow: hidden; border-radius: 16px;
+      border: 1px solid var(--line); background: #05070b; aspect-ratio: 16/9; margin-top: 18px;
+    }
+    iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    ul { margin: 14px 0 0; padding-left: 18px; }
+    .project-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+
+    footer { padding: 0 0 50px; color: var(--muted); }
+
+    @media (max-width: 880px) {
+      .hero-grid, .project-grid { grid-template-columns: 1fr; }
+      .educa-gallery { grid-template-columns: 1fr; }
+      .gallery-card.wide { grid-column: auto; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top">Yan Callegaris</a>
+      <div class="nav-links">
+        <a href="#experience">Current work</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero wrap">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <h1>Hi! I’m<br>Yan Callegaris.</h1>
+          <p>
+            I’m a <strong>Unity Gameplay Programmer</strong> currently working at <strong>Educacross</strong>,
+            where I help build educational games and interactive features. I work on <strong>new features</strong>,
+            <strong>maintenance</strong>, and <strong>bug fixing</strong>, and I also develop personal projects focused on
+            gameplay systems, UI, prototyping, and API integration.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#experience">See current work</a>
+            <a class="button" href="#projects">See selected projects</a>
+          </div>
+        </div>
+        <div class="hero-media">
+          <img src="images/projects/hero.png" alt="Solar System cover art" />
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section wrap">
+      <h2>Current work</h2>
+      <p class="lead">Professional experience first, then personal projects ordered from more polished to more experimental.</p>
+      <div class="experience">
+        <h3>Educacross</h3>
+        <span class="meta">Unity Developer · Current role</span>
+        <p>
+          I currently work on educational games and interactive features in Unity at Educacross.
+          My responsibilities include developing new features, maintaining existing systems,
+          fixing bugs, and improving gameplay and UI flows across production projects.
+        </p>
+        <div class="pill-row">
+          <span class="pill">Gameplay features</span>
+          <span class="pill">Bug fixing</span>
+          <span class="pill">Maintenance</span>
+          <span class="pill">UI flows</span>
+          <span class="pill">Content integration</span>
+          <span class="pill">Production teamwork</span>
+        </div>
+        <div class="educa-gallery">
+          <figure class="gallery-card wide">
+            <img src="images/educacross/map.png" alt="Educacross world map screen" />
+            <figcaption>World map and progression flow</figcaption>
+          </figure>
+          <figure class="gallery-card">
+            <img src="images/educacross/login.png" alt="Educacross login screen" />
+            <figcaption>Login and entry flow</figcaption>
+          </figure>
+          <figure class="gallery-card">
+            <img src="images/educacross/library.png" alt="Educacross game library screen" />
+            <figcaption>Game library and content browsing</figcaption>
+          </figure>
+          <figure class="gallery-card">
+            <img src="images/educacross/quitanda.png" alt="Educacross gameplay screen" />
+            <figcaption>Example gameplay screen</figcaption>
+          </figure>
+        </div>
+        <div class="links">
+          <a class="chip" href="https://educacross.com.br/" target="_blank" rel="noreferrer">Official site</a>
+          <a class="chip" href="https://apps.microsoft.com/detail/9nblggh4nxfk?gl=BR&hl=pt-BR" target="_blank" rel="noreferrer">Microsoft Store</a>
+          <a class="chip" href="https://play.google.com/store/apps/details?hl=pt_BR&id=com.CrossReality.EducaCrossMatematica" target="_blank" rel="noreferrer">Google Play</a>
+          <a class="chip" href="https://apps.apple.com/br/app/educacross/id1078681509" target="_blank" rel="noreferrer">App Store</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section wrap">
+      <h2>Selected projects</h2>
+      <p class="lead">A few Unity projects showing gameplay systems, API integration, prototyping, and presentation.</p>
+      <div class="projects">
+
+        <article class="project">
+          <div class="project-grid">
+            <div class="thumb"><img src="images/projects/login.jpg" alt="Simple Login System screenshot" /></div>
+            <div>
+              <h3>Simple Login System</h3>
+              <span class="meta">Unity UI · Public API integration · Authentication flow</span>
+              <p>
+                A Unity login flow connected to a public authentication API. The project demonstrates user input handling,
+                request and response flow, and interface feedback after a successful login.
+              </p>
+              <ul>
+                <li>Unity UI layout and feedback states</li>
+                <li>Public API request handling</li>
+                <li>Practical authentication flow inside Unity</li>
+              </ul>
+              <div class="project-actions">
+                <a class="button" href="https://youtu.be/61WCvotVk48" target="_blank" rel="noreferrer">Watch on YouTube</a>
+              </div>
+              <div class="video">
+                <iframe src="https://www.youtube.com/embed/61WCvotVk48" title="Simple Login System" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-grid">
+            <div class="thumb"><img src="images/projects/solar.jpg" alt="Solar System Simulation screenshot" /></div>
+            <div>
+              <h3>Solar System Simulation</h3>
+              <span class="meta">Unity 3D · Orbital motion · Real-time visualization</span>
+              <p>
+                A Unity 3D simulation focused on planetary orbit, self-rotation, and the visual presentation of a simplified solar system.
+                The project explores movement logic, scale, and scene readability in an interactive space setup.
+              </p>
+              <ul>
+                <li>Planet orbit and self-rotation behavior</li>
+                <li>3D scene setup and visualization</li>
+                <li>Gameplay camera and presentation experiments</li>
+              </ul>
+              <div class="project-actions">
+                <a class="button" href="https://youtu.be/hkn54ohgjBk" target="_blank" rel="noreferrer">Watch on YouTube</a>
+              </div>
+              <div class="video">
+                <iframe src="https://www.youtube.com/embed/hkn54ohgjBk" title="Solar System Simulation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-grid">
+            <div class="thumb"><img src="images/projects/zombie.jpg" alt="Zombie Shooter Prototype screenshot" /></div>
+            <div>
+              <h3>Zombie Shooter Prototype</h3>
+              <span class="meta">Combat prototype · Enemy behavior · Survival pressure</span>
+              <p>
+                A zombie shooter prototype centered on fast combat and enemy pressure. The project explores shooting,
+                movement, and moment-to-moment survival while keeping the overall setup readable for iteration.
+              </p>
+              <ul>
+                <li>Shooting and combat-focused gameplay loop</li>
+                <li>Enemy interaction and pressure design</li>
+                <li>Prototype iteration inside Unity</li>
+              </ul>
+              <div class="project-actions">
+                <a class="button" href="https://youtu.be/QPnMC0v4kpc" target="_blank" rel="noreferrer">Watch on YouTube</a>
+              </div>
+              <div class="video">
+                <iframe src="https://www.youtube.com/embed/QPnMC0v4kpc" title="Zombie Shooter Prototype" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-grid">
+            <div class="thumb"><img src="images/projects/car.jpg" alt="Car vs Zombie screenshot" /></div>
+            <div>
+              <h3>Car vs Zombie</h3>
+              <span class="meta">Top-down driving prototype · Enemy pressure · Survival loop</span>
+              <p>
+                A prototype where the player must stay in motion to survive while zombies constantly chase the vehicle.
+                The focus is on movement pressure, simple survival mechanics, and readable action inside a city environment.
+              </p>
+              <ul>
+                <li>Vehicle movement and top-down gameplay flow</li>
+                <li>Enemy chase behavior and survival pressure</li>
+                <li>Prototype iteration on city layout and readability</li>
+              </ul>
+              <div class="project-actions">
+                <a class="button" href="https://youtu.be/PUs0ZjHHkqs" target="_blank" rel="noreferrer">Watch on YouTube</a>
+              </div>
+              <div class="video">
+                <iframe src="https://www.youtube.com/embed/PUs0ZjHHkqs" title="Car vs Zombie" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact" class="wrap">
+    <p>This version already includes the Educacross screenshots and the reordered project sections.</p>
+  </footer>
+</body>
+</html>
