@@ -294,14 +294,17 @@
       border: 1px solid var(--line);
       background: #0b1018;
       aspect-ratio: 16 / 9;
-      cursor: zoom-in;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .thumb img {
       width: 100%;
       height: 100%;
       display: block;
-      object-fit: cover;
+      object-fit: contain;
+      background: #0b1018;
     }
 
     .video {
@@ -440,10 +443,6 @@
       cursor: pointer;
     }
 
-    .lightbox-close:hover {
-      background: rgba(255,255,255,0.12);
-    }
-
     .lightbox-frame {
       width: 100%;
       aspect-ratio: 16 / 9;
@@ -454,24 +453,13 @@
       box-shadow: var(--shadow);
     }
 
-    .lightbox-frame img,
     .lightbox-frame iframe {
       width: 100%;
       height: 100%;
       border: 0;
       display: block;
-      object-fit: cover;
     }
 
-    @media (max-width: 640px) {
-      .lightbox {
-        padding: 14px;
-      }
-
-      .lightbox-close {
-        right: 6px;
-      }
-    }
 
     @media (max-width: 960px) {
       .hero-grid,
@@ -755,7 +743,7 @@
     }
   </script>
 
-  <div class="lightbox" id="mediaLightbox" aria-hidden="true">
+  <div class="lightbox" id="videoLightbox" aria-hidden="true">
     <div class="lightbox-inner">
       <button class="lightbox-close" type="button" id="lightboxClose">Close</button>
       <div class="lightbox-frame" id="lightboxFrame"></div>
