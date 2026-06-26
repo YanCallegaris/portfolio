@@ -307,6 +307,14 @@
       background: #0b1018;
     }
 
+    .hero-side img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      background: transparent;
+    }
+
     .video {
       position: relative;
       border-radius: 18px;
@@ -526,7 +534,7 @@
             </div>
           </div>
         </div>
-        <div class="hero-side thumb">
+        <div class="hero-side">
           <img src="images/projects/hero.png" alt="Featured project screenshot" />
         </div>
       </div>
@@ -730,6 +738,7 @@
       <div id="copy-status"></div>
     </div>
   </footer>
+  
   <script>
     function copyEmail() {
       const email = 'callegaris.yan@gmail.com';
@@ -741,7 +750,53 @@
         status.textContent = 'Could not copy automatically.';
       });
     }
+
+    const lightbox = document.getElementById('videoLightbox');
+    const lightboxFrame = document.getElementById('lightboxFrame');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    function openVideoLightbox(src) {
+      if (!src) return;
+      const autoplaySrc = src.includes('?') ? src + '&autoplay=1' : src + '?autoplay=1';
+      lightboxFrame.innerHTML = `
+        <iframe
+          src="${autoplaySrc}"
+          title="Expanded video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>`;
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeVideoLightbox() {
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      lightboxFrame.innerHTML = '';
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.video').forEach((video) => {
+      video.addEventListener('click', () => {
+        const src = video.dataset.video || video.querySelector('iframe')?.src;
+        openVideoLightbox(src);
+      });
+    });
+
+    lightboxClose?.addEventListener('click', closeVideoLightbox);
+
+    lightbox?.addEventListener('click', (event) => {
+      if (event.target === lightbox) closeVideoLightbox();
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && lightbox?.classList.contains('is-open')) {
+        closeVideoLightbox();
+      }
+    });
   </script>
+
 
   <div class="lightbox" id="videoLightbox" aria-hidden="true">
     <div class="lightbox-inner">
