@@ -406,6 +406,55 @@
       font-size: 0.9rem;
     }
 
+
+    .work-note {
+      margin-top: 24px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .work-note h4 {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+
+    .work-note p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .work-points {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .work-point {
+      padding: 16px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,0.14);
+    }
+
+    .work-point strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text);
+      font-size: 0.96rem;
+    }
+
+    .work-point span {
+      display: block;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 0.94rem;
+    }
+
     .video {
       cursor: zoom-in;
     }
@@ -467,7 +516,8 @@
       .hero-grid,
       .experience-grid,
       .project-grid,
-      .educa-gallery {
+      .educa-gallery,
+      .work-points {
         grid-template-columns: 1fr;
       }
 
@@ -529,7 +579,7 @@
           </div>
         </div>
         <div class="hero-side">
-          <img src="images/projects/hero.png" onerror="this.onerror=null;this.src='images/projects/hero.jpg';" alt="Featured project screenshot" />
+          <img src="images/projects/hero.png" onerror="this.onerror=null;this.src='images/projects/hero.jpg';" alt="Unity development portfolio graphic" />
         </div>
       </div>
     </section>
@@ -570,23 +620,28 @@
           </div>
         </div>
 
-        <div class="educa-gallery">
-          <figure class="educa-card">
-            <img src="images/educacross/map.png" alt="Educacross world map screen" />
-            <figcaption>World map and progression flow</figcaption>
-          </figure>
-          <figure class="educa-card">
-            <img src="images/educacross/login.png" alt="Educacross login screen" />
-            <figcaption>Login and entry flow</figcaption>
-          </figure>
-          <figure class="educa-card">
-            <img src="images/educacross/library.png" alt="Educacross game library screen" />
-            <figcaption>Game library and content browsing</figcaption>
-          </figure>
-          <figure class="educa-card">
-            <img src="images/educacross/quitanda.png" alt="Educacross gameplay screen" />
-            <figcaption>Example gameplay activity</figcaption>
-          </figure>
+
+        <div class="work-note">
+          <h4>Professional work summary</h4>
+          <p>
+            This section summarizes my professional experience without showing company screenshots,
+            internal media, source code, or proprietary assets. Public product links are included only as
+            references to the released platform.
+          </p>
+          <div class="work-points">
+            <div class="work-point">
+              <strong>Production Unity development</strong>
+              <span>Feature implementation, maintenance, bug fixing, and improvements in live projects.</span>
+            </div>
+            <div class="work-point">
+              <strong>Gameplay and UI flows</strong>
+              <span>Interactive activity logic, feedback states, navigation flows, and usability improvements.</span>
+            </div>
+            <div class="work-point">
+              <strong>Content integration</strong>
+              <span>Collaboration with the team to integrate educational content and support platform updates.</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
