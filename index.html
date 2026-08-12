@@ -64,10 +64,72 @@
 
     .nav-links {
       display: flex;
-      gap: 16px;
+      align-items: center;
+      gap: 4px;
       flex-wrap: wrap;
       color: var(--muted);
       font-size: 0.95rem;
+    }
+
+    .nav-link {
+      position: relative;
+      padding: 8px 11px;
+      border-radius: 10px;
+      transition: color 180ms ease, background 180ms ease;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 11px;
+      right: 11px;
+      bottom: 4px;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), #bd76ff);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 180ms ease;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus-visible {
+      color: var(--text);
+      background: rgba(255,255,255,0.045);
+    }
+
+    .nav-link:hover::after,
+    .nav-link:focus-visible::after {
+      transform: scaleX(1);
+    }
+
+    .language-switch {
+      display: inline-flex;
+      gap: 2px;
+      margin-left: 8px;
+      padding: 3px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.035);
+    }
+
+    .language-button {
+      border: 0;
+      border-radius: 999px;
+      padding: 6px 9px;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 180ms ease;
+    }
+
+    .language-button.is-active {
+      color: #08101d;
+      background: var(--accent);
+      box-shadow: 0 4px 14px rgba(116, 164, 237, 0.28);
     }
 
     .hero {
@@ -170,24 +232,38 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 14px 18px;
+      gap: 10px;
+      padding: 13px 17px;
       border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(157,194,255,0.16);
+      background: rgba(157,194,255,0.055);
       color: var(--text);
       font-weight: 600;
       transition: 180ms ease;
     }
 
     .button:hover {
-      transform: translateY(-1px);
-      border-color: rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.07);
+      transform: translateY(-2px);
+      border-color: rgba(157,194,255,0.34);
+      background: rgba(157,194,255,0.11);
+      box-shadow: 0 10px 26px rgba(0,0,0,0.22);
     }
 
     .button.primary {
-      background: linear-gradient(135deg, rgba(88,132,214,0.34), rgba(157,194,255,0.18));
-      border-color: rgba(157,194,255,0.3);
+      color: #07101d;
+      background: linear-gradient(135deg, #b5d2ff, #8fb7f5);
+      border-color: transparent;
+      box-shadow: 0 10px 30px rgba(71, 126, 207, 0.25);
+    }
+
+    .button::after {
+      content: "→";
+      font-size: 1.05em;
+      transition: transform 180ms ease;
+    }
+
+    .button:hover::after {
+      transform: translateX(3px);
     }
 
     .hero-side {
@@ -206,11 +282,7 @@
 
     .hero-side::before,
     .hero-side::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(2px);
-      z-index: -1;
+      display: none;
     }
 
     .hero-side::before {
@@ -360,6 +432,8 @@
       transform: scale(1.055);
       transform-origin: center bottom;
       filter: drop-shadow(0 20px 28px rgba(0,0,0,0.34));
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.25) 11%, #000 34%);
+      mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.25) 11%, #000 34%);
     }
 
     .hero-grid .hero-copy,
@@ -595,6 +669,11 @@
       .hero-side {
         min-height: 380px;
       }
+
+      .hero-side img {
+        -webkit-mask-image: none;
+        mask-image: none;
+      }
     }
 
     @media (max-width: 640px) {
@@ -614,7 +693,15 @@
 
       .nav-links {
         font-size: 0.88rem;
-        gap: 12px;
+        gap: 2px;
+      }
+
+      .nav-link {
+        padding-inline: 7px;
+      }
+
+      .language-switch {
+        margin-left: 2px;
       }
     }
   </style>
@@ -624,9 +711,13 @@
     <div class="wrap nav-inner">
       <div class="brand">Yan Callegaris</div>
       <div class="nav-links">
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
+        <a class="nav-link" href="#projects" data-i18n="navProjects">Projects</a>
+        <a class="nav-link" href="#experience" data-i18n="navExperience">Experience</a>
+        <a class="nav-link" href="#contact" data-i18n="navContact">Contact</a>
+        <div class="language-switch" role="group" aria-label="Language selector" data-i18n-aria="languageSelector">
+          <button class="language-button is-active" type="button" data-language="en" aria-pressed="true">EN</button>
+          <button class="language-button" type="button" data-language="pt" aria-pressed="false">PT</button>
+        </div>
       </div>
     </div>
   </nav>
@@ -636,16 +727,16 @@
       <div class="hero-grid">
         <div class="hero-copy">
           <div>
-            <div class="eyebrow">Unity Gameplay Programmer</div>
-            <h1>Hi! I’m<br>Yan Callegaris.</h1>
-            <p>
+            <div class="eyebrow" data-i18n="heroEyebrow">Unity Gameplay Programmer</div>
+            <h1 data-i18n="heroTitle">Hi! I’m<br>Yan Callegaris.</h1>
+            <p data-i18n="heroBody">
               I currently build games and interactive features in Unity at <strong>Educacross</strong>, working on
               <strong>new features</strong>, <strong>maintenance</strong>, and <strong>bug fixing</strong> for live educational products.
               Alongside that, I develop personal projects focused on gameplay systems, prototyping, UI, and API integration.
             </p>
             <div class="hero-actions">
-              <a class="button primary" href="#experience">Current work</a>
-              <a class="button" href="#projects">Selected projects</a>
+              <a class="button primary" href="#experience" data-i18n="heroWork">Current work</a>
+              <a class="button" href="#projects" data-i18n="heroProjects">Selected projects</a>
             </div>
           </div>
         </div>
@@ -660,32 +751,32 @@
     <section id="experience" class="section wrap">
       <div class="section-title">
         <div>
-          <h2>Current work</h2>
-          <p class="section-sub">Professional experience first, followed by personal projects ordered from more polished to more experimental.</p>
+          <h2 data-i18n="workTitle">Current work</h2>
+          <p class="section-sub" data-i18n="workSubtitle">Professional experience first, followed by personal projects ordered from more polished to more experimental.</p>
         </div>
       </div>
       <div class="experience">
         <div class="experience-grid">
           <div>
             <h3>Educacross</h3>
-            <span class="meta">Unity Developer · Current role</span>
-            <p>
+            <span class="meta" data-i18n="roleMeta">Unity Developer · Current role</span>
+            <p data-i18n="roleBody">
               I currently work on educational games and interactive features in Unity at Educacross.
               My responsibilities include developing new features, maintaining existing systems,
               fixing bugs, and improving gameplay and UI flows across production projects.
             </p>
             <div class="pill-row">
-              <span class="pill">Gameplay features</span>
-              <span class="pill">Bug fixing</span>
-              <span class="pill">Maintenance</span>
-              <span class="pill">UI flows</span>
-              <span class="pill">Content integration</span>
-              <span class="pill">Production teamwork</span>
+              <span class="pill" data-i18n="pillGameplay">Gameplay features</span>
+              <span class="pill" data-i18n="pillBugs">Bug fixing</span>
+              <span class="pill" data-i18n="pillMaintenance">Maintenance</span>
+              <span class="pill" data-i18n="pillUi">UI flows</span>
+              <span class="pill" data-i18n="pillContent">Content integration</span>
+              <span class="pill" data-i18n="pillTeam">Production teamwork</span>
             </div>
           </div>
           <div>
             <div class="link-row" style="margin-top: 0;">
-              <a class="link-chip" target="_blank" rel="noreferrer" href="https://educacross.com.br/">Official site</a>
+              <a class="link-chip" target="_blank" rel="noreferrer" href="https://educacross.com.br/" data-i18n="officialSite">Official site</a>
               <a class="link-chip" target="_blank" rel="noreferrer" href="https://apps.microsoft.com/detail/9nblggh4nxfk?gl=BR&hl=pt-BR">Microsoft Store</a>
               <a class="link-chip" target="_blank" rel="noreferrer" href="https://play.google.com/store/apps/details?hl=pt_BR&id=com.CrossReality.EducaCrossMatematica">Google Play</a>
               <a class="link-chip" target="_blank" rel="noreferrer" href="https://apps.apple.com/br/app/educacross/id1078681509">App Store</a>
@@ -695,24 +786,24 @@
 
 
         <div class="work-note">
-          <h4>Professional work summary</h4>
-          <p>
+          <h4 data-i18n="summaryTitle">Professional work summary</h4>
+          <p data-i18n="summaryBody">
             This section summarizes my professional experience without showing company screenshots,
             internal media, source code, or proprietary assets. Public product links are included only as
             references to the released platform.
           </p>
           <div class="work-points">
             <div class="work-point">
-              <strong>Production Unity development</strong>
-              <span>Feature implementation, maintenance, bug fixing, and improvements in live projects.</span>
+              <strong data-i18n="pointProductionTitle">Production Unity development</strong>
+              <span data-i18n="pointProductionBody">Feature implementation, maintenance, bug fixing, and improvements in live projects.</span>
             </div>
             <div class="work-point">
-              <strong>Gameplay and UI flows</strong>
-              <span>Interactive activity logic, feedback states, navigation flows, and usability improvements.</span>
+              <strong data-i18n="pointGameplayTitle">Gameplay and UI flows</strong>
+              <span data-i18n="pointGameplayBody">Interactive activity logic, feedback states, navigation flows, and usability improvements.</span>
             </div>
             <div class="work-point">
-              <strong>Content integration</strong>
-              <span>Collaboration with the team to integrate educational content and support platform updates.</span>
+              <strong data-i18n="pointContentTitle">Content integration</strong>
+              <span data-i18n="pointContentBody">Collaboration with the team to integrate educational content and support platform updates.</span>
             </div>
           </div>
         </div>
@@ -722,8 +813,8 @@
     <section id="projects" class="section wrap">
       <div class="section-title">
         <div>
-          <h2>Selected projects</h2>
-          <p class="section-sub">A few Unity projects showing gameplay systems, prototyping, API integration, and presentation inside the editor.</p>
+          <h2 data-i18n="projectsTitle">Selected projects</h2>
+          <p class="section-sub" data-i18n="projectsSubtitle">A few Unity projects showing gameplay systems, prototyping, API integration, and presentation inside the editor.</p>
         </div>
       </div>
 
@@ -736,19 +827,19 @@
               </div>
             </div>
             <div>
-              <h3>Simple Login System</h3>
-              <span class="meta">Unity UI · Public API integration · Authentication flow</span>
-              <p>
+              <h3 data-i18n="loginTitle">Simple Login System</h3>
+              <span class="meta" data-i18n="loginMeta">Unity UI · Public API integration · Authentication flow</span>
+              <p data-i18n="loginBody">
                 A Unity login flow connected to a public authentication API. The project demonstrates user input handling,
                 request and response flow, and interface feedback after a successful login.
               </p>
               <ul>
-                <li>Unity UI layout and feedback states</li>
-                <li>Public API request handling</li>
-                <li>Practical authentication flow inside Unity</li>
+                <li data-i18n="loginPoint1">Unity UI layout and feedback states</li>
+                <li data-i18n="loginPoint2">Public API request handling</li>
+                <li data-i18n="loginPoint3">Practical authentication flow inside Unity</li>
               </ul>
               <div class="project-actions">
-                <a class="button" target="_blank" rel="noreferrer" href="https://youtu.be/61WCvotVk48">Watch on YouTube</a>
+                <a class="button" target="_blank" rel="noreferrer" href="https://youtu.be/61WCvotVk48" data-i18n="watchYoutube">Watch on YouTube</a>
               </div>
               <div class="video" data-video="https://www.youtube.com/embed/61WCvotVk48">
                 <iframe src="https://www.youtube.com/embed/61WCvotVk48" title="Simple Login System" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -765,19 +856,19 @@
               </div>
             </div>
             <div>
-              <h3>Solar System Simulation</h3>
-              <span class="meta">Unity 3D · Orbital motion · Real-time visualization</span>
-              <p>
+              <h3 data-i18n="solarTitle">Solar System Simulation</h3>
+              <span class="meta" data-i18n="solarMeta">Unity 3D · Orbital motion · Real-time visualization</span>
+              <p data-i18n="solarBody">
                 A Unity 3D simulation focused on planetary orbit, self-rotation, and the visual presentation of a simplified solar system.
                 The project explores movement logic, scale, and scene readability in an interactive space setup.
               </p>
               <ul>
-                <li>Planet orbit and self-rotation behavior</li>
-                <li>3D scene setup and visualization</li>
-                <li>Gameplay camera and presentation experiments</li>
+                <li data-i18n="solarPoint1">Planet orbit and self-rotation behavior</li>
+                <li data-i18n="solarPoint2">3D scene setup and visualization</li>
+                <li data-i18n="solarPoint3">Gameplay camera and presentation experiments</li>
               </ul>
               <div class="project-actions">
-                <a class="button" target="_blank" rel="noreferrer" href="https://youtu.be/hkn54ohgjBk">Watch on YouTube</a>
+                <a class="button" target="_blank" rel="noreferrer" href="https://youtu.be/hkn54ohgjBk" data-i18n="watchYoutube">Watch on YouTube</a>
               </div>
               <div class="video" data-video="https://www.youtube.com/embed/hkn54ohgjBk">
                 <iframe src="https://www.youtube.com/embed/hkn54ohgjBk" title="Solar System Simulation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -794,19 +885,19 @@
               </div>
             </div>
             <div>
-              <h3>Zombie Shooter Prototype</h3>
-              <span class="meta">Combat prototype · Enemy behavior · Survival pressure</span>
-              <p>
+              <h3 data-i18n="zombieTitle">Zombie Shooter Prototype</h3>
+              <span class="meta" data-i18n="zombieMeta">Combat prototype · Enemy behavior · Survival pressure</span>
+              <p data-i18n="zombieBody">
                 A zombie shooter prototype centered on fast combat and enemy pressure. The project explores shooting,
                 movement, and moment-to-moment survival while keeping the overall setup readable for iteration.
               </p>
               <ul>
-                <li>Shooting and combat-focused gameplay loop</li>
-                <li>Enemy interaction and pressure design</li>
-                <li>Prototype iteration inside Unity</li>
+                <li data-i18n="zombiePoint1">Shooting and combat-focused gameplay loop</li>
+                <li data-i18n="zombiePoint2">Enemy interaction and pressure design</li>
+                <li data-i18n="zombiePoint3">Prototype iteration inside Unity</li>
               </ul>
               <div class="project-actions">
-                <a class="button" target="_blank" rel="noreferrer" href="https://youtu.be/QPnMC0v4kpc">Watch on YouTube</a>
+                <a class="button" target="_blank" rel="noreferrer" href="https://youtu.be/QPnMC0v4kpc" data-i18n="watchYoutube">Watch on YouTube</a>
               </div>
               <div class="video" data-video="https://www.youtube.com/embed/QPnMC0v4kpc">
                 <iframe src="https://www.youtube.com/embed/QPnMC0v4kpc" title="Zombie Shooter Prototype" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -823,19 +914,19 @@
               </div>
             </div>
             <div>
-              <h3>Car vs Zombie</h3>
-              <span class="meta">Top-down driving prototype · Enemy pressure · Survival loop</span>
-              <p>
+              <h3 data-i18n="carTitle">Car vs Zombie</h3>
+              <span class="meta" data-i18n="carMeta">Top-down driving prototype · Enemy pressure · Survival loop</span>
+              <p data-i18n="carBody">
                 A prototype where the player must stay in motion to survive while zombies constantly chase the vehicle.
                 The focus is on movement pressure, simple survival mechanics, and readable action inside a city environment.
               </p>
               <ul>
-                <li>Vehicle movement and top-down gameplay flow</li>
-                <li>Enemy chase behavior and survival pressure</li>
-                <li>Prototype iteration on city layout and readability</li>
+                <li data-i18n="carPoint1">Vehicle movement and top-down gameplay flow</li>
+                <li data-i18n="carPoint2">Enemy chase behavior and survival pressure</li>
+                <li data-i18n="carPoint3">Prototype iteration on city layout and readability</li>
               </ul>
               <div class="project-actions">
-                <a class="button" target="_blank" rel="noreferrer" href="https://youtu.be/PUs0ZjHHkqs">Watch on YouTube</a>
+                <a class="button" target="_blank" rel="noreferrer" href="https://youtu.be/PUs0ZjHHkqs" data-i18n="watchYoutube">Watch on YouTube</a>
               </div>
               <div class="video" data-video="https://www.youtube.com/embed/PUs0ZjHHkqs">
                 <iframe src="https://www.youtube.com/embed/PUs0ZjHHkqs" title="Car vs Zombie" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -849,9 +940,9 @@
 
   <footer id="contact" class="wrap">
     <div class="experience" style="margin-top: 8px;">
-      <h2 style="margin-bottom: 14px;">Contact</h2>
+      <h2 style="margin-bottom: 14px;" data-i18n="contactTitle">Contact</h2>
       <div class="contact-row">
-        <button class="link-chip copy-chip" type="button" onclick="copyEmail()" title="Copy email">
+        <button class="link-chip copy-chip" type="button" onclick="copyEmail()" title="Copy email" data-i18n-title="copyEmail">
           callegaris.yan@gmail.com
         </button>
         <a class="link-chip" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/yan-falc%C3%A3o-callegaris-57275014b/">LinkedIn</a>
@@ -860,16 +951,109 @@
       <div id="copy-status"></div>
     </div>
   </footer>
+
+  <div class="lightbox" id="videoLightbox" aria-hidden="true">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" type="button" id="lightboxClose" data-i18n="close">Close</button>
+      <div class="lightbox-frame" id="lightboxFrame"></div>
+    </div>
+  </div>
   
   <script>
+    const translations = {
+      pt: {
+        navProjects: 'Projetos', navExperience: 'Experiência', navContact: 'Contato',
+        languageSelector: 'Seletor de idioma',
+        heroEyebrow: 'Programador de Gameplay Unity',
+        heroTitle: 'Olá! Eu sou<br>Yan Callegaris.',
+        heroBody: 'Atualmente desenvolvo jogos e recursos interativos em Unity na <strong>Educacross</strong>, trabalhando com <strong>novas funcionalidades</strong>, <strong>manutenção</strong> e <strong>correção de bugs</strong> em produtos educacionais ativos. Paralelamente, desenvolvo projetos pessoais focados em sistemas de gameplay, prototipagem, UI e integração com APIs.',
+        heroWork: 'Trabalho atual', heroProjects: 'Projetos selecionados',
+        workTitle: 'Trabalho atual',
+        workSubtitle: 'Experiência profissional primeiro, seguida por projetos pessoais organizados dos mais completos aos mais experimentais.',
+        roleMeta: 'Desenvolvedor Unity · Cargo atual',
+        roleBody: 'Atualmente trabalho em jogos educacionais e recursos interativos em Unity na Educacross. Minhas responsabilidades incluem desenvolver novas funcionalidades, manter sistemas existentes, corrigir bugs e aprimorar fluxos de gameplay e UI em projetos em produção.',
+        pillGameplay: 'Funcionalidades de gameplay', pillBugs: 'Correção de bugs', pillMaintenance: 'Manutenção',
+        pillUi: 'Fluxos de UI', pillContent: 'Integração de conteúdo', pillTeam: 'Trabalho em equipe',
+        officialSite: 'Site oficial',
+        summaryTitle: 'Resumo da experiência profissional',
+        summaryBody: 'Esta seção resume minha experiência profissional sem exibir capturas da empresa, mídias internas, código-fonte ou materiais proprietários. Os links públicos dos produtos são incluídos somente como referência à plataforma publicada.',
+        pointProductionTitle: 'Desenvolvimento Unity em produção',
+        pointProductionBody: 'Implementação de funcionalidades, manutenção, correção de bugs e melhorias em projetos ativos.',
+        pointGameplayTitle: 'Fluxos de gameplay e UI',
+        pointGameplayBody: 'Lógica de atividades interativas, estados de feedback, fluxos de navegação e melhorias de usabilidade.',
+        pointContentTitle: 'Integração de conteúdo',
+        pointContentBody: 'Colaboração com a equipe para integrar conteúdo educacional e apoiar atualizações da plataforma.',
+        projectsTitle: 'Projetos selecionados',
+        projectsSubtitle: 'Alguns projetos em Unity que demonstram sistemas de gameplay, prototipagem, integração com APIs e apresentação dentro do editor.',
+        loginTitle: 'Sistema simples de login', loginMeta: 'UI em Unity · Integração com API pública · Fluxo de autenticação',
+        loginBody: 'Um fluxo de login em Unity conectado a uma API pública de autenticação. O projeto demonstra tratamento de entrada do usuário, fluxo de requisição e resposta e feedback da interface após um login bem-sucedido.',
+        loginPoint1: 'Layout de UI em Unity e estados de feedback', loginPoint2: 'Tratamento de requisições a uma API pública', loginPoint3: 'Fluxo prático de autenticação dentro da Unity',
+        solarTitle: 'Simulação do Sistema Solar', solarMeta: 'Unity 3D · Movimento orbital · Visualização em tempo real',
+        solarBody: 'Uma simulação 3D em Unity focada na órbita dos planetas, rotação própria e apresentação visual de um sistema solar simplificado. O projeto explora lógica de movimento, escala e legibilidade da cena em um ambiente espacial interativo.',
+        solarPoint1: 'Comportamento de órbita e rotação dos planetas', solarPoint2: 'Configuração e visualização de cena 3D', solarPoint3: 'Experimentos de câmera e apresentação de gameplay',
+        zombieTitle: 'Protótipo de Zombie Shooter', zombieMeta: 'Protótipo de combate · Comportamento de inimigos · Pressão de sobrevivência',
+        zombieBody: 'Um protótipo de zombie shooter centrado em combate rápido e pressão dos inimigos. O projeto explora tiro, movimentação e sobrevivência momento a momento, mantendo a estrutura legível para iteração.',
+        zombiePoint1: 'Loop de gameplay focado em tiro e combate', zombiePoint2: 'Interação com inimigos e design de pressão', zombiePoint3: 'Iteração de protótipo dentro da Unity',
+        carTitle: 'Carro contra Zumbis', carMeta: 'Protótipo de direção top-down · Pressão dos inimigos · Loop de sobrevivência',
+        carBody: 'Um protótipo em que o jogador precisa continuar em movimento para sobreviver enquanto zumbis perseguem constantemente o veículo. O foco está na pressão de movimento, em mecânicas simples de sobrevivência e em uma ação legível dentro de um ambiente urbano.',
+        carPoint1: 'Movimentação do veículo e fluxo de gameplay top-down', carPoint2: 'Perseguição dos inimigos e pressão de sobrevivência', carPoint3: 'Iteração no layout da cidade e na legibilidade',
+        watchYoutube: 'Assistir no YouTube', contactTitle: 'Contato', copyEmail: 'Copiar e-mail',
+        emailCopied: 'E-mail copiado.', emailCopyFailed: 'Não foi possível copiar automaticamente.', close: 'Fechar'
+      }
+    };
+
+    const originalContent = new Map();
+    document.querySelectorAll('[data-i18n]').forEach((element) => {
+      originalContent.set(element, element.innerHTML);
+    });
+
+    function setLanguage(language) {
+      const selectedLanguage = language === 'pt' ? 'pt' : 'en';
+      const dictionary = translations[selectedLanguage] || {};
+
+      document.querySelectorAll('[data-i18n]').forEach((element) => {
+        const key = element.dataset.i18n;
+        element.innerHTML = selectedLanguage === 'en' ? originalContent.get(element) : (dictionary[key] || originalContent.get(element));
+      });
+
+      document.querySelectorAll('[data-i18n-title]').forEach((element) => {
+        const key = element.dataset.i18nTitle;
+        element.title = selectedLanguage === 'pt' ? dictionary[key] : 'Copy email';
+      });
+
+      document.querySelectorAll('[data-i18n-aria]').forEach((element) => {
+        const key = element.dataset.i18nAria;
+        element.setAttribute('aria-label', selectedLanguage === 'pt' ? dictionary[key] : 'Language selector');
+      });
+
+      document.querySelectorAll('[data-language]').forEach((button) => {
+        const isActive = button.dataset.language === selectedLanguage;
+        button.classList.toggle('is-active', isActive);
+        button.setAttribute('aria-pressed', String(isActive));
+      });
+
+      document.documentElement.lang = selectedLanguage === 'pt' ? 'pt-BR' : 'en';
+      document.title = selectedLanguage === 'pt'
+        ? 'Yan Callegaris | Programador de Gameplay Unity'
+        : 'Yan Callegaris | Unity Gameplay Programmer';
+      localStorage.setItem('portfolio-language', selectedLanguage);
+    }
+
+    document.querySelectorAll('[data-language]').forEach((button) => {
+      button.addEventListener('click', () => setLanguage(button.dataset.language));
+    });
+
+    setLanguage(localStorage.getItem('portfolio-language') || 'en');
+
     function copyEmail() {
       const email = 'callegaris.yan@gmail.com';
       const status = document.getElementById('copy-status');
+      const isPortuguese = document.documentElement.lang === 'pt-BR';
       navigator.clipboard.writeText(email).then(() => {
-        status.textContent = 'Email copied.';
+        status.textContent = isPortuguese ? translations.pt.emailCopied : 'Email copied.';
         setTimeout(() => status.textContent = '', 1800);
       }).catch(() => {
-        status.textContent = 'Could not copy automatically.';
+        status.textContent = isPortuguese ? translations.pt.emailCopyFailed : 'Could not copy automatically.';
       });
     }
 
@@ -919,13 +1103,6 @@
     });
   </script>
 
-
-  <div class="lightbox" id="videoLightbox" aria-hidden="true">
-    <div class="lightbox-inner">
-      <button class="lightbox-close" type="button" id="lightboxClose">Close</button>
-      <div class="lightbox-frame" id="lightboxFrame"></div>
-    </div>
-  </div>
 
 </body>
 </html>
