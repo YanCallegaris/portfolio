@@ -65,42 +65,50 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 0;
       flex-wrap: wrap;
       color: var(--muted);
-      font-size: 0.95rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     .nav-link {
       position: relative;
-      padding: 8px 11px;
-      border-radius: 10px;
-      transition: color 180ms ease, background 180ms ease;
+      display: inline-flex;
+      align-items: baseline;
+      gap: 7px;
+      padding: 8px 14px;
+      transition: color 180ms ease;
     }
 
-    .nav-link::after {
+    .nav-link + .nav-link::before {
       content: "";
       position: absolute;
-      left: 11px;
-      right: 11px;
-      bottom: 4px;
-      height: 2px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--accent), #bd76ff);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 180ms ease;
+      left: 0;
+      top: 50%;
+      width: 1px;
+      height: 16px;
+      background: rgba(255,255,255,0.10);
+      transform: translateY(-50%);
+    }
+
+    .nav-index {
+      color: rgba(157,194,255,0.55);
+      font-size: 0.65rem;
+      letter-spacing: 0;
+      transition: color 180ms ease;
     }
 
     .nav-link:hover,
     .nav-link:focus-visible {
       color: var(--text);
-      background: rgba(255,255,255,0.045);
     }
 
-    .nav-link:hover::after,
-    .nav-link:focus-visible::after {
-      transform: scaleX(1);
+    .nav-link:hover .nav-index,
+    .nav-link:focus-visible .nav-index {
+      color: var(--accent);
     }
 
     .language-switch {
@@ -311,6 +319,10 @@
       align-items: end;
       justify-content: space-between;
       gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    #experience .section-title {
       margin-bottom: 18px;
     }
 
@@ -692,12 +704,16 @@
       }
 
       .nav-links {
-        font-size: 0.88rem;
-        gap: 2px;
+        font-size: 0.7rem;
       }
 
       .nav-link {
+        gap: 4px;
         padding-inline: 7px;
+      }
+
+      .nav-index {
+        display: none;
       }
 
       .language-switch {
@@ -711,9 +727,9 @@
     <div class="wrap nav-inner">
       <div class="brand">Yan Callegaris</div>
       <div class="nav-links">
-        <a class="nav-link" href="#projects" data-i18n="navProjects">Projects</a>
-        <a class="nav-link" href="#experience" data-i18n="navExperience">Experience</a>
-        <a class="nav-link" href="#contact" data-i18n="navContact">Contact</a>
+        <a class="nav-link" href="#projects"><span class="nav-index">01</span><span data-i18n="navProjects">Projects</span></a>
+        <a class="nav-link" href="#experience"><span class="nav-index">02</span><span data-i18n="navExperience">Experience</span></a>
+        <a class="nav-link" href="#contact"><span class="nav-index">03</span><span data-i18n="navContact">Contact</span></a>
         <div class="language-switch" role="group" aria-label="Language selector" data-i18n-aria="languageSelector">
           <button class="language-button is-active" type="button" data-language="en" aria-pressed="true">EN</button>
           <button class="language-button" type="button" data-language="pt" aria-pressed="false">PT</button>
@@ -752,7 +768,6 @@
       <div class="section-title">
         <div>
           <h2 data-i18n="workTitle">Current work</h2>
-          <p class="section-sub" data-i18n="workSubtitle">Professional experience first, followed by personal projects ordered from more polished to more experimental.</p>
         </div>
       </div>
       <div class="experience">
