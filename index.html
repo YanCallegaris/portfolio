@@ -332,18 +332,23 @@
       background: #0b1018;
     }
 
-    .hero-side img {
+    .hero-photo {
       width: 100%;
       max-width: 410px;
       aspect-ratio: 1;
+      overflow: hidden;
+      border-radius: 50%;
+      box-shadow:
+        0 24px 55px rgba(0,0,0,0.42),
+        0 0 38px rgba(111, 93, 255, 0.18);
+    }
+
+    .hero-side img {
+      width: 100%;
+      height: 100%;
       display: block;
       object-fit: cover;
-      border-radius: 50%;
-      border: 3px solid rgba(255,255,255,0.76);
-      box-shadow:
-        0 24px 55px rgba(0,0,0,0.48),
-        0 0 0 9px rgba(176, 96, 255, 0.10),
-        0 0 52px rgba(111, 93, 255, 0.24);
+      transform: scale(1.105);
     }
 
     .video {
@@ -616,7 +621,9 @@
           </div>
         </div>
         <div class="hero-side">
-          <img src="images/profile-game-dev.png" alt="Yan Callegaris, Unity Gameplay Programmer" />
+          <div class="hero-photo">
+            <img src="images/profile-game-dev.png" alt="Yan Callegaris, Unity Gameplay Programmer" />
+          </div>
         </div>
       </div>
     </section>
