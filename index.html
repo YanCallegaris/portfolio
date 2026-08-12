@@ -78,7 +78,6 @@
       position: relative;
       display: inline-flex;
       align-items: baseline;
-      gap: 7px;
       padding: 8px 14px;
       transition: color 180ms ease;
     }
@@ -94,21 +93,9 @@
       transform: translateY(-50%);
     }
 
-    .nav-index {
-      color: rgba(157,194,255,0.55);
-      font-size: 0.65rem;
-      letter-spacing: 0;
-      transition: color 180ms ease;
-    }
-
     .nav-link:hover,
     .nav-link:focus-visible {
       color: var(--text);
-    }
-
-    .nav-link:hover .nav-index,
-    .nav-link:focus-visible .nav-index {
-      color: var(--accent);
     }
 
     .language-switch {
@@ -708,12 +695,7 @@
       }
 
       .nav-link {
-        gap: 4px;
         padding-inline: 7px;
-      }
-
-      .nav-index {
-        display: none;
       }
 
       .language-switch {
@@ -727,9 +709,9 @@
     <div class="wrap nav-inner">
       <div class="brand">Yan Callegaris</div>
       <div class="nav-links">
-        <a class="nav-link" href="#projects"><span class="nav-index">01</span><span data-i18n="navProjects">Projects</span></a>
-        <a class="nav-link" href="#experience"><span class="nav-index">02</span><span data-i18n="navExperience">Experience</span></a>
-        <a class="nav-link" href="#contact"><span class="nav-index">03</span><span data-i18n="navContact">Contact</span></a>
+        <a class="nav-link" href="#experience"><span data-i18n="navExperience">Experience</span></a>
+        <a class="nav-link" href="#projects"><span data-i18n="navProjects">Projects</span></a>
+        <a class="nav-link" href="#contact"><span data-i18n="navContact">Contact</span></a>
         <div class="language-switch" role="group" aria-label="Language selector" data-i18n-aria="languageSelector">
           <button class="language-button is-active" type="button" data-language="en" aria-pressed="true">EN</button>
           <button class="language-button" type="button" data-language="pt" aria-pressed="false">PT</button>
@@ -829,7 +811,6 @@
       <div class="section-title">
         <div>
           <h2 data-i18n="projectsTitle">Selected projects</h2>
-          <p class="section-sub" data-i18n="projectsSubtitle">A few Unity projects showing gameplay systems, prototyping, API integration, and presentation inside the editor.</p>
         </div>
       </div>
 
