@@ -181,10 +181,42 @@
     }
 
     .hero-side {
+      position: relative;
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      place-items: center;
       min-height: 360px;
+      padding: clamp(22px, 4vw, 42px);
+      isolation: isolate;
+      background:
+        radial-gradient(circle at 72% 24%, rgba(236, 72, 255, 0.30), transparent 34%),
+        radial-gradient(circle at 18% 78%, rgba(55, 217, 255, 0.24), transparent 38%),
+        linear-gradient(145deg, #161127 0%, #101827 48%, #17102a 100%);
+    }
+
+    .hero-side::before,
+    .hero-side::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(2px);
+      z-index: -1;
+    }
+
+    .hero-side::before {
+      width: 210px;
+      height: 210px;
+      top: -82px;
+      right: -50px;
+      background: rgba(204, 75, 255, 0.18);
+    }
+
+    .hero-side::after {
+      width: 180px;
+      height: 180px;
+      bottom: -74px;
+      left: -40px;
+      background: rgba(54, 210, 255, 0.14);
     }
 
     
@@ -302,11 +334,16 @@
 
     .hero-side img {
       width: 100%;
-      height: 100%;
+      max-width: 410px;
+      aspect-ratio: 1;
       display: block;
       object-fit: cover;
-      background: transparent;
-      min-height: 360px;
+      border-radius: 50%;
+      border: 3px solid rgba(255,255,255,0.76);
+      box-shadow:
+        0 24px 55px rgba(0,0,0,0.48),
+        0 0 0 9px rgba(176, 96, 255, 0.10),
+        0 0 52px rgba(111, 93, 255, 0.24);
     }
 
     .video {
@@ -579,7 +616,7 @@
           </div>
         </div>
         <div class="hero-side">
-          <img src="images/projects/hero.png" onerror="this.onerror=null;this.src='images/projects/hero.jpg';" alt="Unity development portfolio graphic" />
+          <img src="images/profile.jpeg" alt="Yan Callegaris, Unity Gameplay Programmer" />
         </div>
       </div>
     </section>
