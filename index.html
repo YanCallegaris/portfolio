@@ -76,9 +76,19 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1fr 0.72fr;
-      gap: 28px;
-      align-items: center;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 0;
+      align-items: stretch;
+      min-height: 430px;
+      overflow: hidden;
+      position: relative;
+      background:
+        radial-gradient(circle at 88% 18%, rgba(196, 76, 255, 0.22), transparent 30%),
+        radial-gradient(circle at 62% 90%, rgba(45, 206, 255, 0.13), transparent 34%),
+        linear-gradient(145deg, rgba(17,23,34,0.96), rgba(20,18,39,0.96));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
     }
 
     .hero-copy,
@@ -92,8 +102,8 @@
     }
 
     .hero-copy {
-      padding: 34px;
-      min-height: 320px;
+      padding: 44px 24px 44px 44px;
+      min-height: 430px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -185,8 +195,8 @@
       overflow: hidden;
       display: grid;
       place-items: center;
-      min-height: 360px;
-      padding: 18px 12px 0;
+      min-height: 430px;
+      padding: 0;
       isolation: isolate;
       background:
         radial-gradient(circle at 72% 24%, rgba(236, 72, 255, 0.30), transparent 34%),
@@ -334,7 +344,7 @@
 
     .hero-photo {
       width: 100%;
-      max-width: 410px;
+      max-width: none;
       height: 100%;
       overflow: visible;
       border-radius: 0;
@@ -347,8 +357,18 @@
       display: block;
       object-fit: contain;
       object-position: center bottom;
-      transform: none;
+      transform: scale(1.055);
+      transform-origin: center bottom;
       filter: drop-shadow(0 20px 28px rgba(0,0,0,0.34));
+    }
+
+    .hero-grid .hero-copy,
+    .hero-grid .hero-side {
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      backdrop-filter: none;
     }
 
     .video {
@@ -565,6 +585,15 @@
 
       .hero {
         padding-top: 58px;
+      }
+
+      .hero-copy {
+        min-height: 0;
+        padding: 34px 34px 18px;
+      }
+
+      .hero-side {
+        min-height: 380px;
       }
     }
 
