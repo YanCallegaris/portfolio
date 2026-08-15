@@ -1,21 +1,37 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Yan Callegaris — Unity Gameplay Programmer</title>
-<link rel="stylesheet" href="style.css"></head><body>
-<header class="top"><a class="brand" href="index.html">YAN CALLEGARIS</a><nav><a href="#experience">EXPERIENCE</a><a href="#work">PROJECTS</a><a href="#contact">CONTACT</a><span class="lang">EN <b>·</b> PT</span></nav></header>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Yan Callegaris — Unity Gameplay Programmer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="index.html">YAN CALLEGARIS</a>
+  <nav>
+    <a href="#experience" data-i18n="navExperience">EXPERIENCE</a>
+    <a href="#work" data-i18n="navProjects">PROJECTS</a>
+    <a href="#contact" data-i18n="navContact">CONTACT</a>
+    <div class="lang" role="group" aria-label="Language selector"><button type="button" data-language="en" aria-label="View in English">EN</button><b>·</b><button type="button" data-language="pt" aria-label="Ver em português">PT</button></div>
+  </nav>
+</header>
 <main>
   <section class="intro">
-    <div class="intro-copy"><span class="kicker">UNITY GAMEPLAY PROGRAMMER</span><h1>Hi! I’m<br>Yan Callegaris.</h1><p>I build gameplay systems, interactive features and polished UI flows in Unity — from production educational games to focused personal prototypes.</p></div>
+    <div class="intro-copy"><span class="kicker" data-i18n="kicker">UNITY GAMEPLAY PROGRAMMER</span><h1 data-i18n="heroTitle">Hi! I’m<br>Yan Callegaris.</h1><p data-i18n="heroBody">I build gameplay systems, interactive features and polished UI flows in Unity — from production educational games to focused personal prototypes.</p></div>
     <img src="images/profile-cutout.png" alt="Yan Callegaris">
   </section>
-  <section id="experience" class="experience"><span class="section-label">CURRENT ROLE</span><div><h2>Unity Developer at Educacross</h2><p>Gameplay features, maintenance, bug fixing, UI flows and content integration for live educational products.</p></div><a href="https://educacross.com.br/" target="_blank">OFFICIAL SITE ↗</a></section>
-  <section id="work" class="work"><div class="work-heading"><span class="section-label">SELECTED WORK</span><h2>Projects</h2></div>
+  <section id="experience" class="experience"><span class="section-label" data-i18n="currentRole">CURRENT ROLE</span><div><h2 data-i18n="roleTitle">Unity Developer at Educacross</h2><p data-i18n="roleBody">Gameplay features, maintenance, bug fixing, UI flows and content integration for live educational products.</p></div><a href="https://educacross.com.br/" target="_blank" rel="noreferrer" data-i18n="officialSite">OFFICIAL SITE ↗</a></section>
+  <section id="work" class="work"><div class="work-heading"><span class="section-label" data-i18n="selectedWork">SELECTED WORK</span><h2 data-i18n="projectsTitle">Projects</h2></div>
     <div class="gallery">
-      <a class="cover" href="project.html?id=login"><img src="images/projects/login.jpg" alt="Simple Login System"><span><b>Simple Login System</b><small>UI · API · Authentication</small></span></a>
-      <a class="cover" href="project.html?id=solar"><img src="images/projects/solar.jpg" alt="Solar System Simulation"><span><b>Solar System Simulation</b><small>Unity 3D · Simulation</small></span></a>
-      <a class="cover" href="project.html?id=zombie"><img src="images/projects/zombie.jpg" alt="Zombie Shooter Prototype"><span><b>Zombie Shooter</b><small>Combat · AI · Prototype</small></span></a>
-      <a class="cover" href="project.html?id=car"><img src="images/projects/car.jpg" alt="Car vs Zombie"><span><b>Car vs Zombie</b><small>Driving · Survival</small></span></a>
+      <a class="cover" href="project.html?id=login"><img src="images/projects/login.jpg" alt="Simple Login System"><span><b data-project-title="login">Simple Login System</b><small data-project-short="login">UI · API · Authentication</small></span></a>
+      <a class="cover" href="project.html?id=solar"><img src="images/projects/solar.jpg" alt="Solar System Simulation"><span><b data-project-title="solar">Solar System Simulation</b><small data-project-short="solar">Unity 3D · Simulation</small></span></a>
+      <a class="cover" href="project.html?id=zombie"><img src="images/projects/zombie.jpg" alt="Zombie Shooter Prototype"><span><b data-project-title="zombie">Zombie Shooter</b><small data-project-short="zombie">Combat · AI · Prototype</small></span></a>
+      <a class="cover" href="project.html?id=car"><img src="images/projects/car.jpg" alt="Car vs Zombie"><span><b data-project-title="car">Car vs Zombie</b><small data-project-short="car">Driving · Survival</small></span></a>
     </div>
   </section>
 </main>
-<footer id="contact"><b>LET’S TALK</b><a href="mailto:callegaris.yan@gmail.com">callegaris.yan@gmail.com ↗</a><a href="https://github.com/YanCallegaris">GitHub</a><a href="https://www.linkedin.com/in/yan-falc%C3%A3o-callegaris-57275014b/">LinkedIn</a></footer>
-</body></html>
+<footer id="contact"><b data-i18n="letsTalk">LET’S TALK</b><a href="mailto:callegaris.yan@gmail.com">callegaris.yan@gmail.com ↗</a><a href="https://github.com/YanCallegaris">GitHub</a><a href="https://www.linkedin.com/in/yan-falc%C3%A3o-callegaris-57275014b/">LinkedIn</a></footer>
+<script src="i18n.js"></script>
+</body>
+</html>
