@@ -6,7 +6,7 @@ const portfolioTranslations = {
     heroBody: 'I build gameplay systems, interactive features, and polished UI in Unity, ranging from production educational games to personal prototypes.',
     currentRole: 'CURRENT ROLE', roleTitle: 'Unity Developer at Educacross',
     roleBody: 'Gameplay features, maintenance, bug fixing, UI flows and content integration for live educational products.',
-    officialSite: 'OFFICIAL SITE ↗', selectedWork: 'SELECTED WORK', projectsTitle: 'Projects', letsTalk: 'LET’S TALK',
+    officialSite: 'OFFICIAL SITE ↗', selectedWork: 'SELECTED WORK', projectsTitle: 'Projects', credentialsLabel: 'CREDENTIALS', credentialsTitle: 'Badges &amp; learning', letsTalk: 'LET’S TALK',
     allProjects: '← ALL PROJECTS', backProjects: '← Back to all projects', aboutProject: 'ABOUT THE PROJECT', caseTitle: 'Gameplay, systems<br>and iteration.', playGame: 'PLAY ON ITCH.IO ↗'
   },
   pt: {
@@ -16,7 +16,7 @@ const portfolioTranslations = {
     heroBody: 'Desenvolvo sistemas de gameplay, recursos interativos e interfaces bem estruturadas em Unity, criando desde jogos educacionais em produção até protótipos pessoais.',
     currentRole: 'CARGO ATUAL', roleTitle: 'Desenvolvedor Unity na Educacross',
     roleBody: 'Funcionalidades de gameplay, manutenção, correção de bugs, fluxos de UI e integração de conteúdo em produtos educacionais ativos.',
-    officialSite: 'SITE OFICIAL ↗', selectedWork: 'TRABALHOS SELECIONADOS', projectsTitle: 'Projetos', letsTalk: 'VAMOS CONVERSAR',
+    officialSite: 'SITE OFICIAL ↗', selectedWork: 'TRABALHOS SELECIONADOS', projectsTitle: 'Projetos', credentialsLabel: 'CREDENCIAIS', credentialsTitle: 'Badges e formação', letsTalk: 'VAMOS CONVERSAR',
     allProjects: '← TODOS OS PROJETOS', backProjects: '← Voltar para todos os projetos', aboutProject: 'SOBRE O PROJETO', caseTitle: 'Gameplay, sistemas<br>e iteração.', playGame: 'JOGAR NO ITCH.IO ↗'
   }
 };
