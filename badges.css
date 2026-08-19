@@ -1,5 +1,5 @@
 .credentials {
-  padding: 72px 0 100px;
+  padding: 48px 0 64px;
   border-top: 1px solid var(--line);
 }
 
@@ -8,12 +8,12 @@
   align-items: end;
   justify-content: space-between;
   gap: 24px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .credentials h2 {
   margin: 0;
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
   letter-spacing: -.045em;
 }
 
@@ -24,7 +24,7 @@
 }
 
 .badge-group {
-  padding: 24px;
+  padding: 16px;
   border: 1px solid var(--line);
   background: var(--panel);
 }
@@ -38,24 +38,29 @@
 
 .badge-row {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-  margin-top: 20px;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin-top: 12px;
 }
 
 .badge-card {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  align-items: center;
+  column-gap: 14px;
   min-width: 0;
-  padding: 22px 14px 18px;
+  padding: 10px 12px;
   border: 1px solid var(--line);
   background: #0b1019;
-  text-align: center;
+  text-align: left;
 }
 
 .badge-card img {
   display: block;
-  width: min(145px, 100%);
+  grid-row: 1 / span 2;
+  width: 72px;
   aspect-ratio: 1;
-  margin: 0 auto 18px;
+  margin: 0;
   object-fit: contain;
   transition: transform .25s ease;
 }
@@ -70,14 +75,17 @@
 
 .badge-card h3 {
   margin: 0;
-  font-size: 1rem;
+  align-self: end;
+  font-size: .88rem;
 }
 
 .badge-card small {
   display: block;
-  min-height: 2.4em;
-  margin-top: 7px;
+  align-self: start;
+  min-height: 0;
+  margin-top: 4px;
   color: var(--muted);
+  font-size: .7rem;
   line-height: 1.2;
 }
 
@@ -87,7 +95,5 @@
 
 @media (max-width: 520px) {
   .credentials-heading { align-items: start; flex-direction: column; }
-  .badge-row { grid-template-columns: 1fr 1fr; }
-  .badge-group { padding: 16px; }
-  .badge-card { padding-inline: 10px; }
+  .badge-group { padding: 12px; }
 }
