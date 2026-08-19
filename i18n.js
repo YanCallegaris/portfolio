@@ -22,8 +22,8 @@ const portfolioTranslations = {
 };
 
 const portfolioProjectCards = {
-  en: { login: ['Simple Login System', 'UI · API · Authentication'], solar: ['Solar System Simulation', 'Unity 3D · Simulation'], zombie: ['Zombie Shooter', 'Combat · AI · Prototype'], car: ['City vs Zombies', 'Driving · Survival · Playable'] },
-  pt: { login: ['Sistema Simples de Login', 'UI · API · Autenticação'], solar: ['Simulação do Sistema Solar', 'Unity 3D · Simulação'], zombie: ['Zombie Shooter', 'Combate · IA · Protótipo'], car: ['City vs Zombies', 'Direção · Sobrevivência · Jogável'] }
+  en: { login: ['Simple Login System', 'UI · API · Authentication'], solar: ['Solar System Simulation', 'Unity 3D · Simulation'], zombie: ['Zombie Shooter', 'Combat · AI · Prototype'], car: ['City vs Zombies', 'Play on itch.io ↗'] },
+  pt: { login: ['Sistema Simples de Login', 'UI · API · Autenticação'], solar: ['Simulação do Sistema Solar', 'Unity 3D · Simulação'], zombie: ['Zombie Shooter', 'Combate · IA · Protótipo'], car: ['City vs Zombies', 'Jogar no itch.io ↗'] }
 };
 
 function getPortfolioLanguage() {
