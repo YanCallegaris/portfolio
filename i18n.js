@@ -7,7 +7,7 @@ const portfolioTranslations = {
     currentRole: 'CURRENT ROLE', roleTitle: 'Unity Developer at Educacross',
     roleBody: 'Gameplay features, maintenance, bug fixing, UI flows and content integration for live educational products.',
     officialSite: 'OFFICIAL SITE ↗', selectedWork: 'SELECTED WORK', projectsTitle: 'Projects', letsTalk: 'LET’S TALK',
-    allProjects: '← ALL PROJECTS', backProjects: '← Back to all projects', aboutProject: 'ABOUT THE PROJECT', caseTitle: 'Gameplay, systems<br>and iteration.'
+    allProjects: '← ALL PROJECTS', backProjects: '← Back to all projects', aboutProject: 'ABOUT THE PROJECT', caseTitle: 'Gameplay, systems<br>and iteration.', playGame: 'PLAY ON ITCH.IO ↗'
   },
   pt: {
     pageTitle: 'Yan Callegaris — Programador de Gameplay Unity',
@@ -17,13 +17,13 @@ const portfolioTranslations = {
     currentRole: 'CARGO ATUAL', roleTitle: 'Desenvolvedor Unity na Educacross',
     roleBody: 'Funcionalidades de gameplay, manutenção, correção de bugs, fluxos de UI e integração de conteúdo em produtos educacionais ativos.',
     officialSite: 'SITE OFICIAL ↗', selectedWork: 'TRABALHOS SELECIONADOS', projectsTitle: 'Projetos', letsTalk: 'VAMOS CONVERSAR',
-    allProjects: '← TODOS OS PROJETOS', backProjects: '← Voltar para todos os projetos', aboutProject: 'SOBRE O PROJETO', caseTitle: 'Gameplay, sistemas<br>e iteração.'
+    allProjects: '← TODOS OS PROJETOS', backProjects: '← Voltar para todos os projetos', aboutProject: 'SOBRE O PROJETO', caseTitle: 'Gameplay, sistemas<br>e iteração.', playGame: 'JOGAR NO ITCH.IO ↗'
   }
 };
 
 const portfolioProjectCards = {
-  en: { login: ['Simple Login System', 'UI · API · Authentication'], solar: ['Solar System Simulation', 'Unity 3D · Simulation'], zombie: ['Zombie Shooter', 'Combat · AI · Prototype'], car: ['Car vs Zombie', 'Driving · Survival'] },
-  pt: { login: ['Sistema Simples de Login', 'UI · API · Autenticação'], solar: ['Simulação do Sistema Solar', 'Unity 3D · Simulação'], zombie: ['Zombie Shooter', 'Combate · IA · Protótipo'], car: ['Car vs Zombie', 'Direção · Sobrevivência'] }
+  en: { login: ['Simple Login System', 'UI · API · Authentication'], solar: ['Solar System Simulation', 'Unity 3D · Simulation'], zombie: ['Zombie Shooter', 'Combat · AI · Prototype'], car: ['City vs Zombies', 'Driving · Survival · Playable'] },
+  pt: { login: ['Sistema Simples de Login', 'UI · API · Autenticação'], solar: ['Simulação do Sistema Solar', 'Unity 3D · Simulação'], zombie: ['Zombie Shooter', 'Combate · IA · Protótipo'], car: ['City vs Zombies', 'Direção · Sobrevivência · Jogável'] }
 };
 
 function getPortfolioLanguage() {

@@ -15,9 +15,9 @@ const projects = {
     pt: { title: 'Protótipo Zombie Shooter', tag: 'COMBATE · COMPORTAMENTO DE INIMIGOS · SOBREVIVÊNCIA', intro: 'Um protótipo de combate rápido construído em torno da pressão dos inimigos e da sobrevivência a cada momento.', body: 'O projeto é focado em tiro, movimentação, feedback visual claro e iteração rápida de gameplay dentro da Unity.', points: ['Loop de gameplay focado em combate', 'Perseguição e pressão dos inimigos', 'Iteração rápida de protótipo'] }
   },
   car: {
-    image: 'images/projects/car.jpg', video: 'https://www.youtube.com/embed/PUs0ZjHHkqs',
-    en: { title: 'Car vs Zombie', tag: 'TOP-DOWN DRIVING · ENEMY PRESSURE · SURVIVAL', intro: 'A top-down survival prototype where staying in motion is the key to survival.', body: 'Zombies constantly chase the vehicle while the player navigates a city, balancing control, space and pressure.', points: ['Vehicle movement system', 'Enemy pursuit behavior', 'City layout and readability'] },
-    pt: { title: 'Car vs Zombie', tag: 'DIREÇÃO TOP-DOWN · PRESSÃO DE INIMIGOS · SOBREVIVÊNCIA', intro: 'Um protótipo de sobrevivência top-down em que continuar em movimento é a chave para sobreviver.', body: 'Os zumbis perseguem o veículo constantemente enquanto o jogador atravessa a cidade, equilibrando controle, espaço e pressão.', points: ['Sistema de movimento do veículo', 'Comportamento de perseguição dos inimigos', 'Layout e legibilidade da cidade'] }
+    image: 'images/projects/city-vs-zombies.jpg', video: 'https://www.youtube.com/embed/PUs0ZjHHkqs', playUrl: 'https://yancallegaris.itch.io/city-vs-zombies',
+    en: { title: 'City vs Zombies', tag: 'TOP-DOWN DRIVING · ENEMY PRESSURE · PLAYABLE', intro: 'A playable top-down survival prototype where staying in motion is the key to survival.', body: 'Zombies constantly chase the vehicle while the player navigates a city, balancing control, space and pressure.', points: ['Vehicle movement system', 'Enemy pursuit behavior', 'Playable build on itch.io'] },
+    pt: { title: 'City vs Zombies', tag: 'DIREÇÃO TOP-DOWN · PRESSÃO DE INIMIGOS · JOGÁVEL', intro: 'Um protótipo jogável de sobrevivência top-down em que continuar em movimento é a chave para sobreviver.', body: 'Os zumbis perseguem o veículo constantemente enquanto o jogador atravessa a cidade, equilibrando controle, espaço e pressão.', points: ['Sistema de movimento do veículo', 'Comportamento de perseguição dos inimigos', 'Versão jogável no itch.io'] }
   }
 };
 
@@ -30,7 +30,8 @@ function renderProject(language) {
   const content = project[selected];
   const globalCopy = portfolioTranslations[selected];
   document.title = `${content.title} — Yan Callegaris`;
-  document.getElementById('detail').innerHTML = `<section class="detail-hero"><span>${content.tag}</span><h1>${content.title}</h1><p>${content.intro}</p></section><img class="detail-cover" src="${project.image}" alt="${content.title}"><section class="case"><div><span class="section-label">${globalCopy.aboutProject}</span><h2>${globalCopy.caseTitle}</h2></div><div><p>${content.body}</p><ul>${content.points.map(point => `<li>${point}</li>`).join('')}</ul></div></section><div class="video"><iframe src="${project.video}" title="${content.title}" allowfullscreen></iframe></div>`;
+  const playLink = project.playUrl ? `<a class="play-link" href="${project.playUrl}" target="_blank" rel="noreferrer">${globalCopy.playGame}</a>` : '';
+  document.getElementById('detail').innerHTML = `<section class="detail-hero"><span>${content.tag}</span><h1>${content.title}</h1><p>${content.intro}</p>${playLink}</section><img class="detail-cover" src="${project.image}" alt="${content.title}"><section class="case"><div><span class="section-label">${globalCopy.aboutProject}</span><h2>${globalCopy.caseTitle}</h2></div><div><p>${content.body}</p><ul>${content.points.map(point => `<li>${point}</li>`).join('')}</ul></div></section><div class="video"><iframe src="${project.video}" title="${content.title}" allowfullscreen></iframe></div>`;
 }
 
 window.addEventListener('portfolio-language-change', event => renderProject(event.detail.language));
