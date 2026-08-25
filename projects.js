@@ -10,9 +10,34 @@ const projects = {
     pt: { title: 'Simulação do Sistema Solar', tag: 'UNITY 3D · MOVIMENTO ORBITAL · VISUALIZAÇÃO', intro: 'Um estudo 3D interativo sobre órbitas, rotação dos planetas e apresentação espacial.', body: 'Criado para explorar lógica de movimento, escala relativa, apresentação de câmera e movimentos legíveis em uma cena espacial interativa.', points: ['Sistemas de órbita e rotação', 'Composição de cena 3D', 'Experimentos de câmera e apresentação'] }
   },
   zombie: {
-    image: 'images/projects/city-vs-zombies.jpg', video: 'https://www.youtube.com/embed/QPnMC0v4kpc', playUrl: 'https://yancallegaris.itch.io/city-vs-zombies',
-    en: { title: 'City vs Zombies', tag: 'COMBAT · ENEMY BEHAVIOR · PLAYABLE', intro: 'A playable combat prototype built around enemy pressure and moment-to-moment survival.', body: 'The project focuses on shooting, movement, readable feedback and rapid gameplay iteration inside Unity.', points: ['Combat-focused gameplay loop', 'Enemy chase and pressure', 'Playable build on itch.io'] },
-    pt: { title: 'City vs Zombies', tag: 'COMBATE · COMPORTAMENTO DE INIMIGOS · JOGÁVEL', intro: 'Um protótipo jogável de combate construído em torno da pressão dos inimigos e da sobrevivência a cada momento.', body: 'O projeto é focado em tiro, movimentação, feedback visual claro e iteração rápida de gameplay dentro da Unity.', points: ['Loop de gameplay focado em combate', 'Perseguição e pressão dos inimigos', 'Versão jogável no itch.io'] }
+    featured: true,
+    image: 'images/projects/city-vs-zombies.jpg',
+    video: 'https://www.youtube.com/embed/QPnMC0v4kpc',
+    playUrl: 'https://yancallegaris.itch.io/city-vs-zombies',
+    sourceUrl: 'https://github.com/YanCallegaris/JogoExemplo2D',
+    technologies: ['Unity', 'C#', 'WebGL', 'Gameplay Programming'],
+    en: {
+      title: 'City vs Zombies',
+      tag: 'ARCADE SURVIVAL PROTOTYPE · UNITY / C#',
+      intro: 'A small arcade survival game developed in Unity and C#. The player moves, shoots and handles constant enemy pressure while trying to improve the score.',
+      role: 'Core gameplay programming',
+      format: 'Arcade survival prototype',
+      build: 'WebGL in the browser',
+      contribution: 'I worked on the core gameplay and implemented the systems that turn the prototype into a complete playable loop, from player controls and enemy spawning to scoring, game states, feedback and delivery.',
+      evolution: 'The project started as a simple prototype. I refined it with initial instructions and fade, persistent high score, a clearer game-over and restart flow, audio and music, a game-over fade, and finally a playable WebGL build.',
+      systems: ['Movement and shooting', 'Enemy spawning', 'Collisions', 'Score system', 'Persistent high score', 'Game over and restart', 'Initial instructions with fade', 'Audio, music and game-over fade']
+    },
+    pt: {
+      title: 'City vs Zombies',
+      tag: 'PROTÓTIPO ARCADE SURVIVAL · UNITY / C#',
+      intro: 'Um pequeno arcade survival desenvolvido em Unity e C#. O jogador se movimenta, atira e lida com a pressão constante dos inimigos enquanto tenta melhorar sua pontuação.',
+      role: 'Programação do core gameplay',
+      format: 'Protótipo arcade survival',
+      build: 'WebGL no navegador',
+      contribution: 'Trabalhei no core gameplay e implementei os sistemas que transformam o protótipo em um loop jogável completo, dos controles do jogador e spawning de inimigos até pontuação, estados do jogo, feedback e entrega.',
+      evolution: 'O projeto começou como um protótipo simples. Ele foi refinado com instruções iniciais e fade, recorde persistente, um fluxo mais claro de game over e restart, áudio e música, fade no game over e, por fim, uma versão WebGL jogável.',
+      systems: ['Movimentação e tiro', 'Spawning de inimigos', 'Colisões', 'Sistema de score', 'Recorde persistente', 'Game over e restart', 'Instruções iniciais com fade', 'Áudio, música e fade no game over']
+    }
   },
   car: {
     image: 'images/projects/car.jpg', video: 'https://www.youtube.com/embed/PUs0ZjHHkqs',
@@ -30,8 +55,55 @@ function renderProject(language) {
   const content = project[selected];
   const globalCopy = portfolioTranslations[selected];
   document.title = `${content.title} — Yan Callegaris`;
+  document.getElementById('detail').classList.toggle('city-detail', Boolean(project.featured));
+  if (project.featured) {
+    renderFeaturedProject(content, globalCopy);
+    return;
+  }
   const playLink = project.playUrl ? `<a class="play-link" href="${project.playUrl}" target="_blank" rel="noreferrer">${globalCopy.playGame}</a>` : '';
   document.getElementById('detail').innerHTML = `<section class="detail-hero"><span>${content.tag}</span><h1>${content.title}</h1><p>${content.intro}</p>${playLink}</section><img class="detail-cover" src="${project.image}" alt="${content.title}"><section class="case"><div><span class="section-label">${globalCopy.aboutProject}</span><h2>${globalCopy.caseTitle}</h2></div><div><p>${content.body}</p><ul>${content.points.map(point => `<li>${point}</li>`).join('')}</ul></div></section><div class="video"><iframe src="${project.video}" title="${content.title}" allowfullscreen></iframe></div>`;
+}
+
+function renderFeaturedProject(content, globalCopy) {
+  const systemItems = content.systems.map(system => `<li>${system}</li>`).join('');
+  const technologyItems = project.technologies.map(technology => `<li>${technology}</li>`).join('');
+  document.getElementById('detail').innerHTML = `
+    <section class="detail-hero city-hero">
+      <span>${content.tag}</span>
+      <h1>${content.title}</h1>
+      <p>${content.intro}</p>
+      <div class="detail-actions">
+        <a class="play-link" href="${project.playUrl}" target="_blank" rel="noreferrer">${globalCopy.playGame}</a>
+        <a class="source-link" href="${project.sourceUrl}" target="_blank" rel="noreferrer">${globalCopy.sourceCode}</a>
+      </div>
+    </section>
+    <img class="detail-cover" src="${project.image}" alt="${content.title}">
+    <section class="project-snapshot" aria-label="Project summary">
+      <div><span>${globalCopy.myRole}</span><strong>${content.role}</strong></div>
+      <div><span>${globalCopy.projectFormat}</span><strong>${content.format}</strong></div>
+      <div><span>${globalCopy.playableBuild}</span><strong>${content.build}</strong></div>
+    </section>
+    <section class="city-story">
+      <article class="story-card contribution-card">
+        <span class="section-label">${globalCopy.whatIWorkedOn}</span>
+        <h2>${globalCopy.contributionTitle}</h2>
+        <p>${content.contribution}</p>
+        <ul class="systems-grid">${systemItems}</ul>
+      </article>
+      <article class="story-card iteration-card">
+        <span class="section-label">${globalCopy.developmentIteration}</span>
+        <h2>${globalCopy.evolutionTitle}</h2>
+        <p>${content.evolution}</p>
+      </article>
+      <article class="story-card skills-card">
+        <span class="section-label">${globalCopy.systemsSkills}</span>
+        <ul class="technology-list">${technologyItems}</ul>
+      </article>
+    </section>
+    <section class="city-video">
+      <span class="section-label">${globalCopy.videoLabel}</span>
+      <div class="video"><iframe src="${project.video}" title="${content.title}" allowfullscreen></iframe></div>
+    </section>`;
 }
 
 window.addEventListener('portfolio-language-change', event => renderProject(event.detail.language));

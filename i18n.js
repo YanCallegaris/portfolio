@@ -7,7 +7,9 @@ const portfolioTranslations = {
     currentRole: 'CURRENT ROLE', roleTitle: 'Unity Developer at Educacross',
     roleBody: 'Gameplay features, maintenance, bug fixing, UI flows and content integration for live educational products.',
     officialSite: 'OFFICIAL SITE ↗', selectedWork: 'SELECTED WORK', projectsTitle: 'Projects', credentialsLabel: 'CREDENTIALS', credentialsTitle: 'Badges &amp; learning', letsTalk: 'LET’S TALK',
-    allProjects: '← ALL PROJECTS', backProjects: '← Back to all projects', aboutProject: 'ABOUT THE PROJECT', caseTitle: 'Gameplay, systems<br>and iteration.', playGame: 'PLAY ON ITCH.IO ↗'
+    allProjects: '← ALL PROJECTS', backProjects: '← Back to all projects', aboutProject: 'ABOUT THE PROJECT', caseTitle: 'Gameplay, systems<br>and iteration.',
+    viewProject: 'VIEW PROJECT', playGameShort: 'PLAY GAME ↗', playGame: 'PLAY GAME ↗', sourceCode: 'SOURCE CODE ↗',
+    myRole: 'MY ROLE', projectFormat: 'PROJECT', playableBuild: 'PLAYABLE BUILD', whatIWorkedOn: 'WHAT I WORKED ON', contributionTitle: 'Core gameplay and complete game flow', developmentIteration: 'DEVELOPMENT & ITERATION', evolutionTitle: 'From simple prototype to WebGL build', systemsSkills: 'SYSTEMS & SKILLS', videoLabel: 'GAMEPLAY VIDEO'
   },
   pt: {
     pageTitle: 'Yan Callegaris — Programador de Gameplay Unity',
@@ -17,13 +19,15 @@ const portfolioTranslations = {
     currentRole: 'CARGO ATUAL', roleTitle: 'Desenvolvedor Unity na Educacross',
     roleBody: 'Funcionalidades de gameplay, manutenção, correção de bugs, fluxos de UI e integração de conteúdo em produtos educacionais ativos.',
     officialSite: 'SITE OFICIAL ↗', selectedWork: 'TRABALHOS SELECIONADOS', projectsTitle: 'Projetos', credentialsLabel: 'CREDENCIAIS', credentialsTitle: 'Badges e formação', letsTalk: 'VAMOS CONVERSAR',
-    allProjects: '← TODOS OS PROJETOS', backProjects: '← Voltar para todos os projetos', aboutProject: 'SOBRE O PROJETO', caseTitle: 'Gameplay, sistemas<br>e iteração.', playGame: 'JOGAR NO ITCH.IO ↗'
+    allProjects: '← TODOS OS PROJETOS', backProjects: '← Voltar para todos os projetos', aboutProject: 'SOBRE O PROJETO', caseTitle: 'Gameplay, sistemas<br>e iteração.',
+    viewProject: 'VER PROJETO', playGameShort: 'JOGAR ↗', playGame: 'JOGAR ↗', sourceCode: 'CÓDIGO-FONTE ↗',
+    myRole: 'MINHA CONTRIBUIÇÃO', projectFormat: 'PROJETO', playableBuild: 'VERSÃO JOGÁVEL', whatIWorkedOn: 'O QUE IMPLEMENTEI', contributionTitle: 'Core gameplay e fluxo completo do jogo', developmentIteration: 'DESENVOLVIMENTO E ITERAÇÃO', evolutionTitle: 'Do protótipo simples à versão WebGL', systemsSkills: 'SISTEMAS E COMPETÊNCIAS', videoLabel: 'VÍDEO DE GAMEPLAY'
   }
 };
 
 const portfolioProjectCards = {
-  en: { login: ['Simple Login System', 'UI · API · Authentication'], solar: ['Solar System Simulation', 'Unity 3D · Simulation'], zombie: ['City vs Zombies', 'Play on itch.io ↗'], car: ['Car vs Zombie', 'Driving · Survival'] },
-  pt: { login: ['Sistema Simples de Login', 'UI · API · Autenticação'], solar: ['Simulação do Sistema Solar', 'Unity 3D · Simulação'], zombie: ['City vs Zombies', 'Jogar no itch.io ↗'], car: ['Car vs Zombie', 'Direção · Sobrevivência'] }
+  en: { login: ['Simple Login System', 'UI · API · Authentication'], solar: ['Solar System Simulation', 'Unity 3D · Simulation'], zombie: ['City vs Zombies', 'Arcade survival · Unity / C#'], car: ['Car vs Zombie', 'Driving · Survival'] },
+  pt: { login: ['Sistema Simples de Login', 'UI · API · Autenticação'], solar: ['Simulação do Sistema Solar', 'Unity 3D · Simulação'], zombie: ['City vs Zombies', 'Arcade survival · Unity / C#'], car: ['Car vs Zombie', 'Direção · Sobrevivência'] }
 };
 
 function getPortfolioLanguage() {

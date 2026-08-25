@@ -1,0 +1,280 @@
+/* City vs Zombies experiment: scoped so the other project cards and pages keep their current layout. */
+.feature-cover-main {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.feature-cover-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.feature-cover-content {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 2;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 64px 22px 20px;
+  background: linear-gradient(transparent, #05070bf2);
+  opacity: 0;
+  transform: translateY(14px);
+  pointer-events: none;
+  transition: opacity .28s ease, transform .28s ease;
+}
+
+.feature-cover:hover .feature-cover-content,
+.feature-cover:focus-within .feature-cover-content {
+  opacity: 1;
+  transform: none;
+}
+
+.feature-cover-content b {
+  display: block;
+  font-size: 1.35rem;
+}
+
+.feature-cover-content small {
+  display: block;
+  margin-top: 7px;
+  color: #d2d9e8;
+  letter-spacing: .06em;
+}
+
+.feature-cover-actions {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 8px;
+  pointer-events: auto;
+}
+
+.feature-cover-actions a {
+  padding: 10px 12px;
+  border: 1px solid #ffffff35;
+  background: #111722e8;
+  font-size: .66rem;
+  font-weight: 850;
+  letter-spacing: .07em;
+  transition: border-color .2s ease, background .2s ease, color .2s ease;
+}
+
+.feature-cover-actions a:hover {
+  border-color: var(--accent);
+}
+
+.feature-cover-actions .feature-play {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #0b1019;
+}
+
+.city-detail .city-hero {
+  max-width: 900px;
+}
+
+.detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.detail-actions .play-link {
+  margin-top: 0;
+}
+
+.source-link {
+  display: inline-flex;
+  padding: 14px 20px;
+  border: 1px solid var(--line);
+  color: var(--text);
+  font-size: .75rem;
+  font-weight: 850;
+  letter-spacing: .08em;
+  transition: border-color .2s ease, transform .2s ease;
+}
+
+.source-link:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.project-snapshot {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid var(--line);
+}
+
+.project-snapshot > div {
+  min-width: 0;
+  padding: 28px 4vw;
+  border-right: 1px solid var(--line);
+}
+
+.project-snapshot > div:last-child {
+  border-right: 0;
+}
+
+.project-snapshot span {
+  display: block;
+  margin-bottom: 9px;
+  color: var(--accent);
+  font-size: .65rem;
+  font-weight: 850;
+  letter-spacing: .12em;
+}
+
+.project-snapshot strong {
+  display: block;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.city-story {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  grid-template-areas:
+    "contribution iteration"
+    "contribution skills";
+  gap: 18px;
+  padding: 72px 4vw;
+}
+
+.story-card {
+  padding: 30px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.contribution-card { grid-area: contribution; }
+.iteration-card { grid-area: iteration; }
+.skills-card { grid-area: skills; }
+
+.story-card h2 {
+  margin: 14px 0 18px;
+  font-size: clamp(1.7rem, 3vw, 2.65rem);
+  line-height: 1.08;
+  letter-spacing: -.04em;
+}
+
+.story-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.systems-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 9px;
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.systems-grid li {
+  padding: 12px 13px;
+  border: 1px solid var(--line);
+  background: #0b1019;
+  color: #dbe3f2;
+  font-size: .82rem;
+  line-height: 1.35;
+}
+
+.systems-grid li::before {
+  content: "•";
+  margin-right: 8px;
+  color: var(--accent);
+}
+
+.technology-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.technology-list li {
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  color: #dbe3f2;
+  font-size: .76rem;
+  font-weight: 700;
+}
+
+.city-video {
+  padding: 0 4vw;
+}
+
+.city-video > .section-label {
+  display: block;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 900px) {
+  .feature-cover-content {
+    align-items: start;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .city-story {
+    grid-template-columns: 1fr;
+    grid-template-areas: "contribution" "iteration" "skills";
+  }
+}
+
+@media (max-width: 720px), (hover: none) {
+  .feature-cover-content {
+    opacity: 1;
+    transform: none;
+  }
+
+  .project-snapshot {
+    grid-template-columns: 1fr;
+  }
+
+  .project-snapshot > div {
+    padding: 18px 24px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .project-snapshot > div:last-child {
+    border-bottom: 0;
+  }
+
+  .city-story {
+    padding: 48px 0;
+  }
+
+  .story-card {
+    padding: 24px;
+  }
+
+  .city-video {
+    padding: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .feature-cover-actions {
+    width: 100%;
+  }
+
+  .feature-cover-actions a {
+    flex: 1;
+    text-align: center;
+  }
+
+  .systems-grid {
+    grid-template-columns: 1fr;
+  }
+}
