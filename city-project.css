@@ -355,16 +355,12 @@
 }
 
 .city-video header {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 40px;
-  margin-bottom: 42px;
+  margin-bottom: 28px;
 }
 
 .city-video header h2 {
-  max-width: 720px;
-  text-align: right;
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  text-align: left;
 }
 
 .city-video .video {
@@ -477,12 +473,7 @@
     padding-bottom: 72px;
   }
 
-  .city-video header {
-    display: block;
-  }
-
   .city-video header h2 {
-    margin-top: 18px;
     text-align: left;
   }
 }
