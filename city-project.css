@@ -75,6 +75,7 @@
 .city-detail {
   --city-surface: #0d131e;
   --city-surface-raised: #121a28;
+  --city-gutter: clamp(24px, 7vw, 96px);
 }
 
 .city-hero {
@@ -194,7 +195,7 @@
 }
 
 .project-overview {
-  padding: 110px clamp(24px, 8vw, 110px);
+  padding: 110px var(--city-gutter);
 }
 
 .project-overview h2,
@@ -241,7 +242,7 @@
 }
 
 .contribution-showcase {
-  padding: 105px clamp(24px, 7vw, 96px);
+  padding: 105px var(--city-gutter);
   background: var(--city-surface);
   border-block: 1px solid var(--line);
 }
@@ -297,7 +298,7 @@
 }
 
 .development-section {
-  padding: 115px 4vw;
+  padding: 115px var(--city-gutter);
   background:
     radial-gradient(circle at 92% 15%, #66228b30, transparent 32%),
     radial-gradient(circle at 8% 85%, #176a8336, transparent 28%);
@@ -351,7 +352,7 @@
 }
 
 .city-video {
-  padding: 0 4vw 105px;
+  padding: 0 var(--city-gutter) 105px;
 }
 
 .city-video header {
@@ -369,7 +370,7 @@
 }
 
 .city-final-cta {
-  padding: 48px 4vw 105px;
+  padding: 48px var(--city-gutter) 105px;
   border-top: 1px solid var(--line);
   text-align: center;
 }
