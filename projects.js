@@ -110,6 +110,10 @@ function renderFeaturedProject(content, globalCopy) {
       <span class="section-label">${globalCopy.projectOverview}</span>
       <div><h2>${globalCopy.overviewHeadline}</h2><p>${content.contribution}</p></div>
     </section>
+    <section class="city-video">
+      <header><span class="section-label">${globalCopy.videoLabel}</span><h2>${content.title}: gameplay</h2></header>
+      <div class="video"><iframe src="${project.video}" title="${content.title}" allowfullscreen></iframe></div>
+    </section>
     <section class="contribution-showcase">
       <header><span class="section-label">${globalCopy.contributionBreakdown}</span><h2>${globalCopy.contributionHeadline}</h2></header>
       <div class="contribution-grid">${contributionAreas}</div>
@@ -122,9 +126,7 @@ function renderFeaturedProject(content, globalCopy) {
       </header>
       <div class="development-timeline">${developmentStages}</div>
     </section>
-    <section class="city-video">
-      <header><span class="section-label">${globalCopy.videoLabel}</span><h2>${content.title}: gameplay</h2></header>
-      <div class="video"><iframe src="${project.video}" title="${content.title}" allowfullscreen></iframe></div>
+    <section class="city-final-cta">
       <a class="play-link final-play" href="${project.playUrl}" target="_blank" rel="noreferrer">${globalCopy.playAgain}</a>
     </section>`;
 }

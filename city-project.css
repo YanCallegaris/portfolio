@@ -351,8 +351,7 @@
 }
 
 .city-video {
-  padding: 105px 4vw 0;
-  border-top: 1px solid var(--line);
+  padding: 0 4vw 105px;
 }
 
 .city-video header {
@@ -373,8 +372,14 @@
   background: #000;
 }
 
+.city-final-cta {
+  padding: 48px 4vw 105px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+
 .final-play {
-  margin-top: 28px;
+  margin: 0;
 }
 
 @media (max-width: 900px) {
@@ -442,7 +447,8 @@
   .project-overview,
   .contribution-showcase,
   .development-section,
-  .city-video {
+  .city-video,
+  .city-final-cta {
     padding-right: 24px;
     padding-left: 24px;
   }
@@ -463,7 +469,12 @@
   }
 
   .city-video {
-    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .city-final-cta {
+    padding-top: 40px;
+    padding-bottom: 72px;
   }
 
   .city-video header {
