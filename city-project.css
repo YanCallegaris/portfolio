@@ -194,11 +194,7 @@
 }
 
 .project-overview {
-  display: grid;
-  grid-template-columns: .55fr 1.45fr;
-  gap: 60px;
-  align-items: start;
-  padding: 110px 4vw;
+  padding: 110px clamp(24px, 8vw, 110px);
 }
 
 .project-overview h2,
@@ -209,27 +205,50 @@
   font-size: clamp(2.5rem, 5vw, 5.2rem);
   line-height: .98;
   letter-spacing: -.055em;
+  text-wrap: balance;
+}
+
+.project-overview > .section-label,
+.contribution-showcase header > .section-label,
+.development-section header > .section-label {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.project-overview > .section-label::after,
+.contribution-showcase header > .section-label::after,
+.development-section header > .section-label::after {
+  width: clamp(32px, 4vw, 56px);
+  height: 1px;
+  background: var(--accent);
+  opacity: .55;
+  content: "";
+}
+
+.project-overview > div {
+  max-width: 860px;
 }
 
 .project-overview p {
   max-width: 760px;
-  margin: 28px 0 0;
+  margin: 24px 0 0;
   color: var(--muted);
   font-size: 1.12rem;
   line-height: 1.8;
 }
 
 .contribution-showcase {
-  padding: 105px 4vw;
+  padding: 105px clamp(24px, 7vw, 96px);
   background: var(--city-surface);
   border-block: 1px solid var(--line);
 }
 
 .contribution-showcase header {
-  display: grid;
-  grid-template-columns: .55fr 1.45fr;
-  gap: 60px;
-  margin-bottom: 70px;
+  max-width: 860px;
+  margin-bottom: 60px;
 }
 
 .contribution-grid {
@@ -289,7 +308,7 @@
 }
 
 .development-section header h2 {
-  margin-top: 20px;
+  margin-top: 0;
 }
 
 .development-section header p {
@@ -372,12 +391,6 @@
 
   .city-hero-tech {
     max-width: 340px;
-  }
-
-  .project-overview,
-  .contribution-showcase header {
-    grid-template-columns: 1fr;
-    gap: 28px;
   }
 
   .development-timeline {
