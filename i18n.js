@@ -1,6 +1,6 @@
 const portfolioTranslations = {
   en: {
-    pageTitle: 'Yan Callegaris — Unity Gameplay Programmer',
+    pageTitle: 'Yan Callegaris | Unity Gameplay Programmer',
     navExperience: 'EXPERIENCE', navProjects: 'PROJECTS', navContact: 'CONTACT',
     kicker: 'UNITY GAMEPLAY PROGRAMMER', heroTitle: 'Hi! I’m<br>Yan Callegaris.',
     heroBody: 'I build gameplay systems, interactive features, and polished UI in Unity, ranging from production educational games to personal prototypes.',
@@ -12,7 +12,7 @@ const portfolioTranslations = {
     myRole: 'MY CONTRIBUTION', projectFormat: 'PROJECT', playableBuild: 'PLAYABLE BUILD', projectOverview: 'PROJECT OVERVIEW', overviewHeadline: 'A complete survival loop, built system by system', contributionBreakdown: 'CONTRIBUTION BREAKDOWN', contributionHeadline: 'The systems behind a complete run', developmentIteration: 'DEVELOPMENT & ITERATION', evolutionTitle: 'From a simple prototype to a playable browser build', builtWith: 'BUILT WITH', videoLabel: 'GAMEPLAY VIDEO', playAgain: 'PLAY CITY VS ZOMBIES ↗'
   },
   pt: {
-    pageTitle: 'Yan Callegaris — Programador de Gameplay Unity',
+    pageTitle: 'Yan Callegaris | Programador de Gameplay Unity',
     navExperience: 'EXPERIÊNCIA', navProjects: 'PROJETOS', navContact: 'CONTATO',
     kicker: 'PROGRAMADOR DE GAMEPLAY UNITY', heroTitle: 'Olá! Eu sou<br>Yan Callegaris.',
     heroBody: 'Desenvolvo sistemas de gameplay, recursos interativos e interfaces bem estruturadas em Unity, criando desde jogos educacionais em produção até protótipos pessoais.',

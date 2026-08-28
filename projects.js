@@ -25,7 +25,7 @@ const projects = {
       contribution: 'I implemented the systems that connect each survival attempt from the first input to the final score: player actions, enemy pressure, collisions, progression, game states and feedback.',
       evolution: 'The project started as a simple prototype. I refined it with initial instructions and fade, persistent high score, a clearer game-over and restart flow, audio and music, a game-over fade, and finally a playable WebGL build.',
       areas: [
-        { number: '01', title: 'Player control & combat', body: 'Implemented player movement, shooting and collision handling—the actions at the center of every survival attempt.' },
+        { number: '01', title: 'Player control & combat', body: 'Implemented player movement, shooting and collision handling. These actions are at the center of every survival attempt.' },
         { number: '02', title: 'Enemy pressure', body: 'Built the enemy spawning system that keeps the play space populated and the player under constant pressure.' },
         { number: '03', title: 'Score & persistence', body: 'Created the score system and persistent high score so every finished run leaves a clear result for the next attempt.' },
         { number: '04', title: 'Session flow & feedback', body: 'Implemented initial instructions with fade, game over, restart, audio, music and the final game-over fade.' }
@@ -46,7 +46,7 @@ const projects = {
       contribution: 'Implementei os sistemas que conectam cada tentativa de sobrevivência, do primeiro comando à pontuação final: ações do jogador, pressão dos inimigos, colisões, progressão, estados do jogo e feedback.',
       evolution: 'O projeto começou como um protótipo simples. Ele foi refinado com instruções iniciais e fade, recorde persistente, um fluxo mais claro de game over e restart, áudio e música, fade no game over e, por fim, uma versão WebGL jogável.',
       areas: [
-        { number: '01', title: 'Controle do jogador e combate', body: 'Implementei movimentação, tiro e tratamento de colisões — as ações centrais de cada tentativa de sobrevivência.' },
+        { number: '01', title: 'Controle do jogador e combate', body: 'Implementei movimentação, tiro e tratamento de colisões, que são as ações centrais de cada tentativa de sobrevivência.' },
         { number: '02', title: 'Pressão dos inimigos', body: 'Desenvolvi o sistema de spawning que mantém o espaço de jogo ocupado e o jogador sob pressão constante.' },
         { number: '03', title: 'Pontuação e persistência', body: 'Criei o sistema de score e o recorde persistente para que cada partida deixe um resultado claro a ser superado.' },
         { number: '04', title: 'Fluxo da partida e feedback', body: 'Implementei instruções iniciais com fade, game over, restart, áudio, música e o fade final de game over.' }
@@ -73,7 +73,7 @@ function renderProject(language) {
   const selected = language === 'pt' ? 'pt' : 'en';
   const content = project[selected];
   const globalCopy = portfolioTranslations[selected];
-  document.title = `${content.title} — Yan Callegaris`;
+  document.title = `${content.title} | Yan Callegaris`;
   document.getElementById('detail').classList.toggle('city-detail', Boolean(project.featured));
   if (project.featured) {
     renderFeaturedProject(content, globalCopy);
@@ -123,7 +123,7 @@ function renderFeaturedProject(content, globalCopy) {
       <div class="development-timeline">${developmentStages}</div>
     </section>
     <section class="city-video">
-      <header><span class="section-label">${globalCopy.videoLabel}</span><h2>${content.title} — gameplay</h2></header>
+      <header><span class="section-label">${globalCopy.videoLabel}</span><h2>${content.title}: gameplay</h2></header>
       <div class="video"><iframe src="${project.video}" title="${content.title}" allowfullscreen></iframe></div>
       <a class="play-link final-play" href="${project.playUrl}" target="_blank" rel="noreferrer">${globalCopy.playAgain}</a>
     </section>`;
