@@ -9,7 +9,7 @@ const portfolioTranslations = {
     officialSite: 'OFFICIAL SITE ↗', selectedWork: 'SELECTED WORK', projectsTitle: 'Projects', credentialsLabel: 'CREDENTIALS', credentialsTitle: 'Badges &amp; learning', letsTalk: 'LET’S TALK',
     allProjects: '← ALL PROJECTS', backProjects: '← Back to all projects', aboutProject: 'ABOUT THE PROJECT', caseTitle: 'Gameplay, systems<br>and iteration.',
     viewProject: 'VIEW PROJECT', playGameShort: 'PLAY GAME ↗', playGame: 'PLAY GAME ↗',
-    myRole: 'MY CONTRIBUTION', projectFormat: 'PROJECT', playableBuild: 'PLAYABLE BUILD', projectOverview: 'PROJECT OVERVIEW', overviewHeadline: 'A complete survival loop, built system by system', contributionBreakdown: 'CONTRIBUTION BREAKDOWN', contributionHeadline: 'The systems behind a complete run', developmentIteration: 'DEVELOPMENT & ITERATION', evolutionTitle: 'From a simple prototype to a playable browser build', builtWith: 'BUILT WITH', videoLabel: 'GAMEPLAY VIDEO', playAgain: 'PLAY CITY VS ZOMBIES ↗'
+    myRole: 'MY CONTRIBUTION', projectFormat: 'PROJECT', playableBuild: 'PLAYABLE BUILD', projectOverview: 'PROJECT OVERVIEW', overviewHeadline: 'A complete survival loop, built system by system', contributionBreakdown: 'CONTRIBUTION BREAKDOWN', contributionHeadline: 'The systems behind a complete run', developmentIteration: 'DEVELOPMENT & ITERATION', evolutionTitle: 'From a simple prototype to a playable browser build', builtWith: 'BUILT WITH', videoLabel: 'Gameplay video', playAgain: 'PLAY CITY VS ZOMBIES ↗'
   },
   pt: {
     pageTitle: 'Yan Callegaris | Programador de Gameplay Unity',
@@ -21,7 +21,7 @@ const portfolioTranslations = {
     officialSite: 'SITE OFICIAL ↗', selectedWork: 'TRABALHOS SELECIONADOS', projectsTitle: 'Projetos', credentialsLabel: 'CREDENCIAIS', credentialsTitle: 'Badges e formação', letsTalk: 'VAMOS CONVERSAR',
     allProjects: '← TODOS OS PROJETOS', backProjects: '← Voltar para todos os projetos', aboutProject: 'SOBRE O PROJETO', caseTitle: 'Gameplay, sistemas<br>e iteração.',
     viewProject: 'VER PROJETO', playGameShort: 'JOGAR ↗', playGame: 'JOGAR ↗',
-    myRole: 'MINHA CONTRIBUIÇÃO', projectFormat: 'PROJETO', playableBuild: 'VERSÃO JOGÁVEL', projectOverview: 'VISÃO GERAL DO PROJETO', overviewHeadline: 'Um loop de sobrevivência completo, sistema por sistema', contributionBreakdown: 'CONTRIBUIÇÃO EM DETALHES', contributionHeadline: 'Os sistemas por trás de uma partida completa', developmentIteration: 'DESENVOLVIMENTO E ITERAÇÃO', evolutionTitle: 'De um protótipo simples a uma versão jogável no navegador', builtWith: 'DESENVOLVIDO COM', videoLabel: 'VÍDEO DE GAMEPLAY', playAgain: 'JOGAR CITY VS ZOMBIES ↗'
+    myRole: 'MINHA CONTRIBUIÇÃO', projectFormat: 'PROJETO', playableBuild: 'VERSÃO JOGÁVEL', projectOverview: 'VISÃO GERAL DO PROJETO', overviewHeadline: 'Um loop de sobrevivência completo, sistema por sistema', contributionBreakdown: 'CONTRIBUIÇÃO EM DETALHES', contributionHeadline: 'Os sistemas por trás de uma partida completa', developmentIteration: 'DESENVOLVIMENTO E ITERAÇÃO', evolutionTitle: 'De um protótipo simples a uma versão jogável no navegador', builtWith: 'DESENVOLVIDO COM', videoLabel: 'Vídeo de gameplay', playAgain: 'JOGAR CITY VS ZOMBIES ↗'
   }
 };
 

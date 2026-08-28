@@ -111,7 +111,7 @@ function renderFeaturedProject(content, globalCopy) {
       <div><h2>${globalCopy.overviewHeadline}</h2><p>${content.contribution}</p></div>
     </section>
     <section class="city-video">
-      <header><h2>Gameplay</h2></header>
+      <header><h2>${globalCopy.videoLabel}</h2></header>
       <div class="video"><iframe src="${project.video}" title="${content.title}" allowfullscreen></iframe></div>
     </section>
     <section class="contribution-showcase">
