@@ -8,7 +8,7 @@ const portfolioTranslations = {
     roleBody: 'Gameplay features, maintenance, bug fixing, UI flows and content integration for live educational products.',
     officialSite: 'OFFICIAL SITE ↗', selectedWork: 'SELECTED WORK', projectsTitle: 'Projects', credentialsLabel: 'CREDENTIALS', credentialsTitle: 'Badges &amp; learning', letsTalk: 'LET’S TALK',
     allProjects: '← ALL PROJECTS', backProjects: '← Back to all projects', aboutProject: 'ABOUT THE PROJECT', caseTitle: 'Gameplay, systems<br>and iteration.',
-    viewProject: 'VIEW PROJECT', playGameShort: 'PLAY GAME ↗', playGame: 'PLAY GAME ↗', sourceCode: 'SOURCE CODE ↗',
+    viewProject: 'VIEW PROJECT', playGameShort: 'PLAY GAME ↗', playGame: 'PLAY GAME ↗',
     myRole: 'MY ROLE', projectFormat: 'PROJECT', playableBuild: 'PLAYABLE BUILD', whatIWorkedOn: 'WHAT I WORKED ON', contributionTitle: 'Core gameplay and complete game flow', developmentIteration: 'DEVELOPMENT & ITERATION', evolutionTitle: 'From simple prototype to WebGL build', systemsSkills: 'SYSTEMS & SKILLS', videoLabel: 'GAMEPLAY VIDEO'
   },
   pt: {
@@ -20,7 +20,7 @@ const portfolioTranslations = {
     roleBody: 'Funcionalidades de gameplay, manutenção, correção de bugs, fluxos de UI e integração de conteúdo em produtos educacionais ativos.',
     officialSite: 'SITE OFICIAL ↗', selectedWork: 'TRABALHOS SELECIONADOS', projectsTitle: 'Projetos', credentialsLabel: 'CREDENCIAIS', credentialsTitle: 'Badges e formação', letsTalk: 'VAMOS CONVERSAR',
     allProjects: '← TODOS OS PROJETOS', backProjects: '← Voltar para todos os projetos', aboutProject: 'SOBRE O PROJETO', caseTitle: 'Gameplay, sistemas<br>e iteração.',
-    viewProject: 'VER PROJETO', playGameShort: 'JOGAR ↗', playGame: 'JOGAR ↗', sourceCode: 'CÓDIGO-FONTE ↗',
+    viewProject: 'VER PROJETO', playGameShort: 'JOGAR ↗', playGame: 'JOGAR ↗',
     myRole: 'MINHA CONTRIBUIÇÃO', projectFormat: 'PROJETO', playableBuild: 'VERSÃO JOGÁVEL', whatIWorkedOn: 'O QUE IMPLEMENTEI', contributionTitle: 'Core gameplay e fluxo completo do jogo', developmentIteration: 'DESENVOLVIMENTO E ITERAÇÃO', evolutionTitle: 'Do protótipo simples à versão WebGL', systemsSkills: 'SISTEMAS E COMPETÊNCIAS', videoLabel: 'VÍDEO DE GAMEPLAY'
   }
 };

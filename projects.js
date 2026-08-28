@@ -14,7 +14,6 @@ const projects = {
     image: 'images/projects/city-vs-zombies.jpg',
     video: 'https://www.youtube.com/embed/QPnMC0v4kpc',
     playUrl: 'https://yancallegaris.itch.io/city-vs-zombies',
-    sourceUrl: 'https://github.com/YanCallegaris/JogoExemplo2D',
     technologies: ['Unity', 'C#', 'WebGL', 'Gameplay Programming'],
     en: {
       title: 'City vs Zombies',
@@ -74,7 +73,6 @@ function renderFeaturedProject(content, globalCopy) {
       <p>${content.intro}</p>
       <div class="detail-actions">
         <a class="play-link" href="${project.playUrl}" target="_blank" rel="noreferrer">${globalCopy.playGame}</a>
-        <a class="source-link" href="${project.sourceUrl}" target="_blank" rel="noreferrer">${globalCopy.sourceCode}</a>
       </div>
     </section>
     <img class="detail-cover" src="${project.image}" alt="${content.title}">
