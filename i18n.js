@@ -26,8 +26,8 @@ const portfolioTranslations = {
 };
 
 const portfolioProjectCards = {
-  en: { login: ['Simple Login System', 'UI · API · Authentication'], solar: ['Solar System Simulation', 'Unity 3D · Simulation'], zombie: ['City vs Zombies', 'Arcade survival · Unity / C#'], car: ['Car vs Zombie', 'Driving · Survival'] },
-  pt: { login: ['Sistema Simples de Login', 'UI · API · Autenticação'], solar: ['Simulação do Sistema Solar', 'Unity 3D · Simulação'], zombie: ['City vs Zombies', 'Arcade survival · Unity / C#'], car: ['Car vs Zombie', 'Direção · Sobrevivência'] }
+  en: { login: ['Simple Login System', 'UI · API · Authentication'], solar: ['Solar System Simulation', 'Unity 3D · Simulation'], zombie: ['City vs Zombies', 'Arcade survival · Unity / C#'], jumper: ['Jumper', 'Arcade platformer · Unity / C#'], car: ['Car vs Zombie', 'Driving · Survival'] },
+  pt: { login: ['Sistema Simples de Login', 'UI · API · Autenticação'], solar: ['Simulação do Sistema Solar', 'Unity 3D · Simulação'], zombie: ['City vs Zombies', 'Arcade survival · Unity / C#'], jumper: ['Jumper', 'Plataforma arcade · Unity / C#'], car: ['Car vs Zombie', 'Direção · Sobrevivência'] }
 };
 
 function getPortfolioLanguage() {
