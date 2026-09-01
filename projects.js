@@ -58,6 +58,66 @@ const projects = {
       ]
     }
   },
+  jumper: {
+    featured: true,
+    image: 'images/projects/jumper.png',
+    playUrl: 'https://yancallegaris.itch.io/jumper',
+    technologies: ['Unity', 'C#', 'WebGL'],
+    en: {
+      title: 'Jumper',
+      tag: 'ARCADE PLATFORMER PROTOTYPE · UNITY / C#',
+      intro: 'A small arcade platformer prototype built in Unity and C#. The player runs through a stylized desert, jumps over obstacles and tries to reach the greatest distance possible.',
+      role: 'Movement, jumping, obstacle avoidance, distance tracking and restart flow',
+      format: 'Arcade platformer prototype',
+      build: 'WebGL in the browser',
+      overviewHeadline: 'A short arcade loop built for quick retries',
+      contribution: 'I implemented the systems that connect each attempt: player movement and jumping, obstacle avoidance, distance tracking, game over and quick restart. Visual and audio feedback make the result of each run clear.',
+      contributionBreakdown: 'GAMEPLAY SYSTEMS',
+      contributionHeadline: 'The systems behind each attempt',
+      developmentIteration: 'GAMEPLAY LOOP',
+      evolutionTitle: 'Run, jump, track the distance and try again',
+      evolution: 'Each run begins immediately, tracks the distance travelled and ends with a clear result. From the game-over screen, the player can quickly start another attempt and try to improve the previous distance.',
+      playAgain: 'PLAY JUMPER ↗',
+      areas: [
+        { number: '01', title: 'Movement and jumping', body: 'Implemented the player movement and jump controls that drive every attempt through the desert course.' },
+        { number: '02', title: 'Obstacle avoidance', body: 'Connected movement and jumping to a simple challenge based on reading and avoiding obstacles.' },
+        { number: '03', title: 'Distance tracking', body: 'Created the distance counter that follows the run and gives the player a clear result at game over.' },
+        { number: '04', title: 'Game over and quick restart', body: 'Connected failed attempts to the game-over screen, visual and audio feedback, and a fast way to begin another run.' }
+      ],
+      stages: [
+        { number: '01', title: 'Start the run', body: 'The player begins moving through the desert and uses jumping to respond to incoming obstacles.' },
+        { number: '02', title: 'Track the attempt', body: 'Distance is measured during the run so progress remains visible and each attempt produces a result.' },
+        { number: '03', title: 'See the result and retry', body: 'Game over presents the travelled distance and immediately offers another attempt.' }
+      ]
+    },
+    pt: {
+      title: 'Jumper',
+      tag: 'PROTÓTIPO DE PLATAFORMA ARCADE · UNITY / C#',
+      intro: 'Um pequeno protótipo de plataforma arcade desenvolvido em Unity e C#. O jogador atravessa um deserto estilizado, pula sobre obstáculos e tenta alcançar a maior distância possível.',
+      role: 'Movimentação, salto, desvio de obstáculos, distância e fluxo de reinício',
+      format: 'Protótipo de plataforma arcade',
+      build: 'WebGL no navegador',
+      overviewHeadline: 'Um loop arcade curto, criado para novas tentativas rápidas',
+      contribution: 'Implementei os sistemas que conectam cada tentativa: movimentação e salto do jogador, desvio de obstáculos, acompanhamento da distância, game over e reinício rápido. O feedback visual e sonoro deixa claro o resultado de cada partida.',
+      contributionBreakdown: 'SISTEMAS DE GAMEPLAY',
+      contributionHeadline: 'Os sistemas por trás de cada tentativa',
+      developmentIteration: 'LOOP DE GAMEPLAY',
+      evolutionTitle: 'Correr, pular, acompanhar a distância e tentar novamente',
+      evolution: 'Cada partida começa imediatamente, acompanha a distância percorrida e termina com um resultado claro. Na tela de game over, o jogador pode iniciar rapidamente uma nova tentativa e buscar uma distância maior.',
+      playAgain: 'JOGAR JUMPER ↗',
+      areas: [
+        { number: '01', title: 'Movimentação e salto', body: 'Implementei os controles de movimentação e salto que conduzem cada tentativa pelo percurso no deserto.' },
+        { number: '02', title: 'Desvio de obstáculos', body: 'Conectei movimentação e salto a um desafio simples baseado em identificar e evitar obstáculos.' },
+        { number: '03', title: 'Acompanhamento da distância', body: 'Criei o contador que acompanha a partida e apresenta ao jogador um resultado claro no game over.' },
+        { number: '04', title: 'Game over e reinício rápido', body: 'Conectei o fim da tentativa à tela de game over, ao feedback visual e sonoro e a uma forma rápida de começar novamente.' }
+      ],
+      stages: [
+        { number: '01', title: 'Iniciar a partida', body: 'O jogador começa a atravessar o deserto e usa o salto para responder aos obstáculos do percurso.' },
+        { number: '02', title: 'Acompanhar a tentativa', body: 'A distância é medida durante a partida para manter o progresso visível e produzir um resultado.' },
+        { number: '03', title: 'Ver o resultado e tentar novamente', body: 'O game over apresenta a distância percorrida e oferece imediatamente uma nova tentativa.' }
+      ]
+    }
+  },
   car: {
     image: 'images/projects/car.jpg', video: 'https://www.youtube.com/embed/PUs0ZjHHkqs',
     en: { title: 'Car vs Zombie', tag: 'TOP-DOWN DRIVING · ENEMY PRESSURE · SURVIVAL', intro: 'A top-down survival prototype where staying in motion is the key to survival.', body: 'Zombies constantly chase the vehicle while the player navigates a city, balancing control, space and pressure.', points: ['Vehicle movement system', 'Enemy pursuit behavior', 'City layout and readability'] },
@@ -87,6 +147,17 @@ function renderFeaturedProject(content, globalCopy) {
   const contributionAreas = content.areas.map(area => `<article class="contribution-area"><span>${area.number}</span><h3>${area.title}</h3><p>${area.body}</p></article>`).join('');
   const developmentStages = content.stages.map(stage => `<article class="development-stage"><span>${stage.number}</span><h3>${stage.title}</h3><p>${stage.body}</p></article>`).join('');
   const technologyItems = project.technologies.map(technology => `<span>${technology}</span>`).join('');
+  const videoSection = project.video ? `
+    <section class="city-video">
+      <header><h2>${globalCopy.videoLabel}</h2></header>
+      <div class="video"><iframe src="${project.video}" title="${content.title}" allowfullscreen></iframe></div>
+    </section>` : '';
+  const overviewHeadline = content.overviewHeadline || globalCopy.overviewHeadline;
+  const contributionBreakdown = content.contributionBreakdown || globalCopy.contributionBreakdown;
+  const contributionHeadline = content.contributionHeadline || globalCopy.contributionHeadline;
+  const developmentIteration = content.developmentIteration || globalCopy.developmentIteration;
+  const evolutionTitle = content.evolutionTitle || globalCopy.evolutionTitle;
+  const playAgain = content.playAgain || globalCopy.playAgain;
   document.getElementById('detail').innerHTML = `
     <section class="city-hero">
       <div class="city-hero-copy">
@@ -108,26 +179,23 @@ function renderFeaturedProject(content, globalCopy) {
     </section>
     <section class="project-overview">
       <span class="section-label">${globalCopy.projectOverview}</span>
-      <div><h2>${globalCopy.overviewHeadline}</h2><p>${content.contribution}</p></div>
+      <div><h2>${overviewHeadline}</h2><p>${content.contribution}</p></div>
     </section>
-    <section class="city-video">
-      <header><h2>${globalCopy.videoLabel}</h2></header>
-      <div class="video"><iframe src="${project.video}" title="${content.title}" allowfullscreen></iframe></div>
-    </section>
+    ${videoSection}
     <section class="contribution-showcase">
-      <header><span class="section-label">${globalCopy.contributionBreakdown}</span><h2>${globalCopy.contributionHeadline}</h2></header>
+      <header><span class="section-label">${contributionBreakdown}</span><h2>${contributionHeadline}</h2></header>
       <div class="contribution-grid">${contributionAreas}</div>
     </section>
     <section class="development-section">
       <header>
-        <span class="section-label">${globalCopy.developmentIteration}</span>
-        <h2>${globalCopy.evolutionTitle}</h2>
+        <span class="section-label">${developmentIteration}</span>
+        <h2>${evolutionTitle}</h2>
         <p>${content.evolution}</p>
       </header>
       <div class="development-timeline">${developmentStages}</div>
     </section>
     <section class="city-final-cta">
-      <a class="play-link final-play" href="${project.playUrl}" target="_blank" rel="noreferrer">${globalCopy.playAgain}</a>
+      <a class="play-link final-play" href="${project.playUrl}" target="_blank" rel="noreferrer">${playAgain}</a>
     </section>`;
 }
 
