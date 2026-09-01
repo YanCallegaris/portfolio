@@ -61,6 +61,7 @@ const projects = {
   jumper: {
     featured: true,
     image: 'images/projects/jumper.png',
+    video: 'https://www.youtube.com/embed/f9xnZKzW-Sw',
     playUrl: 'https://yancallegaris.itch.io/jumper',
     technologies: ['Unity', 'C#', 'WebGL'],
     en: {
