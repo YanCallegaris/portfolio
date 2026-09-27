@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#111d35"/><stop offset="1" stop-color="#080c15"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#355aa1" stop-opacity=".4"/><stop offset="1" stop-color="#355aa1" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <ellipse cx="1010" cy="300" rx="480" ry="460" fill="url(#glow)"/>
+  <g fill="none" stroke="#a9caff" stroke-opacity=".08">
+    <path d="M0 180H1280M0 360H1280M0 540H1280M320 0V720M640 0V720M960 0V720"/>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="80" y="138" fill="#a9caff" font-size="22" font-weight="700" letter-spacing="4">UNITY / C#</text>
+    <text x="74" y="287" fill="#f1f5ff" font-size="88" font-weight="800" letter-spacing="-4">MULTIPLAYER</text>
+    <text x="74" y="392" fill="#f1f5ff" font-size="112" font-weight="800" letter-spacing="-5">LOBBY</text>
+    <path d="M80 440H160" stroke="#a9caff" stroke-width="3"/>
+    <text x="80" y="502" fill="#aabbd5" font-size="29">Photon Fusion</text>
+    <text x="80" y="544" fill="#8394b0" font-size="23">Shared Mode</text>
+    <g stroke="#9dbfff" fill="none" stroke-width="2">
+      <path d="M1030 270L897 440H1163Z" stroke-opacity=".45"/>
+      <path d="M1030 270V385M897 440L1030 385L1163 440" stroke-dasharray="5 9" stroke-opacity=".55"/>
+      <circle cx="1030" cy="385" r="17" fill="#a9caff" stroke="none"/>
+    </g>
+    <g fill="#15243b" stroke="#5d7da8" stroke-width="2">
+      <rect x="975" y="214" width="110" height="92" rx="16"/>
+      <rect x="842" y="413" width="110" height="92" rx="16"/>
+      <rect x="1108" y="413" width="110" height="92" rx="16"/>
+    </g>
+    <g fill="#b9d1f3">
+      <circle cx="1030" cy="246" r="13"/><path d="M1007 280a23 23 0 0 1 46 0Z"/>
+      <circle cx="897" cy="445" r="13"/><path d="M874 479a23 23 0 0 1 46 0Z"/>
+      <circle cx="1163" cy="445" r="13"/><path d="M1140 479a23 23 0 0 1 46 0Z"/>
+    </g>
+    <g fill="#7de0ba"><circle cx="1080" cy="219" r="8"/><circle cx="947" cy="418" r="8"/><circle cx="1213" cy="418" r="8"/></g>
+    <path d="M80 614H1200" stroke="#31445e"/>
+    <text x="80" y="658" fill="#8296b4" font-size="18" letter-spacing="3">NETWORKING STUDY</text>
+    <text x="1200" y="658" text-anchor="end" fill="#a9caff" font-size="18" letter-spacing="3">YAN CALLEGARIS</text>
+  </g>
+</svg>

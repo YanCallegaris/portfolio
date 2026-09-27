@@ -1,4 +1,74 @@
 const projects = {
+  lobby: {
+    featured: true,
+    videoFirst: true,
+    image: 'images/projects/lobby.svg',
+    video: 'https://www.youtube.com/embed/DA4fUzyxOcc',
+    sourceUrl: 'https://github.com/YanCallegaris/LobbyPrototype',
+    technologies: ['Unity', 'C#', 'Photon Fusion'],
+    en: {
+      title: 'Multiplayer Lobby',
+      tag: 'LOBBY PROTOTYPE · PHOTON FUSION / SHARED MODE',
+      intro: 'A multiplayer waiting room built in Unity with Photon Fusion. Players join the same session, see who is connected and mark themselves ready before the match begins.',
+      role: 'Tutorial-based implementation of player data, ready states and lobby UI',
+      format: 'Multiplayer learning prototype',
+      build: 'Unity source project on GitHub',
+      availabilityLabel: 'PROJECT ACCESS',
+      actionLabel: 'VIEW PROJECT ON GITHUB ↗',
+      accessNote: 'Source project, not a browser game. Download it from GitHub using Code → Download ZIP and open it in Unity 2022.3.62f3. Configure your own Photon Fusion App ID to test the network session.',
+      videoLabel: 'Lobby demonstration',
+      videoCaption: 'Recorded with three clients to demonstrate the lobby across multiple instances.',
+      overviewHeadline: 'Getting everyone ready before the match',
+      contribution: 'I followed an in-room lobby tutorial using the Asteroids Shared Simple sample as a starting point. My work in this study focused on the intermediate lobby scene: connecting player names and ready states to the UI, sending changes through RPCs and controlling when the session can enter the game. The Asteroids gameplay comes from the sample.',
+      contributionBreakdown: 'LOBBY IMPLEMENTATION',
+      contributionHeadline: 'From a button click to a shared ready state',
+      developmentIteration: 'DEVELOPMENT CONTEXT',
+      evolutionTitle: 'A guided study of multiplayer session flow',
+      evolution: 'The tutorial provided the implementation path. I applied it to the sample project to practice networked data, State Authority, RPCs and UI updates across clients. This is a learning prototype, with further testing and refinement still to do.',
+      areas: [
+        { number: '01', title: 'Player data shared over the network', body: 'LobbyPlayerData groups the player name and ready state. A NetworkDictionary associates that data with each PlayerRef, keeping the information available to the lobby clients.' },
+        { number: '02', title: 'Ready changes through RPCs', body: 'The Ready button sends an RPC to the object with State Authority. That object updates the player data, and OnChangedRender refreshes the interface when the networked values change.' },
+        { number: '03', title: 'A readable player list', body: 'The UI sorts entries by player ID, highlights the local player and displays Ready or Not Ready. It also reads the current data when a client joins and removes entries when players leave.' },
+        { number: '04', title: 'Starting the match', body: 'The start check requires State Authority, at least one registered player and everyone ready. Starting closes the session to new joins, hides it from discovery and loads the game scene through the NetworkRunner.' }
+      ],
+      stages: [
+        { number: '01', title: 'Start from the sample', body: 'Used Asteroids Shared Simple as the base, keeping the existing game and adapting the menu to enter a lobby first.' },
+        { number: '02', title: 'Build the lobby flow', body: 'Followed the tutorial to connect player entries, ready-state changes and the start and leave buttons to the network session.' },
+        { number: '03', title: 'Demonstrate with multiple clients', body: 'Recorded three simultaneous clients to show the ready states and the transition from the lobby into the sample game.' }
+      ]
+    },
+    pt: {
+      title: 'Lobby Multiplayer',
+      tag: 'PROTÓTIPO DE LOBBY · PHOTON FUSION / SHARED MODE',
+      intro: 'Uma sala de espera multiplayer desenvolvida em Unity com Photon Fusion. Os jogadores entram na mesma sessão, veem quem está conectado e confirmam que estão prontos antes do início da partida.',
+      role: 'Implementação guiada de dados dos jogadores, estado de pronto e UI do lobby',
+      format: 'Protótipo de estudo multiplayer',
+      build: 'Projeto Unity com código no GitHub',
+      availabilityLabel: 'ACESSO AO PROJETO',
+      actionLabel: 'VER PROJETO NO GITHUB ↗',
+      accessNote: 'O download é do projeto-fonte, sem versão para jogar no navegador. No GitHub, use Code → Download ZIP e abra o projeto na Unity 2022.3.62f3. Configure seu próprio App ID do Photon Fusion para testar a sessão em rede.',
+      videoLabel: 'Demonstração do lobby',
+      videoCaption: 'Gravação com três clientes para demonstrar o lobby em múltiplas instâncias.',
+      overviewHeadline: 'Preparar os jogadores antes de começar a partida',
+      contribution: 'Segui um tutorial de lobby dentro da sala usando o sample Asteroids Shared Simple como ponto de partida. Neste estudo, trabalhei na cena intermediária de lobby: conectar nomes e estados de pronto à interface, enviar alterações por RPCs e controlar quando a sessão pode entrar no jogo. O gameplay de Asteroids vem do sample.',
+      contributionBreakdown: 'IMPLEMENTAÇÃO DO LOBBY',
+      contributionHeadline: 'Do clique no botão ao estado compartilhado',
+      developmentIteration: 'CONTEXTO DO DESENVOLVIMENTO',
+      evolutionTitle: 'Um estudo guiado do fluxo de uma sessão multiplayer',
+      evolution: 'O tutorial orientou a implementação. Apliquei esse fluxo ao projeto de exemplo para praticar dados em rede, State Authority, RPCs e atualização da interface entre clientes. É um protótipo de aprendizado, com testes e refinamentos ainda a fazer.',
+      areas: [
+        { number: '01', title: 'Dados dos jogadores em rede', body: 'LobbyPlayerData agrupa o nome e o estado de pronto. Um NetworkDictionary associa esses dados a cada PlayerRef, mantendo as informações disponíveis para os clientes do lobby.' },
+        { number: '02', title: 'Mudanças de estado por RPC', body: 'O botão de pronto envia uma RPC ao objeto com State Authority. Esse objeto atualiza os dados do jogador, e OnChangedRender atualiza a interface quando os valores em rede mudam.' },
+        { number: '03', title: 'Lista de jogadores na interface', body: 'A UI ordena as entradas pelo ID, destaca o jogador local e exibe Ready ou Not Ready. Também lê os dados atuais quando um cliente entra e remove as entradas de quem sai da sala.' },
+        { number: '04', title: 'Início da partida', body: 'A verificação exige State Authority, ao menos um jogador registrado e todos prontos. Ao iniciar, a sessão bloqueia novas entradas, deixa de aparecer na busca e carrega a cena do jogo pelo NetworkRunner.' }
+      ],
+      stages: [
+        { number: '01', title: 'Partir do sample', body: 'Usei Asteroids Shared Simple como base, mantendo o jogo existente e adaptando o menu para entrar primeiro no lobby.' },
+        { number: '02', title: 'Construir o fluxo do lobby', body: 'Segui o tutorial para conectar a lista de jogadores, as mudanças de estado e os botões de iniciar e sair à sessão em rede.' },
+        { number: '03', title: 'Demonstrar com múltiplos clientes', body: 'Gravei três clientes simultâneos para mostrar os estados de pronto e a transição do lobby para o jogo do sample.' }
+      ]
+    }
+  },
   login: {
     image: 'images/projects/login.jpg', video: 'https://www.youtube.com/embed/61WCvotVk48',
     en: { title: 'Simple Login System', tag: 'UNITY UI · PUBLIC API · AUTHENTICATION', intro: 'A complete login flow inside Unity, connected to a public authentication API.', body: 'The project explores input validation, request and response handling, loading states and clear interface feedback after authentication.', points: ['Responsive Unity UI flow', 'Public API request handling', 'Success, loading and error feedback'] },
@@ -150,8 +220,9 @@ function renderFeaturedProject(content, globalCopy) {
   const technologyItems = project.technologies.map(technology => `<span>${technology}</span>`).join('');
   const videoSection = project.video ? `
     <section class="city-video">
-      <header><h2>${globalCopy.videoLabel}</h2></header>
+      <header><h2>${content.videoLabel || globalCopy.videoLabel}</h2></header>
       <div class="video"><iframe src="${project.video}" title="${content.title}" allowfullscreen></iframe></div>
+      ${content.videoCaption ? `<p class="project-media-caption">${content.videoCaption}</p>` : ''}
     </section>` : '';
   const overviewHeadline = content.overviewHeadline || globalCopy.overviewHeadline;
   const contributionBreakdown = content.contributionBreakdown || globalCopy.contributionBreakdown;
@@ -159,30 +230,33 @@ function renderFeaturedProject(content, globalCopy) {
   const developmentIteration = content.developmentIteration || globalCopy.developmentIteration;
   const evolutionTitle = content.evolutionTitle || globalCopy.evolutionTitle;
   const playAgain = content.playAgain || globalCopy.playAgain;
+  const actionUrl = project.playUrl || project.sourceUrl;
+  const actionLabel = content.actionLabel || globalCopy.playGame;
+  const finalActionLabel = content.actionLabel || playAgain;
   document.getElementById('detail').innerHTML = `
     <section class="city-hero">
       <div class="city-hero-copy">
         <span class="section-label">${content.tag}</span>
         <h1>${content.title}</h1>
         <p>${content.intro}</p>
-        <a class="play-link" href="${project.playUrl}" target="_blank" rel="noreferrer">${globalCopy.playGame}</a>
+        <a class="play-link" href="${actionUrl}" target="_blank" rel="noreferrer">${actionLabel}</a>
       </div>
       <div class="city-hero-tech" aria-label="${globalCopy.builtWith}">
         <span>${globalCopy.builtWith}</span>
         <div>${technologyItems}</div>
       </div>
     </section>
-    <figure class="city-cover"><img src="${project.image}" alt="${content.title}"></figure>
+    ${project.videoFirst ? videoSection : `<figure class="city-cover"><img src="${project.image}" alt="${content.title}"></figure>`}
     <section class="project-snapshot" aria-label="${globalCopy.projectOverview}">
       <div><span>${globalCopy.myRole}</span><strong>${content.role}</strong></div>
       <div><span>${globalCopy.projectFormat}</span><strong>${content.format}</strong></div>
-      <div><span>${globalCopy.playableBuild}</span><strong>${content.build}</strong></div>
+      <div><span>${content.availabilityLabel || globalCopy.playableBuild}</span><strong>${content.build}</strong></div>
     </section>
     <section class="project-overview">
       <span class="section-label">${globalCopy.projectOverview}</span>
       <div><h2>${overviewHeadline}</h2><p>${content.contribution}</p></div>
     </section>
-    ${videoSection}
+    ${project.videoFirst ? '' : videoSection}
     <section class="contribution-showcase">
       <header><span class="section-label">${contributionBreakdown}</span><h2>${contributionHeadline}</h2></header>
       <div class="contribution-grid">${contributionAreas}</div>
@@ -196,7 +270,8 @@ function renderFeaturedProject(content, globalCopy) {
       <div class="development-timeline">${developmentStages}</div>
     </section>
     <section class="city-final-cta">
-      <a class="play-link final-play" href="${project.playUrl}" target="_blank" rel="noreferrer">${playAgain}</a>
+      <a class="play-link final-play" href="${actionUrl}" target="_blank" rel="noreferrer">${finalActionLabel}</a>
+      ${content.accessNote ? `<p class="project-access-note">${content.accessNote}</p>` : ''}
     </section>`;
 }
 

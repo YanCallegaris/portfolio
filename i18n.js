@@ -30,6 +30,9 @@ const portfolioProjectCards = {
   pt: { login: ['Sistema Simples de Login', 'UI · API · Autenticação'], solar: ['Simulação do Sistema Solar', 'Unity 3D · Simulação'], zombie: ['City vs Zombies', 'Arcade survival · Unity / C#'], jumper: ['Jumper', 'Plataforma arcade · Unity / C#'], car: ['Car vs Zombie', 'Direção · Sobrevivência'] }
 };
 
+portfolioProjectCards.en.lobby = ['Multiplayer Lobby', 'Photon Fusion · Shared Mode'];
+portfolioProjectCards.pt.lobby = ['Lobby Multiplayer', 'Photon Fusion · Shared Mode'];
+
 function getPortfolioLanguage() {
   return localStorage.getItem('portfolio-language') === 'pt' ? 'pt' : 'en';
 }
