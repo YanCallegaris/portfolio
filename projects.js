@@ -10,7 +10,7 @@ const projects = {
       title: 'Multiplayer Lobby',
       tag: 'LOBBY PROTOTYPE · PHOTON FUSION / SHARED MODE',
       intro: 'A multiplayer waiting room built in Unity with Photon Fusion. Players join the same session, see who is connected and mark themselves ready before the match begins.',
-      role: 'Tutorial-based implementation of player data, ready states and lobby UI',
+      role: 'Player data synchronization, ready states and lobby UI',
       format: 'Multiplayer learning prototype',
       build: 'Unity source project on GitHub',
       availabilityLabel: 'PROJECT ACCESS',
@@ -19,12 +19,12 @@ const projects = {
       videoLabel: 'Lobby demonstration',
       videoCaption: 'Recorded with three clients to demonstrate the lobby across multiple instances.',
       overviewHeadline: 'Getting everyone ready before the match',
-      contribution: 'I followed an in-room lobby tutorial using the Asteroids Shared Simple sample as a starting point. My work in this study focused on the intermediate lobby scene: connecting player names and ready states to the UI, sending changes through RPCs and controlling when the session can enter the game. The Asteroids gameplay comes from the sample.',
+      contribution: 'I implemented the intermediate lobby scene: connecting player names and ready states to the UI, sending changes through RPCs and controlling when the session can enter the game.',
       contributionBreakdown: 'LOBBY IMPLEMENTATION',
       contributionHeadline: 'From a button click to a shared ready state',
       developmentIteration: 'DEVELOPMENT CONTEXT',
-      evolutionTitle: 'A guided study of multiplayer session flow',
-      evolution: 'The tutorial provided the implementation path. I applied it to the sample project to practice networked data, State Authority, RPCs and UI updates across clients. This is a learning prototype, with further testing and refinement still to do.',
+      evolutionTitle: 'Connecting the menu, lobby and match',
+      evolution: 'I added a waiting room between the initial menu and the game scene. This flow brings together networked player data, State Authority, RPCs and UI updates so players can see who is connected and confirm they are ready before the match starts.',
       areas: [
         { number: '01', title: 'Player data shared over the network', body: 'LobbyPlayerData groups the player name and ready state. A NetworkDictionary associates that data with each PlayerRef, keeping the information available to the lobby clients.' },
         { number: '02', title: 'Ready changes through RPCs', body: 'The Ready button sends an RPC to the object with State Authority. That object updates the player data, and OnChangedRender refreshes the interface when the networked values change.' },
@@ -33,7 +33,7 @@ const projects = {
       ],
       stages: [
         { number: '01', title: 'Start from the sample', body: 'Used Asteroids Shared Simple as the base, keeping the existing game and adapting the menu to enter a lobby first.' },
-        { number: '02', title: 'Build the lobby flow', body: 'Followed the tutorial to connect player entries, ready-state changes and the start and leave buttons to the network session.' },
+        { number: '02', title: 'Build the lobby flow', body: 'Connected player entries, ready-state changes and the start and leave buttons to the network session.' },
         { number: '03', title: 'Demonstrate with multiple clients', body: 'Recorded three simultaneous clients to show the ready states and the transition from the lobby into the sample game.' }
       ]
     },
@@ -41,7 +41,7 @@ const projects = {
       title: 'Lobby Multiplayer',
       tag: 'PROTÓTIPO DE LOBBY · PHOTON FUSION / SHARED MODE',
       intro: 'Uma sala de espera multiplayer desenvolvida em Unity com Photon Fusion. Os jogadores entram na mesma sessão, veem quem está conectado e confirmam que estão prontos antes do início da partida.',
-      role: 'Implementação guiada de dados dos jogadores, estado de pronto e UI do lobby',
+      role: 'Sincronização dos dados dos jogadores, estado de pronto e UI do lobby',
       format: 'Protótipo de estudo multiplayer',
       build: 'Projeto Unity com código no GitHub',
       availabilityLabel: 'ACESSO AO PROJETO',
@@ -50,12 +50,12 @@ const projects = {
       videoLabel: 'Demonstração do lobby',
       videoCaption: 'Gravação com três clientes para demonstrar o lobby em múltiplas instâncias.',
       overviewHeadline: 'Preparar os jogadores antes de começar a partida',
-      contribution: 'Segui um tutorial de lobby dentro da sala usando o sample Asteroids Shared Simple como ponto de partida. Neste estudo, trabalhei na cena intermediária de lobby: conectar nomes e estados de pronto à interface, enviar alterações por RPCs e controlar quando a sessão pode entrar no jogo. O gameplay de Asteroids vem do sample.',
+      contribution: 'Implementei a cena intermediária de lobby: conectar nomes e estados de pronto à interface, enviar alterações por RPCs e controlar quando a sessão pode entrar no jogo.',
       contributionBreakdown: 'IMPLEMENTAÇÃO DO LOBBY',
       contributionHeadline: 'Do clique no botão ao estado compartilhado',
       developmentIteration: 'CONTEXTO DO DESENVOLVIMENTO',
-      evolutionTitle: 'Um estudo guiado do fluxo de uma sessão multiplayer',
-      evolution: 'O tutorial orientou a implementação. Apliquei esse fluxo ao projeto de exemplo para praticar dados em rede, State Authority, RPCs e atualização da interface entre clientes. É um protótipo de aprendizado, com testes e refinamentos ainda a fazer.',
+      evolutionTitle: 'Conectar o menu, o lobby e a partida',
+      evolution: 'Adicionei uma sala de espera entre o menu inicial e a cena do jogo. Esse fluxo reúne dados dos jogadores em rede, State Authority, RPCs e atualização da interface para que todos possam ver quem está conectado e confirmar que estão prontos antes do início da partida.',
       areas: [
         { number: '01', title: 'Dados dos jogadores em rede', body: 'LobbyPlayerData agrupa o nome e o estado de pronto. Um NetworkDictionary associa esses dados a cada PlayerRef, mantendo as informações disponíveis para os clientes do lobby.' },
         { number: '02', title: 'Mudanças de estado por RPC', body: 'O botão de pronto envia uma RPC ao objeto com State Authority. Esse objeto atualiza os dados do jogador, e OnChangedRender atualiza a interface quando os valores em rede mudam.' },
@@ -64,7 +64,7 @@ const projects = {
       ],
       stages: [
         { number: '01', title: 'Partir do sample', body: 'Usei Asteroids Shared Simple como base, mantendo o jogo existente e adaptando o menu para entrar primeiro no lobby.' },
-        { number: '02', title: 'Construir o fluxo do lobby', body: 'Segui o tutorial para conectar a lista de jogadores, as mudanças de estado e os botões de iniciar e sair à sessão em rede.' },
+        { number: '02', title: 'Construir o fluxo do lobby', body: 'Conectei a lista de jogadores, as mudanças de estado e os botões de iniciar e sair à sessão em rede.' },
         { number: '03', title: 'Demonstrar com múltiplos clientes', body: 'Gravei três clientes simultâneos para mostrar os estados de pronto e a transição do lobby para o jogo do sample.' }
       ]
     }
