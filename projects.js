@@ -2,7 +2,7 @@ const projects = {
   lobby: {
     featured: true,
     videoFirst: true,
-    image: 'images/projects/lobby.svg',
+    image: 'images/projects/lobby-photon.png',
     video: 'https://www.youtube.com/embed/DA4fUzyxOcc',
     sourceUrl: 'https://github.com/YanCallegaris/LobbyPrototype',
     technologies: ['Unity', 'C#', 'Photon Fusion'],
