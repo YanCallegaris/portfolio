@@ -3,7 +3,7 @@ const portfolioTranslations = {
     pageTitle: 'Yan Callegaris | Unity Gameplay Programmer',
     navExperience: 'EXPERIENCE', navProjects: 'PROJECTS', navContact: 'CONTACT',
     kicker: 'UNITY GAMEPLAY PROGRAMMER', heroTitle: 'Hi! I’m<br>Yan Callegaris.',
-    heroBody: 'I build gameplay systems, interactive features, and polished UI in Unity, ranging from production educational games to personal prototypes.',
+    heroBody: 'I develop gameplay systems, interactive features and user interfaces in Unity for educational games and personal projects.',
     currentRole: 'CURRENT ROLE', roleTitle: 'Unity Developer at Educacross',
     careerLabel: 'PROFESSIONAL EXPERIENCE', careerTitle: 'Building educational games in Unity', careerRole: 'Unity Developer',
     careerBody: 'I work on educational games and interactive features in production. My day-to-day work combines implementing new features, maintaining existing systems and fixing bugs, alongside UI flows and content integration.',
@@ -22,7 +22,7 @@ const portfolioTranslations = {
     pageTitle: 'Yan Callegaris | Programador de Gameplay Unity',
     navExperience: 'EXPERIÊNCIA', navProjects: 'PROJETOS', navContact: 'CONTATO',
     kicker: 'PROGRAMADOR DE GAMEPLAY UNITY', heroTitle: 'Olá! Eu sou<br>Yan Callegaris.',
-    heroBody: 'Desenvolvo sistemas de gameplay, recursos interativos e interfaces bem estruturadas em Unity, criando desde jogos educacionais em produção até protótipos pessoais.',
+    heroBody: 'Desenvolvo sistemas de gameplay, recursos interativos e interfaces em Unity para jogos educacionais e projetos pessoais.',
     currentRole: 'CARGO ATUAL', roleTitle: 'Desenvolvedor Unity na Educacross',
     careerLabel: 'EXPERIÊNCIA PROFISSIONAL', careerTitle: 'Desenvolvimento de jogos educacionais em Unity', careerRole: 'Desenvolvedor Unity',
     careerBody: 'Atuo em jogos educacionais e recursos interativos em produção. Meu dia a dia combina implementação de novas funcionalidades, manutenção de sistemas existentes e correção de bugs, além de fluxos de interface e integração de conteúdo.',
@@ -42,8 +42,8 @@ const portfolioTranslations = {
 Object.assign(portfolioTranslations.en, {
   careerTitle: 'Building and delivering educational games',
   careerTenure: 'UNITY DEVELOPER · JULY 2019 TO PRESENT',
-  careerBody: 'At Educacross, I take responsibility for complete educational games in Unity and C#, from implementation through detailed testing, fixes and delivery. I also develop app features and maintain games already in production.',
-  careerWorkTitle: 'What I take responsibility for',
+  careerBody: 'At Educacross, I develop complete educational games in Unity and C#, from implementation to testing and release. I also develop app features and maintain games already in production.',
+  careerWorkTitle: 'My responsibilities',
   careerGameplayTitle: 'Complete games and gameplay systems',
   careerGameplayBody: 'Developing educational games, mechanics and app features in Unity and C#. Applying vectors, distance calculations, rotations, movement and collision handling to gameplay.',
   careerSystemsTitle: 'Debugging, testing and quality',
@@ -67,7 +67,7 @@ Object.assign(portfolioTranslations.pt, {
   careerTitle: 'Da implementação à entrega de jogos educacionais',
   careerTenure: 'DESENVOLVEDOR UNITY · JULHO DE 2019 ATÉ O PRESENTE',
   careerBody: 'Na Educacross, assumo o desenvolvimento de jogos educacionais completos em Unity e C#, da implementação aos testes detalhados, correções e entrega. Também desenvolvo funcionalidades do aplicativo e mantenho jogos que já estão em produção.',
-  careerWorkTitle: 'O que está sob minha responsabilidade',
+  careerWorkTitle: 'Minhas responsabilidades',
   careerGameplayTitle: 'Jogos completos e sistemas de gameplay',
   careerGameplayBody: 'Desenvolvimento de jogos educacionais, mecânicas e funcionalidades do aplicativo em Unity e C#. Aplicação de vetores, cálculos de distância, rotações, movimentação e colisões no gameplay.',
   careerSystemsTitle: 'Debugging, testes e qualidade',
@@ -90,7 +90,7 @@ Object.assign(portfolioTranslations.pt, {
 
 const portfolioProjectCards = {
   en: { login: ['Simple Login System', 'UI · API · Authentication'], solar: ['Solar System Simulation', 'Unity 3D · Simulation'], zombie: ['City vs Zombies', 'Arcade survival · Unity / C#'], jumper: ['Jumper', 'Arcade platformer · Unity / C#'], car: ['Car vs Zombie', 'Driving · Survival'] },
-  pt: { login: ['Sistema Simples de Login', 'UI · API · Autenticação'], solar: ['Simulação do Sistema Solar', 'Unity 3D · Simulação'], zombie: ['City vs Zombies', 'Arcade survival · Unity / C#'], jumper: ['Jumper', 'Plataforma arcade · Unity / C#'], car: ['Car vs Zombie', 'Direção · Sobrevivência'] }
+  pt: { login: ['Sistema Simples de Login', 'UI · API · Autenticação'], solar: ['Simulação do Sistema Solar', 'Unity 3D · Simulação'], zombie: ['City vs Zombies', 'Arcade de sobrevivência · Unity / C#'], jumper: ['Jumper', 'Plataforma arcade · Unity / C#'], car: ['Car vs Zombie', 'Direção · Sobrevivência'] }
 };
 
 portfolioProjectCards.en.lobby = ['Multiplayer Lobby', 'Photon Fusion · Shared Mode'];

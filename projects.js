@@ -19,7 +19,7 @@ const projects = {
       videoLabel: 'Lobby demonstration',
       videoCaption: 'Recorded with three clients to demonstrate the lobby across multiple instances.',
       overviewHeadline: 'Getting everyone ready before the match',
-      contribution: 'I implemented the intermediate lobby scene: connecting player names and ready states to the UI, sending changes through RPCs and controlling when the session can enter the game.',
+      contribution: 'I implemented the lobby scene, connecting player names and ready states to the UI, sending changes through RPCs and controlling when the match can begin.',
       contributionBreakdown: 'LOBBY IMPLEMENTATION',
       contributionHeadline: 'From a button click to a shared ready state',
       developmentIteration: 'DEVELOPMENT CONTEXT',
@@ -27,7 +27,7 @@ const projects = {
       evolution: 'I added a waiting room between the initial menu and the game scene. This flow brings together networked player data, State Authority, RPCs and UI updates so players can see who is connected and confirm they are ready before the match starts.',
       areas: [
         { number: '01', title: 'Player data shared over the network', body: 'LobbyPlayerData groups the player name and ready state. A NetworkDictionary associates that data with each PlayerRef, keeping the information available to the lobby clients.' },
-        { number: '02', title: 'Ready changes through RPCs', body: 'The Ready button sends an RPC to the object with State Authority. That object updates the player data, and OnChangedRender refreshes the interface when the networked values change.' },
+        { number: '02', title: 'Updating ready states through RPCs', body: 'The Ready button sends an RPC to the object with State Authority. That object updates the player data, and OnChangedRender refreshes the interface when the networked values change.' },
         { number: '03', title: 'A readable player list', body: 'The UI sorts entries by player ID, highlights the local player and displays Ready or Not Ready. It also reads the current data when a client joins and removes entries when players leave.' },
         { number: '04', title: 'Starting the match', body: 'The start check requires State Authority, at least one registered player and everyone ready. Starting closes the session to new joins, hides it from discovery and loads the game scene through the NetworkRunner.' }
       ],
@@ -50,7 +50,7 @@ const projects = {
       videoLabel: 'Demonstração do lobby',
       videoCaption: 'Gravação com três clientes para demonstrar o lobby em múltiplas instâncias.',
       overviewHeadline: 'Preparar os jogadores antes de começar a partida',
-      contribution: 'Implementei a cena intermediária de lobby: conectar nomes e estados de pronto à interface, enviar alterações por RPCs e controlar quando a sessão pode entrar no jogo.',
+      contribution: 'Implementei a cena de lobby, conectando os nomes e a confirmação de prontidão dos jogadores à interface, enviando alterações por RPCs e controlando o início da partida.',
       contributionBreakdown: 'IMPLEMENTAÇÃO DO LOBBY',
       contributionHeadline: 'Do clique no botão ao estado compartilhado',
       developmentIteration: 'CONTEXTO DO DESENVOLVIMENTO',
@@ -76,8 +76,8 @@ const projects = {
   },
   solar: {
     image: 'images/projects/solar.jpg', video: 'https://www.youtube.com/embed/hkn54ohgjBk',
-    en: { title: 'Solar System Simulation', tag: 'UNITY 3D · ORBITAL MOTION · VISUALIZATION', intro: 'An interactive 3D study of planetary orbit, rotation and spatial presentation.', body: 'Built to explore movement logic, relative scale, camera presentation and readable motion in an interactive space scene.', points: ['Orbit and self-rotation systems', '3D scene composition', 'Camera and presentation experiments'] },
-    pt: { title: 'Simulação do Sistema Solar', tag: 'UNITY 3D · MOVIMENTO ORBITAL · VISUALIZAÇÃO', intro: 'Um estudo 3D interativo sobre órbitas, rotação dos planetas e apresentação espacial.', body: 'Criado para explorar lógica de movimento, escala relativa, apresentação de câmera e movimentos legíveis em uma cena espacial interativa.', points: ['Sistemas de órbita e rotação', 'Composição de cena 3D', 'Experimentos de câmera e apresentação'] }
+    en: { title: 'Solar System Simulation', tag: 'UNITY 3D · ORBITAL MOTION · VISUALIZATION', intro: 'An interactive 3D study of planetary orbits and rotation.', body: 'Built to explore movement logic, relative scale and camera positioning, making planetary motion easy to follow in an interactive space scene.', points: ['Orbit and self-rotation systems', '3D scene composition', 'Camera positioning experiments'] },
+    pt: { title: 'Simulação do Sistema Solar', tag: 'UNITY 3D · MOVIMENTO ORBITAL · VISUALIZAÇÃO', intro: 'Um estudo 3D interativo sobre órbitas e rotação dos planetas.', body: 'Criado para explorar lógica de movimento, escala relativa, posicionamento da câmera e visualização do movimento dos planetas em uma cena espacial interativa.', points: ['Sistemas de órbita e rotação', 'Composição de cena 3D', 'Experimentos de posicionamento da câmera'] }
   },
   zombie: {
     featured: true,
@@ -92,12 +92,12 @@ const projects = {
       role: 'Movement, shooting, enemies, scoring and game-state flow',
       format: 'Arcade survival prototype',
       build: 'WebGL in the browser',
-      contribution: 'I implemented the systems that connect each survival attempt from the first input to the final score: player actions, enemy pressure, collisions, progression, game states and feedback.',
-      evolution: 'The project started as a simple prototype. I refined it with initial instructions and fade, persistent high score, a clearer game-over and restart flow, audio and music, a game-over fade, and finally a playable WebGL build.',
+      contribution: 'I implemented movement, shooting, enemy spawning and collisions, along with scoring, a saved high score and the game-over and restart flow.',
+      evolution: 'The project started as a simple prototype. I added introductory instructions with fade transitions, a saved high score and a clearer game-over and restart flow. Audio, music and game-over fades followed, before I prepared the playable WebGL build.',
       areas: [
         { number: '01', title: 'Player control & combat', body: 'Implemented player movement, shooting and collision handling. These actions are at the center of every survival attempt.' },
         { number: '02', title: 'Enemy pressure', body: 'Built the enemy spawning system that keeps the play space populated and the player under constant pressure.' },
-        { number: '03', title: 'Score & persistence', body: 'Created the score system and persistent high score so every finished run leaves a clear result for the next attempt.' },
+        { number: '03', title: 'Score & persistence', body: 'Created the scoring system and saved high score, giving players a record to beat on future runs.' },
         { number: '04', title: 'Session flow & feedback', body: 'Implemented initial instructions with fade, game over, restart, audio, music and the final game-over fade.' }
       ],
       stages: [
@@ -108,22 +108,22 @@ const projects = {
     },
     pt: {
       title: 'City vs Zombies',
-      tag: 'PROTÓTIPO ARCADE SURVIVAL · UNITY / C#',
-      intro: 'Um pequeno arcade survival desenvolvido em Unity e C#. O jogador se movimenta, atira e lida com a pressão constante dos inimigos enquanto tenta melhorar sua pontuação.',
+      tag: 'PROTÓTIPO ARCADE DE SOBREVIVÊNCIA · UNITY / C#',
+      intro: 'Um pequeno jogo arcade de sobrevivência desenvolvido em Unity e C#. O jogador se movimenta, atira e enfrenta os inimigos enquanto tenta superar sua pontuação.',
       role: 'Movimentação, tiro, inimigos, pontuação e fluxo dos estados do jogo',
-      format: 'Protótipo arcade survival',
+      format: 'Protótipo arcade de sobrevivência',
       build: 'WebGL no navegador',
-      contribution: 'Implementei os sistemas que conectam cada tentativa de sobrevivência, do primeiro comando à pontuação final: ações do jogador, pressão dos inimigos, colisões, progressão, estados do jogo e feedback.',
-      evolution: 'O projeto começou como um protótipo simples. Ele foi refinado com instruções iniciais e fade, recorde persistente, um fluxo mais claro de game over e restart, áudio e música, fade no game over e, por fim, uma versão WebGL jogável.',
+      contribution: 'Implementei movimentação, tiro, geração de inimigos e colisões, além da pontuação, do salvamento do recorde e do fluxo de fim de partida e reinício.',
+      evolution: 'O projeto começou como um protótipo simples. Adicionei instruções iniciais com transições suaves, salvamento do recorde e um fluxo mais claro de fim de partida e reinício. Depois, refinei o áudio, a música e as transições no fim da partida e preparei a versão WebGL jogável.',
       areas: [
         { number: '01', title: 'Controle do jogador e combate', body: 'Implementei movimentação, tiro e tratamento de colisões, que são as ações centrais de cada tentativa de sobrevivência.' },
-        { number: '02', title: 'Pressão dos inimigos', body: 'Desenvolvi o sistema de spawning que mantém o espaço de jogo ocupado e o jogador sob pressão constante.' },
-        { number: '03', title: 'Pontuação e persistência', body: 'Criei o sistema de score e o recorde persistente para que cada partida deixe um resultado claro a ser superado.' },
-        { number: '04', title: 'Fluxo da partida e feedback', body: 'Implementei instruções iniciais com fade, game over, restart, áudio, música e o fade final de game over.' }
+        { number: '02', title: 'Pressão dos inimigos', body: 'Desenvolvi o sistema de geração de inimigos que mantém o jogador sob pressão durante a partida.' },
+        { number: '03', title: 'Pontuação e persistência', body: 'Criei o sistema de pontuação e o salvamento do recorde, dando ao jogador uma marca para superar nas próximas partidas.' },
+        { number: '04', title: 'Fluxo da partida e feedback', body: 'Implementei instruções iniciais, fim de partida e reinício, com áudio, música e transições suaves de entrada e saída.' }
       ],
       stages: [
         { number: '01', title: 'Protótipo simples', body: 'O projeto começou como um pequeno protótipo de sobrevivência baseado em movimentação, tiro e pressão dos inimigos.' },
-        { number: '02', title: 'Loop completo da partida', body: 'Score, recorde persistente, game over e restart conectaram as mecânicas em uma experiência repetível.' },
+        { number: '02', title: 'Pontuação e novas partidas', body: 'Adicionei pontuação, salvamento do recorde, fim de partida e reinício para permitir novas tentativas de superar a melhor marca.' },
         { number: '03', title: 'Polimento e entrega WebGL', body: 'Instruções, fades, áudio e música refinaram a experiência antes da versão jogável no navegador.' }
       ]
     }
@@ -137,17 +137,17 @@ const projects = {
     en: {
       title: 'Jumper',
       tag: 'ARCADE PLATFORMER PROTOTYPE · UNITY / C#',
-      intro: 'A small arcade platformer prototype built in Unity and C#. The player runs through a stylized desert, jumps over obstacles and tries to reach the greatest distance possible.',
+      intro: 'A small arcade platformer prototype built in Unity and C#. The player runs through a stylized desert, jumps over obstacles and tries to travel as far as possible.',
       role: 'Movement, jumping, obstacle avoidance, distance tracking and restart flow',
       format: 'Arcade platformer prototype',
       build: 'WebGL in the browser',
-      overviewHeadline: 'A short arcade loop built for quick retries',
-      contribution: 'I implemented the systems that connect each attempt: player movement and jumping, obstacle avoidance, distance tracking, game over and quick restart. Visual and audio feedback make the result of each run clear.',
+      overviewHeadline: 'Short runs, quick restarts and another chance to go further',
+      contribution: 'I implemented movement and jumping, obstacle avoidance and distance tracking. I also built the game-over screen and quick restart flow, with visual and audio feedback.',
       contributionBreakdown: 'GAMEPLAY SYSTEMS',
       contributionHeadline: 'The systems behind each attempt',
       developmentIteration: 'GAMEPLAY LOOP',
       evolutionTitle: 'Run, jump, track the distance and try again',
-      evolution: 'Each run begins immediately, tracks the distance travelled and ends with a clear result. From the game-over screen, the player can quickly start another attempt and try to improve the previous distance.',
+      evolution: 'The distance counter tracks progress throughout the run. The game-over screen shows how far the player travelled and lets them quickly restart to try to beat their previous distance.',
       playAgain: 'PLAY JUMPER ↗',
       areas: [
         { number: '01', title: 'Movement and jumping', body: 'Implemented the player movement and jump controls that drive every attempt through the desert course.' },
@@ -168,8 +168,8 @@ const projects = {
       role: 'Movimentação, salto, desvio de obstáculos, distância e fluxo de reinício',
       format: 'Protótipo de plataforma arcade',
       build: 'WebGL no navegador',
-      overviewHeadline: 'Um loop arcade curto, criado para novas tentativas rápidas',
-      contribution: 'Implementei os sistemas que conectam cada tentativa: movimentação e salto do jogador, desvio de obstáculos, acompanhamento da distância, game over e reinício rápido. O feedback visual e sonoro deixa claro o resultado de cada partida.',
+      overviewHeadline: 'Partidas curtas, com reinício rápido para tentar ir mais longe',
+      contribution: 'Implementei movimentação e salto, desvio de obstáculos e acompanhamento da distância. Também desenvolvi a tela de fim de partida e o reinício rápido, com feedback visual e sonoro.',
       contributionBreakdown: 'SISTEMAS DE GAMEPLAY',
       contributionHeadline: 'Os sistemas por trás de cada tentativa',
       developmentIteration: 'LOOP DE GAMEPLAY',
@@ -191,8 +191,8 @@ const projects = {
   },
   car: {
     image: 'images/projects/car.jpg', video: 'https://www.youtube.com/embed/PUs0ZjHHkqs',
-    en: { title: 'Car vs Zombie', tag: 'TOP-DOWN DRIVING · ENEMY PRESSURE · SURVIVAL', intro: 'A top-down survival prototype where staying in motion is the key to survival.', body: 'Zombies constantly chase the vehicle while the player navigates a city, balancing control, space and pressure.', points: ['Vehicle movement system', 'Enemy pursuit behavior', 'City layout and readability'] },
-    pt: { title: 'Car vs Zombie', tag: 'DIREÇÃO TOP-DOWN · PRESSÃO DE INIMIGOS · SOBREVIVÊNCIA', intro: 'Um protótipo de sobrevivência top-down em que continuar em movimento é a chave para sobreviver.', body: 'Os zumbis perseguem o veículo constantemente enquanto o jogador atravessa a cidade, equilibrando controle, espaço e pressão.', points: ['Sistema de movimento do veículo', 'Comportamento de perseguição dos inimigos', 'Layout e legibilidade da cidade'] }
+    en: { title: 'Car vs Zombie', tag: 'TOP-DOWN DRIVING · ENEMY PRESSURE · SURVIVAL', intro: 'A top-down driving prototype focused on surviving a zombie pursuit.', body: 'The player drives through the city while trying to escape the zombies chasing the vehicle.', points: ['Vehicle movement system', 'Enemy pursuit behavior', 'City layout and readability'] },
+    pt: { title: 'Car vs Zombie', tag: 'DIREÇÃO TOP-DOWN · PRESSÃO DE INIMIGOS · SOBREVIVÊNCIA', intro: 'Um protótipo de direção com visão de cima, focado em sobreviver à perseguição dos zumbis.', body: 'O jogador dirige pela cidade tentando escapar dos zumbis que perseguem o veículo.', points: ['Sistema de movimento do veículo', 'Comportamento de perseguição dos inimigos', 'Layout e legibilidade da cidade'] }
   }
 };
 
