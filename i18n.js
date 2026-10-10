@@ -39,6 +39,53 @@ const portfolioTranslations = {
   }
 };
 
+Object.assign(portfolioTranslations.en, {
+  careerTitle: 'From implementation to released educational games',
+  careerTenure: 'UNITY DEVELOPER · JULY 2019 TO PRESENT',
+  careerBody: 'At Educacross, I take responsibility for complete educational games in Unity and C#, from implementation through detailed testing, fixes and delivery. I also develop app features and maintain games already in production.',
+  careerWorkTitle: 'What I take responsibility for',
+  careerGameplayTitle: 'Complete games and gameplay systems',
+  careerGameplayBody: 'Developing educational games, mechanics and app features in Unity and C#. Applying vectors, distance calculations, rotations, movement and collision handling to gameplay.',
+  careerSystemsTitle: 'Debugging, testing and quality',
+  careerSystemsBody: 'Investigating complex bugs and testing games in detail. Reviewing code, interfaces, visual elements and content to improve quality and stability before delivery.',
+  careerUITitle: 'Interfaces and player experience',
+  careerUIBody: 'Implementing game interfaces and integrating content, refining the details of the player experience alongside gameplay development.',
+  careerDeliveryTitle: 'Multiplatform delivery',
+  careerDeliveryBody: 'Maintaining and extending production projects for Android, iOS and Windows. Submitting updates to Google Play and, occasionally, the App Store.',
+  careerTeamTitle: 'Technical collaboration',
+  careerTeamBody: 'Proposing technical solutions and gameplay improvements with developers, artists and educators, using Git in the shared development workflow.',
+  careerMentorTitle: 'Training five interns',
+  careerMentorBody: 'Trained five interns, providing technical guidance, code reviews and feedback on game implementation.',
+  careerContext: 'My work spans the full delivery cycle: implementing games, testing the experience, fixing issues and maintaining products after release.',
+  scaleLabel: 'THE PLATFORM I WORK ON',
+  scaleBody: 'Educacross brings together games for mathematics, logic, literacy and Portuguese, alongside learning progress reports and personalized activities for schools.',
+  scaleGames: 'games in the platform catalog', scaleDownloads: 'Android downloads on Google Play',
+  scaleSource: 'Platform figures, not individual output. Source: official Google Play listing, consulted October 2026. ↗'
+});
+Object.assign(portfolioTranslations.pt, {
+  careerTitle: 'Da implementação à entrega de jogos educacionais',
+  careerTenure: 'DESENVOLVEDOR UNITY · JULHO DE 2019 ATÉ O PRESENTE',
+  careerBody: 'Na Educacross, assumo o desenvolvimento de jogos educacionais completos em Unity e C#, da implementação aos testes detalhados, correções e entrega. Também desenvolvo funcionalidades do aplicativo e mantenho jogos que já estão em produção.',
+  careerWorkTitle: 'O que está sob minha responsabilidade',
+  careerGameplayTitle: 'Jogos completos e sistemas de gameplay',
+  careerGameplayBody: 'Desenvolvimento de jogos educacionais, mecânicas e funcionalidades do aplicativo em Unity e C#. Aplicação de vetores, cálculos de distância, rotações, movimentação e colisões no gameplay.',
+  careerSystemsTitle: 'Debugging, testes e qualidade',
+  careerSystemsBody: 'Investigação de bugs complexos e testes detalhados dos jogos. Revisão de código, interfaces, elementos visuais e conteúdo para melhorar a qualidade e a estabilidade antes da entrega.',
+  careerUITitle: 'Interfaces e experiência do jogador',
+  careerUIBody: 'Implementação de interfaces dos jogos e integração de conteúdo, refinando os detalhes da experiência do jogador junto ao desenvolvimento das mecânicas.',
+  careerDeliveryTitle: 'Entrega em múltiplas plataformas',
+  careerDeliveryBody: 'Manutenção e evolução de projetos em produção para Android, iOS e Windows. Envio de atualizações para o Google Play e, ocasionalmente, para a App Store.',
+  careerTeamTitle: 'Colaboração técnica',
+  careerTeamBody: 'Proposição de soluções técnicas e melhorias de gameplay com desenvolvedores, artistas e educadores, usando Git no fluxo de desenvolvimento compartilhado.',
+  careerMentorTitle: 'Formação de cinco estagiários',
+  careerMentorBody: 'Treinei cinco estagiários, oferecendo orientação técnica, revisão de código e feedback sobre a implementação dos jogos.',
+  careerContext: 'Minha atuação acompanha o ciclo de entrega: implementar jogos, testar a experiência, corrigir problemas e manter os produtos depois da publicação.',
+  scaleLabel: 'A PLATAFORMA EM QUE ATUO',
+  scaleBody: 'A Educacross reúne jogos de matemática, lógica, alfabetização e língua portuguesa, além de relatórios de aprendizagem e atividades personalizadas para escolas.',
+  scaleGames: 'jogos no catálogo da plataforma', scaleDownloads: 'downloads no Android pelo Google Play',
+  scaleSource: 'Dados da plataforma, não de produção individual. Fonte: página oficial no Google Play, consultada em outubro de 2026. ↗'
+});
+
 const portfolioProjectCards = {
   en: { login: ['Simple Login System', 'UI · API · Authentication'], solar: ['Solar System Simulation', 'Unity 3D · Simulation'], zombie: ['City vs Zombies', 'Arcade survival · Unity / C#'], jumper: ['Jumper', 'Arcade platformer · Unity / C#'], car: ['Car vs Zombie', 'Driving · Survival'] },
   pt: { login: ['Sistema Simples de Login', 'UI · API · Autenticação'], solar: ['Simulação do Sistema Solar', 'Unity 3D · Simulação'], zombie: ['City vs Zombies', 'Arcade survival · Unity / C#'], jumper: ['Jumper', 'Plataforma arcade · Unity / C#'], car: ['Car vs Zombie', 'Direção · Sobrevivência'] }
