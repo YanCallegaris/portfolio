@@ -40,7 +40,7 @@ const portfolioTranslations = {
 };
 
 Object.assign(portfolioTranslations.en, {
-  careerTitle: 'From implementation to released educational games',
+  careerTitle: 'Building and delivering educational games',
   careerTenure: 'UNITY DEVELOPER · JULY 2019 TO PRESENT',
   careerBody: 'At Educacross, I take responsibility for complete educational games in Unity and C#, from implementation through detailed testing, fixes and delivery. I also develop app features and maintain games already in production.',
   careerWorkTitle: 'What I take responsibility for',
