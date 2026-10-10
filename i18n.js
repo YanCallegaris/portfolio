@@ -60,6 +60,7 @@ Object.assign(portfolioTranslations.en, {
   scaleLabel: 'THE PLATFORM I WORK ON',
   scaleBody: 'Educacross brings together games for mathematics, logic, literacy and Portuguese, alongside learning progress reports and personalized activities for schools.',
   scaleGames: 'games in the platform catalog', scaleDownloads: 'Android downloads on Google Play',
+  scaleGamesNumber: '2,000+', scaleDownloadsNumber: '500K+',
   scaleSource: 'Platform figures, not individual output. Source: official Google Play listing, consulted October 2026. ↗'
 });
 Object.assign(portfolioTranslations.pt, {
@@ -83,6 +84,7 @@ Object.assign(portfolioTranslations.pt, {
   scaleLabel: 'A PLATAFORMA EM QUE ATUO',
   scaleBody: 'A Educacross reúne jogos de matemática, lógica, alfabetização e língua portuguesa, além de relatórios de aprendizagem e atividades personalizadas para escolas.',
   scaleGames: 'jogos no catálogo da plataforma', scaleDownloads: 'downloads no Android pelo Google Play',
+  scaleGamesNumber: '2.000+', scaleDownloadsNumber: '500 mil+',
   scaleSource: 'Dados da plataforma, não de produção individual. Fonte: página oficial no Google Play, consultada em outubro de 2026. ↗'
 });
 
