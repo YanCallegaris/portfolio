@@ -40,6 +40,13 @@ const portfolioTranslations = {
 };
 
 Object.assign(portfolioTranslations.en, {
+  careerPeriod: 'JULY 2019 TO PRESENT',
+  careerBrief: 'I develop educational games in Unity and C#, from gameplay and UI to testing, release and ongoing maintenance.',
+  careerFocusQuality: 'Gameplay, interfaces and complex bug fixes.',
+  careerFocusDelivery: 'Android, iOS and Windows releases and updates.',
+  careerFocusTeam: 'Collaboration with artists and educators; experience training interns.',
+  scaleBrief: 'An educational games platform for schools.',
+  scaleSourceBrief: 'Educacross platform figures · Google Play, Oct 2026 ↗',
   careerTitle: 'Building and delivering educational games',
   careerTenure: 'UNITY DEVELOPER · JULY 2019 TO PRESENT',
   careerBody: 'At Educacross, I develop complete educational games in Unity and C#, from implementation to testing and release. I also develop app features and maintain games already in production.',
@@ -64,6 +71,13 @@ Object.assign(portfolioTranslations.en, {
   scaleSource: 'Platform figures, not individual output. Source: official Google Play listing, consulted October 2026. ↗'
 });
 Object.assign(portfolioTranslations.pt, {
+  careerPeriod: 'JULHO DE 2019 ATÉ O PRESENTE',
+  careerBrief: 'Desenvolvo jogos educacionais em Unity e C#, das mecânicas e interfaces aos testes, publicação e manutenção.',
+  careerFocusQuality: 'Gameplay, interfaces e correção de bugs complexos.',
+  careerFocusDelivery: 'Publicações e atualizações para Android, iOS e Windows.',
+  careerFocusTeam: 'Colaboração com artistas e educadores e experiência no treinamento de estagiários.',
+  scaleBrief: 'Uma plataforma de jogos educacionais para escolas.',
+  scaleSourceBrief: 'Dados da plataforma Educacross · Google Play, out. 2026 ↗',
   careerTitle: 'Da implementação à entrega de jogos educacionais',
   careerTenure: 'DESENVOLVEDOR UNITY · JULHO DE 2019 ATÉ O PRESENTE',
   careerBody: 'Na Educacross, assumo o desenvolvimento de jogos educacionais completos em Unity e C#, da implementação aos testes detalhados, correções e entrega. Também desenvolvo funcionalidades do aplicativo e mantenho jogos que já estão em produção.',
