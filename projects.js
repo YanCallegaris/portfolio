@@ -3,6 +3,7 @@ const projects = {
     featured: true,
     containCover: true,
     image: 'images/projects/entre-letras.png',
+    video: 'https://www.youtube.com/embed/pBbztafgH3c',
     playUrl: 'https://yancallegaris.itch.io/entre-letras',
     technologies: ['Unity', 'C#', 'WebGL'],
     en: {
