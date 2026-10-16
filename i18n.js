@@ -108,6 +108,8 @@ const portfolioProjectCards = {
 };
 
 portfolioProjectCards.en.lobby = ['Multiplayer Lobby', 'Photon Fusion · Shared Mode'];
+portfolioProjectCards.en.crossword = ['Entre Letras', 'Crossword puzzle · Unity / C#'];
+portfolioProjectCards.pt.crossword = ['Entre Letras', 'Palavras cruzadas · Unity / C#'];
 portfolioProjectCards.pt.lobby = ['Lobby Multiplayer', 'Photon Fusion · Shared Mode'];
 
 function getPortfolioLanguage() {

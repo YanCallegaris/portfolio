@@ -1,4 +1,8 @@
 /* City vs Zombies experiment: scoped so the other project cards and pages keep their current layout. */
+.contain-cover{background:#102b40}
+.contain-cover .feature-cover-main img,.city-cover.contain-cover img{object-fit:contain}
+.city-cover.contain-cover img{max-height:560px}
+.contain-cover .feature-cover-content{padding-top:28px}
 .feature-cover-main {
   position: absolute;
   inset: 0;

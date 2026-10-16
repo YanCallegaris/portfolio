@@ -1,4 +1,57 @@
 const projects = {
+  crossword: {
+    featured: true,
+    containCover: true,
+    image: 'images/projects/entre-letras.png',
+    playUrl: 'https://yancallegaris.itch.io/entre-letras',
+    technologies: ['Unity', 'C#', 'WebGL'],
+    en: {
+      title: 'Entre Letras', tag: 'CROSSWORD PUZZLE · UNITY / C#',
+      intro: 'A personal crossword puzzle game. Solve the clues, complete the words and discover the secret hidden in the golden column. The puzzles and clues are in Brazilian Portuguese.',
+      role: 'Crossword grid, answer validation, hints and UI interactions',
+      format: 'Personal puzzle prototype', build: 'Playable in the browser',
+      overviewHeadline: 'Clues, words and a hidden answer',
+      contribution: 'I implemented the crossword grid and word interactions, answer validation, a hint system and progression between challenges. I also developed the UI interactions and visual feedback that guide the player through the puzzle.',
+      contributionBreakdown: 'MY IMPLEMENTATION', contributionHeadline: 'The logic behind the puzzle',
+      developmentIteration: 'PLAYER EXPERIENCE', evolutionTitle: 'Read a clue, fill in a word and move forward',
+      evolution: 'The project combines gameplay programming and UI development: selecting a word, entering an answer, requesting a hint and moving to the next challenge are part of the same puzzle experience.',
+      playAgain: 'PLAY ENTRE LETRAS ↗',
+      areas: [
+        { number: '01', title: 'Grid and word interactions', body: 'Implemented the crossword grid and the interactions for selecting words and entering answers.' },
+        { number: '02', title: 'Answer validation', body: 'Implemented answer validation and visual feedback to communicate progress on the board.' },
+        { number: '03', title: 'Hints', body: 'Built a hint system that reveals a letter when the player needs help.' },
+        { number: '04', title: 'Progression and UI', body: 'Connected completed challenges to the next puzzle and implemented the interface interactions and visual feedback.' }
+      ],
+      stages: [
+        { number: '01', title: 'Read and select', body: 'Navigate between clues and select a word on the board.' },
+        { number: '02', title: 'Fill in and check', body: 'Type an answer, follow the tile colors and reveal a letter if needed.' },
+        { number: '03', title: 'Complete and advance', body: 'Complete the words, discover the golden-column answer and move on to the next challenge.' }
+      ]
+    },
+    pt: {
+      title: 'Entre Letras', tag: 'PALAVRAS CRUZADAS · UNITY / C#',
+      intro: 'Um projeto pessoal de palavras cruzadas. Resolva as pistas, complete as palavras e descubra o segredo da coluna dourada. As palavras e pistas estão em português brasileiro.',
+      role: 'Tabuleiro, validação de respostas, dicas e interações da interface',
+      format: 'Protótipo pessoal de puzzle', build: 'Jogável no navegador',
+      overviewHeadline: 'Pistas, palavras e uma resposta escondida',
+      contribution: 'Implementei o tabuleiro e as interações com as palavras, a validação das respostas, o sistema de dicas e a progressão entre desafios. Também desenvolvi as interações da interface e o feedback visual que orienta o jogador durante o preenchimento.',
+      contributionBreakdown: 'MINHA IMPLEMENTAÇÃO', contributionHeadline: 'A lógica por trás das palavras cruzadas',
+      developmentIteration: 'EXPERIÊNCIA DO JOGADOR', evolutionTitle: 'Ler a pista, preencher a palavra e avançar',
+      evolution: 'O projeto reúne programação de gameplay e desenvolvimento de interface: selecionar uma palavra, digitar a resposta, pedir uma dica e avançar ao próximo desafio fazem parte da mesma experiência de puzzle.',
+      playAgain: 'JOGAR ENTRE LETRAS ↗',
+      areas: [
+        { number: '01', title: 'Tabuleiro e palavras', body: 'Implementei o tabuleiro de palavras cruzadas e as interações para selecionar palavras e digitar respostas.' },
+        { number: '02', title: 'Validação das respostas', body: 'Implementei a validação das respostas e o feedback visual que comunica o progresso no tabuleiro.' },
+        { number: '03', title: 'Sistema de dicas', body: 'Desenvolvi o sistema que revela uma letra quando o jogador precisa de ajuda.' },
+        { number: '04', title: 'Progressão e interface', body: 'Conectei a conclusão dos desafios ao próximo puzzle e implementei as interações da interface e o feedback visual.' }
+      ],
+      stages: [
+        { number: '01', title: 'Ler e selecionar', body: 'Navegue entre as pistas e selecione uma palavra no tabuleiro.' },
+        { number: '02', title: 'Preencher e conferir', body: 'Digite a resposta, acompanhe as cores das casas e revele uma letra se precisar.' },
+        { number: '03', title: 'Completar e avançar', body: 'Complete as palavras, descubra a resposta da coluna dourada e avance ao próximo desafio.' }
+      ]
+    }
+  },
   lobby: {
     featured: true,
     videoFirst: true,
@@ -246,7 +299,7 @@ function renderFeaturedProject(content, globalCopy) {
         <div>${technologyItems}</div>
       </div>
     </section>
-    ${project.videoFirst ? videoSection : `<figure class="city-cover"><img src="${project.image}" alt="${content.title}"></figure>`}
+    ${project.videoFirst ? videoSection : `<figure class="city-cover${project.containCover ? ' contain-cover' : ''}"><img src="${project.image}" alt="${content.title}"></figure>`}
     <section class="project-snapshot" aria-label="${globalCopy.projectOverview}">
       <div><span>${globalCopy.myRole}</span><strong>${content.role}</strong></div>
       <div><span>${globalCopy.projectFormat}</span><strong>${content.format}</strong></div>
